@@ -1,0 +1,122 @@
+{
+  "description": "Provenance registry. EVERY claim in the atlas must reference a source entry. Trust tiers rank source types - higher tier wins on conflict. Tiers are ordered: 1 highest to 5 lowest.",
+  "trust_tiers": [
+    {
+      "rank": 1,
+      "id": "lab_test",
+      "label": "Lab test (COA)",
+      "definition": "Certificates of analysis from licensed/accredited labs - cannabinoid and terpene quantification, contamination screens.",
+      "example_use": "Overriding claimed THC ranges with measured potency."
+    },
+    {
+      "rank": 2,
+      "id": "cup_result",
+      "label": "Cup result",
+      "definition": "Published results from recognized competitions (High Times Cannabis Cup, Emerald Cup, etc.).",
+      "example_use": "Award claims on strain entries."
+    },
+    {
+      "rank": 3,
+      "id": "breeder_claim",
+      "label": "Breeder claim",
+      "definition": "Statements from the original breeder / seed producer (catalog copy, lineage notes, lab tests commissioned by breeder).",
+      "example_use": "Lineage and flowering-time claims - always flag as breeder-asserted."
+    },
+    {
+      "rank": 4,
+      "id": "community_report",
+      "label": "Community report",
+      "definition": "Grower reports, forum archives, seedbank reviews, phenotype write-ups. Aggregated signal, individual noise.",
+      "example_use": "Phenotype variation ranges, cultivation notes."
+    },
+    {
+      "rank": 5,
+      "id": "academic",
+      "label": "Academic",
+      "definition": "Peer-reviewed chemistry/phytochemistry literature and compound databases (PubChem etc.). Strong for compounds, weak for consumer claims.",
+      "example_use": "Terpene boiling points, flavonoid identification."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s-lab-steep-hill",
+      "name": "Steep Hill (COA publisher)",
+      "tier": "lab_test",
+      "url": "https://steephill.com",
+      "scope": "Cannabinoid/terpene lab testing; example template for lab_test citations.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-lab-confident-cannabis",
+      "name": "Confident Cannabis lab network",
+      "tier": "lab_test",
+      "url": "https://confidentcannabis.com",
+      "scope": "Lab network publishing COAs; example template for lab_test citations.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-cup-htcc",
+      "name": "High Times Cannabis Cup archive",
+      "tier": "cup_result",
+      "url": "https://hightimes.com",
+      "scope": "Competition results archive (multiple regions/years).",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-cup-emerald",
+      "name": "The Emerald Cup",
+      "tier": "cup_result",
+      "url": "https://theemeraldcup.com",
+      "scope": "California competition results.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-breeder-sensi",
+      "name": "Sensi Seeds catalog",
+      "tier": "breeder_claim",
+      "url": "https://sensiseeds.com",
+      "scope": "Breeder-asserted lineage and strain data (catalog).",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-breeder-serious",
+      "name": "Serious Seeds - AK-47",
+      "tier": "breeder_claim",
+      "url": "https://seriousseeds.com",
+      "scope": "Breeder page for AK-47 lineage and cup claims.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-community-seedfinder",
+      "name": "SeedFinder.eu",
+      "tier": "community_report",
+      "url": "https://seedfinder.eu",
+      "scope": "Community strain/breeder database - aggregated reports.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-community-growdiaries",
+      "name": "GrowDiaries",
+      "tier": "community_report",
+      "url": "https://growdiaries.com",
+      "scope": "Public grow journals with strain tags.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-academic-pubchem",
+      "name": "PubChem (NIH)",
+      "tier": "academic",
+      "url": "https://pubchem.ncbi.nlm.nih.gov",
+      "scope": "Compound records - formulas, published physical constants.",
+      "verify_status": "seed-v0"
+    },
+    {
+      "id": "s-academic-jnp",
+      "name": "Journal of Natural Products (ACS)",
+      "tier": "academic",
+      "url": "https://pubs.acs.org/journal/jnprdf",
+      "scope": "Peer-reviewed phytochemistry (cannabinoids, terpenes, flavonoids).",
+      "verify_status": "seed-v0"
+    }
+  ]
+}

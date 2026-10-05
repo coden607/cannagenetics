@@ -1,0 +1,823 @@
+[
+  {
+    "name": "Afghani",
+    "slug": "afghani",
+    "type": "indica",
+    "lineage_parents": [],
+    "origin": "Afghanistan (Hindu Kush region), landrace era pre-1970s",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Sensi Seeds (Afghani #1 line)"
+    ],
+    "typical_thc_pct": [
+      15,
+      20
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "beta-Caryophyllene",
+      "alpha-Humulene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Hindu Kush",
+    "slug": "hindu-kush",
+    "type": "indica",
+    "lineage_parents": [],
+    "origin": "Hindu Kush mountain range (Afghanistan/Pakistan border), landrace era pre-1970s",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Sensi Seeds (catalog line)"
+    ],
+    "typical_thc_pct": [
+      15,
+      20
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "beta-Caryophyllene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Thai",
+    "slug": "thai",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Thailand, landrace era pre-1970s",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Ace Seeds (preservation lines)"
+    ],
+    "typical_thc_pct": [
+      15,
+      22
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "beta-Ocimene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ace-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Durban Poison",
+    "slug": "durban-poison",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Durban, South Africa, landrace era",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Dutch Passion (catalog line)"
+    ],
+    "typical_thc_pct": [
+      15,
+      24
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Limonene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "dutch-passion",
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Colombian Gold",
+    "slug": "colombian-gold",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Colombia (Santa Marta region), 1960s-1970s",
+    "breeders_known": [
+      "landrace (traditional)"
+    ],
+    "typical_thc_pct": [
+      14,
+      20
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Myrcene",
+      "beta-Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Acapulco Gold",
+    "slug": "acapulco-gold",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Acapulco, Mexico, 1960s-1970s",
+    "breeders_known": [
+      "landrace (traditional)"
+    ],
+    "typical_thc_pct": [
+      15,
+      24
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "Geraniol"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Panama Red",
+    "slug": "panama-red",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Panama, 1960s-1970s",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Ace Seeds (Panama line)"
+    ],
+    "typical_thc_pct": [
+      10,
+      16
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ace-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Malawi",
+    "slug": "malawi",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Malawi (Likuni region), landrace era",
+    "breeders_known": [
+      "landrace (traditional)",
+      "Ace Seeds (Malawi line)"
+    ],
+    "typical_thc_pct": [
+      18,
+      27
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "beta-Ocimene",
+      "alpha-Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ace-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Northern Lights #5",
+    "slug": "northern-lights-5",
+    "type": "indica",
+    "lineage_parents": [
+      "Afghani",
+      "Thai (reported)"
+    ],
+    "origin": "Pacific Northwest USA (reported), late 1970s-1980s; refined in Netherlands",
+    "breeders_known": [
+      "original breeder debated (community)",
+      "Sensi Seeds (NL lines)"
+    ],
+    "typical_thc_pct": [
+      16,
+      21
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "alpha-Pinene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "seedsman",
+      "nirvana-seeds",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Haze",
+    "slug": "haze",
+    "type": "sativa",
+    "lineage_parents": [
+      "Thai",
+      "Colombian Gold",
+      "Mexican landrace (reported)"
+    ],
+    "origin": "California USA, 1960s-1970s (Haze Brothers)",
+    "breeders_known": [
+      "Haze Brothers",
+      "Nevil (Nederwiet-era stabilization, reported)"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Limonene",
+      "beta-Ocimene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "dutch-passion",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Skunk #1",
+    "slug": "skunk-1",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Afghani",
+      "Mexican landrace",
+      "Colombian Gold (reported)"
+    ],
+    "origin": "California USA, late 1970s; stabilized in Netherlands",
+    "breeders_known": [
+      "Sacred Seeds (Skunkman Sam, reported)",
+      "Sensi Seeds (catalog line)"
+    ],
+    "typical_thc_pct": [
+      15,
+      19
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Limonene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "nirvana-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "White Widow",
+    "slug": "white-widow",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Brazilian sativa",
+      "South Indian indica (reported)"
+    ],
+    "origin": "Netherlands, early 1990s",
+    "breeders_known": [
+      "Green House Seeds (reported)"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "alpha-Pinene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - Hybrid, 1995 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "dutch-passion",
+      "seedsman",
+      "nirvana-seeds",
+      "royal-queen-seeds",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Blueberry",
+    "slug": "blueberry",
+    "type": "indica",
+    "lineage_parents": [
+      "Purple Thai",
+      "Afghani (reported)"
+    ],
+    "origin": "California USA, 1970s-1990s (DJ Short)",
+    "breeders_known": [
+      "DJ Short"
+    ],
+    "typical_thc_pct": [
+      16,
+      24
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "beta-Caryophyllene",
+      "alpha-Pinene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - Best Indica, 2000 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "attitude-seed-bank",
+      "dutch-passion"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "OG Kush",
+    "slug": "og-kush",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Chemdawg",
+      "Hindu Kush (reported; lineage disputed)"
+    ],
+    "origin": "California USA, 1990s (San Fernando Valley)",
+    "breeders_known": [
+      "breeder disputed (community)"
+    ],
+    "typical_thc_pct": [
+      19,
+      26
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Limonene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "attitude-seed-bank",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Sour Diesel",
+    "slug": "sour-diesel",
+    "type": "sativa",
+    "lineage_parents": [
+      "Chemdawg 91",
+      "Super Skunk (reported)"
+    ],
+    "origin": "New York USA, early 1990s",
+    "breeders_known": [
+      "AJ (reported, community)"
+    ],
+    "typical_thc_pct": [
+      18,
+      26
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Myrcene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Girl Scout Cookies",
+    "slug": "girl-scout-cookies",
+    "type": "hybrid",
+    "lineage_parents": [
+      "OG Kush",
+      "Durban Poison (reported)"
+    ],
+    "origin": "California USA, 2010s (Bay Area)",
+    "breeders_known": [
+      "Cookie Fam (reported)"
+    ],
+    "typical_thc_pct": [
+      18,
+      28
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "alpha-Humulene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - Hybrid, Denver 2013 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Gelato",
+    "slug": "gelato",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Sunset Sherbet",
+      "Thin Mint GSC (reported)"
+    ],
+    "origin": "California USA, mid-2010s",
+    "breeders_known": [
+      "Cookie Fam (reported)"
+    ],
+    "typical_thc_pct": [
+      17,
+      25
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "alpha-Humulene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "attitude-seed-bank",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Wedding Cake",
+    "slug": "wedding-cake",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Triangle Kush",
+      "Animal Mints (reported)"
+    ],
+    "origin": "California USA, mid-2010s",
+    "breeders_known": [
+      "Seed Junky Genetics (Triangle Mints phenotype, reported)"
+    ],
+    "typical_thc_pct": [
+      16,
+      25
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now",
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "slug": "gorilla-glue-4",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Chem's Sister",
+      "Sour Dubb",
+      "Chocolate Diesel (reported)"
+    ],
+    "origin": "Nevada USA, early 2010s",
+    "breeders_known": [
+      "GG Strains (reported)"
+    ],
+    "typical_thc_pct": [
+      20,
+      30
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "awards": [
+      "Multiple Cannabis Cup wins, 2014-2016 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "seeds-here-now",
+      "seedsman",
+      "attitude-seed-bank",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Zkittlez",
+    "slug": "zkittlez",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Grape Ape",
+      "Grapefruit (reported)"
+    ],
+    "origin": "California USA, 2010s",
+    "breeders_known": [
+      "Terp Hogz (reported)"
+    ],
+    "typical_thc_pct": [
+      15,
+      23
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - Best Indica, San Francisco 2016 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Runtz",
+    "slug": "runtz",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Zkittlez",
+      "Gelato (reported)"
+    ],
+    "origin": "California USA, late 2010s",
+    "breeders_known": [
+      "Cookies/Runtz crew (reported)"
+    ],
+    "typical_thc_pct": [
+      19,
+      29
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Purple Punch",
+    "slug": "purple-punch",
+    "type": "indica",
+    "lineage_parents": [
+      "Larry OG",
+      "Granddaddy Purple (reported)"
+    ],
+    "origin": "California USA, mid-2010s",
+    "breeders_known": [
+      "Supernova/Gromer (reported)"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Chemdawg",
+    "slug": "chemdawg",
+    "type": "hybrid",
+    "lineage_parents": [],
+    "origin": "USA (East Coast), early 1990s - lineage disputed",
+    "breeders_known": [
+      "breeder unknown (community legend)"
+    ],
+    "typical_thc_pct": [
+      15,
+      20
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Jack Herer",
+    "slug": "jack-herer",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Haze",
+      "Northern Lights #5",
+      "Shiva Skunk (reported)"
+    ],
+    "origin": "Netherlands, 1990s",
+    "breeders_known": [
+      "Sensi Seeds"
+    ],
+    "typical_thc_pct": [
+      15,
+      24
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "alpha-Pinene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "Multiple High Times Cannabis Cup awards, 1990s (per breeder)"
+    ],
+    "available_at_seedbanks": [
+      "sensi-seeds",
+      "seedsman",
+      "royal-queen-seeds",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "AK-47",
+    "slug": "ak-47",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Colombian Gold",
+      "Mexican landrace",
+      "Thai",
+      "Afghani (reported)"
+    ],
+    "origin": "Netherlands, early 1990s",
+    "breeders_known": [
+      "Serious Seeds"
+    ],
+    "typical_thc_pct": [
+      13,
+      20
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "alpha-Pinene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - 2nd place Hybrid, 1994 (per breeder)"
+    ],
+    "available_at_seedbanks": [
+      "serious-seeds",
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Granddaddy Purple",
+    "slug": "granddaddy-purple",
+    "type": "indica",
+    "lineage_parents": [
+      "Purple Urkle",
+      "Big Bud (reported)"
+    ],
+    "origin": "California USA, 2003",
+    "breeders_known": [
+      "Ken Estes (reported)"
+    ],
+    "typical_thc_pct": [
+      17,
+      23
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "beta-Caryophyllene",
+      "alpha-Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Amnesia Haze",
+    "slug": "amnesia-haze",
+    "type": "sativa",
+    "lineage_parents": [
+      "Haze",
+      "Thai",
+      "Cambodian (reported)"
+    ],
+    "origin": "Netherlands, 1990s-2000s",
+    "breeders_known": [
+      "Super Strains (Amnesia line, reported)"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup - Sativa, 2004 (reported)"
+    ],
+    "available_at_seedbanks": [
+      "royal-queen-seeds",
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0"
+  },
+  {
+    "name": "Lowryder",
+    "slug": "lowryder",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Northern Lights #2",
+      "William's Wonder",
+      "Russian ruderalis (reported)"
+    ],
+    "origin": "Canada/USA, early 2000s",
+    "breeders_known": [
+      "The Joint Doctor"
+    ],
+    "typical_thc_pct": [
+      11,
+      14
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "alpha-Pinene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "Landmark status: first widely marketed autoflower (community consensus)"
+    ],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0"
+  }
+]

@@ -1,0 +1,411 @@
+[
+  {
+    "name": "THC",
+    "alt_names": [
+      "delta-9-THC",
+      "delta-9-tetrahydrocannabinol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": 157,
+    "aroma": "herbal, slightly earthy",
+    "reported_effects": "Community-reported: euphoria, altered sensory perception, relaxation, appetite stimulation. Intoxicating. Effects vary by dose, route, and individual.",
+    "notes": "Primary intoxicating cannabinoid in most drug-type chemovars. Vapor temp commonly cited ~157 C; actual volatilization depends on device and flower moisture.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "THCA",
+    "alt_names": [
+      "THC acid",
+      "tetrahydrocannabinolic acid"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C22H30O4",
+    "vapor_temp_c": null,
+    "aroma": "mild, grassy (raw form)",
+    "reported_effects": "Community-reported: non-intoxicating in raw acid form. Converts to THC on heating/decarboxylation.",
+    "notes": "Dominant cannabinoid in raw/unheated flower. Decarboxylates to THC roughly in the 105-120 C range over time. No single published vapor temp - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "THCV",
+    "alt_names": [
+      "tetrahydrocannabivarin"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C19H26O2",
+    "vapor_temp_c": 220,
+    "aroma": "earthy, woody",
+    "reported_effects": "Community-reported: at low doses, clear-headed and stimulating; at higher doses, THC-like intoxication. Shorter-acting per user reports.",
+    "notes": "Propyl analogue of THC. Vapor temp commonly cited ~220 C; verify against lab source.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBD",
+    "alt_names": [
+      "cannabidiol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": 180,
+    "aroma": "faintly herbal, bitter",
+    "reported_effects": "Community-reported: calming, relaxing, non-intoxicating. Frequently discussed alongside THC for balanced experiences.",
+    "notes": "Major non-intoxicating cannabinoid in fiber-type and many hybrid chemovars. Vapor temp commonly cited ~180 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBDA",
+    "alt_names": [
+      "CBD acid",
+      "cannabidiolic acid"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C22H30O4",
+    "vapor_temp_c": null,
+    "aroma": "mild (raw form)",
+    "reported_effects": "Community-reported: non-intoxicating raw acid precursor of CBD.",
+    "notes": "Decarboxylates to CBD on heating. No published single vapor temp - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBN",
+    "alt_names": [
+      "cannabinol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H26O2",
+    "vapor_temp_c": 185,
+    "aroma": "earthy, slightly sweet",
+    "reported_effects": "Community-reported: sedating, sleepy qualities; often associated with aged or oxidized flower. Mildly intoxicating.",
+    "notes": "Oxidation/degradation product of THC - concentrations rise as flower ages. Vapor temp commonly cited ~185 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBG",
+    "alt_names": [
+      "cannabigerol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H32O2",
+    "vapor_temp_c": null,
+    "aroma": "floral, slightly herbal",
+    "reported_effects": "Community-reported: mild, clear-headed, non-intoxicating at common doses.",
+    "notes": "Biosynthetic precursor ('mother cannabinoid') to THC/CBD/CBC. Vapor temp values in circulation conflict (104-220 C cited) - no reliable single published value; flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBGA",
+    "alt_names": [
+      "cannabigerolic acid"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C22H32O4",
+    "vapor_temp_c": null,
+    "aroma": "mild (raw form)",
+    "reported_effects": "Community-reported: non-intoxicating raw acid precursor.",
+    "notes": "Parent acid from which THCA/CBDA/CBCA branch. Vapor temp not reliably published - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBC",
+    "alt_names": [
+      "cannabichromene"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": null,
+    "aroma": "faint, neutral",
+    "reported_effects": "Community-reported: mood-elevating qualities; often discussed as part of the 'ensemble' with THC. Non-intoxicating at common doses.",
+    "notes": "Usually minor in modern chemovars. Vapor temp not reliably published - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBL",
+    "alt_names": [
+      "cannabicyclol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": null,
+    "aroma": "unknown / not documented",
+    "reported_effects": "Community-reported: effects largely undocumented - honesty note: pharmacology essentially unstudied.",
+    "notes": "Minor degradation product related to CBC. Very thin literature; vapor temp unknown.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "delta-8-THC",
+    "alt_names": [
+      "delta-8-tetrahydrocannabinol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": 175,
+    "aroma": "mild herbal",
+    "reported_effects": "Community-reported: THC-like but commonly described as milder and clearer. Intoxicating.",
+    "notes": "Structural isomer of delta-9-THC, typically converted from CBD. Vapor temp commonly cited ~175 C; thinner evidence base than delta-9.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "delta-10-THC",
+    "alt_names": [
+      "delta-10-tetrahydrocannabinol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C21H30O2",
+    "vapor_temp_c": null,
+    "aroma": "mild",
+    "reported_effects": "Community-reported: energizing, 'sativa-like' character - thin evidence; consumer products rarely independently verified.",
+    "notes": "Trace naturally; usually synthesized. No reliable published vapor temp.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "THCP",
+    "alt_names": [
+      "tetrahydrocannabiphorol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C23H34O2",
+    "vapor_temp_c": null,
+    "aroma": "unknown / not documented",
+    "reported_effects": "Community-reported: extremely potent THC-like effects. Laboratory binding studies (2019) suggest high CB1 affinity - no human clinical data.",
+    "notes": "Identified in 2019 (Italian research team). Alkyl side-chain heptyl analogue. Vapor temp not published.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "CBDP",
+    "alt_names": [
+      "cannabidiphorol"
+    ],
+    "cls": "cannabinoid",
+    "formula": "C23H34O2",
+    "vapor_temp_c": null,
+    "aroma": "unknown / not documented",
+    "reported_effects": "Community-reported: effects essentially undocumented - included for completeness.",
+    "notes": "CBD heptyl homologue, identified alongside THCP in 2019. Under active study; vapor temp not published.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Myrcene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 167,
+    "aroma": "musky, earthy, herbal; ripe mango, hops",
+    "notes": "Most prevalent terpene across modern chemovars per community/lab surveys. Boiling point well established in chemistry literature (~167 C).",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Limonene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 176,
+    "aroma": "bright citrus, lemon, orange peel",
+    "notes": "Very common in citrus-forward and dessert-lineage strains. Literature boiling point ~176 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "alpha-Pinene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 155,
+    "aroma": "sharp pine, rosemary",
+    "notes": "Among the most abundant terpenes in nature; literature boiling point ~155 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "beta-Pinene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 166,
+    "aroma": "pine, woody, herbal",
+    "notes": "Often co-occurs with alpha-pinene. Literature boiling point ~166 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "beta-Caryophyllene",
+    "cls": "terpene",
+    "formula": "C15H24",
+    "vapor_temp_c": 130,
+    "aroma": "peppery, spicy, woody",
+    "notes": "Cannabis charts commonly cite ~130 C vapor temp; atmospheric boiling point differs (vacuum bp 129 C at 15 mmHg) - flagged for lab sourcing. Sesquiterpene.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "alpha-Humulene",
+    "cls": "terpene",
+    "formula": "C15H24",
+    "vapor_temp_c": 198,
+    "aroma": "hoppy, earthy, spicy",
+    "notes": "Common in hops; literature boiling point commonly cited ~198 C. Sesquiterpene.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Linalool",
+    "cls": "terpene",
+    "formula": "C10H18O",
+    "vapor_temp_c": 198,
+    "aroma": "floral, lavender, sweet",
+    "notes": "Literature boiling point ~198 C. Found across floral-aroma strains.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Terpinolene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 186,
+    "aroma": "floral, herbal, piney with citrus lift",
+    "notes": "Signature of many classic sativas (Haze family etc. per community reports). Literature boiling point ~186 C.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "beta-Ocimene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 177,
+    "aroma": "sweet, floral, herbaceous",
+    "notes": "Literature boiling point for trans-beta-ocimene commonly cited ~177 C; verify isomer against lab source.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Nerolidol",
+    "cls": "terpene",
+    "formula": "C15H26O",
+    "vapor_temp_c": null,
+    "aroma": "woody, floral, bark-like",
+    "notes": "Sesquiterpene alcohol. Boiling point commonly quoted is vacuum (122 C at 12 mmHg); no reliable single atmospheric vapor temp - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "alpha-Bisabolol",
+    "cls": "terpene",
+    "formula": "C15H26O",
+    "vapor_temp_c": 160,
+    "aroma": "mild floral, chamomile-like",
+    "notes": "Cannabis literature commonly cites ~160 C vapor temp; atmospheric bp not established in a single source - flagged for lab sourcing.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Geraniol",
+    "cls": "terpene",
+    "formula": "C10H18O",
+    "vapor_temp_c": 230,
+    "aroma": "rose, geranium, sweet floral",
+    "notes": "Literature boiling point ~230 C. Common in dessert-lineage strains.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Camphene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 159,
+    "aroma": "damp woodlands, fir needles, camphoraceous",
+    "notes": "Literature boiling point ~159 C. Often minor component.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "delta-3-Carene",
+    "cls": "terpene",
+    "formula": "C10H16",
+    "vapor_temp_c": 170,
+    "aroma": "sweet pine, cedar, pungent",
+    "notes": "Literature boiling point ~168-171 C. Often minor component.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Cannaflavin A",
+    "cls": "flavonoid",
+    "formula": "C26H30O6",
+    "vapor_temp_c": null,
+    "aroma": "not documented",
+    "notes": "Prenylated flavone first described in cannabis (1980s); being studied for inflammatory pathways in preclinical models. Vapor temp not published.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Cannaflavin B",
+    "cls": "flavonoid",
+    "formula": null,
+    "vapor_temp_c": null,
+    "aroma": "not documented",
+    "notes": "Prenylated flavone; formula pending verification against primary literature - flagged.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Cannaflavin C",
+    "cls": "flavonoid",
+    "formula": null,
+    "vapor_temp_c": null,
+    "aroma": "not documented",
+    "notes": "Most recently described cannaflavin; thin literature. Formula pending verification - flagged.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Quercetin",
+    "cls": "flavonoid",
+    "formula": "C15H10O7",
+    "vapor_temp_c": null,
+    "aroma": "faintly bitter",
+    "notes": "Widespread plant flavonoid also present in cannabis. Vapor temp not published for cannabis context.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Kaempferol",
+    "cls": "flavonoid",
+    "formula": "C15H10O6",
+    "vapor_temp_c": null,
+    "aroma": "faintly bitter",
+    "notes": "Widespread plant flavonoid also present in cannabis. Vapor temp not published for cannabis context.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Cannabisativine",
+    "cls": "alkaloid",
+    "formula": null,
+    "vapor_temp_c": null,
+    "aroma": "not documented",
+    "notes": "HONESTY NOTE: cannabinoids/terpenes dominate cannabis phytochemistry; alkaloids occur only in trace amounts and are severely understudied. Reported from cannabis roots/leaves in older literature.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  },
+  {
+    "name": "Anhydrocannabisativine",
+    "cls": "alkaloid",
+    "formula": null,
+    "vapor_temp_c": null,
+    "aroma": "not documented",
+    "notes": "HONESTY NOTE: minor class - trace occurrence, very thin literature, no published vapor temp or established role.",
+    "verify_status": "seed-v0",
+    "source": "community-knowledge"
+  }
+]

@@ -1,30 +1,90 @@
-# 🌱 Seedbank Index — the open directory of every cannabis seed bank & breeder
+# 🌍 World Genetics Atlas (v0.2)
 
-Community-curated, source-cited directory. Built for CannaIntel's genetics module,
-open to everyone. **v0.1 seed dataset** — entries carry `verify_status` and every
-claim must earn a `source` before promotion from `seed-v0` → `verified`.
+*Formerly "Seedbank Index" — same repo, bigger mission.*
 
-> ⚠️ **Legal note:** cannabis seed laws vary by jurisdiction and change often.
-> This directory is informational only. Know your local laws.
+The **World Genetics Atlas** is the open atlas of cannabis genetics: every seed bank
+and breeder worldwide, every documented strain and landrace, the phytochemistry that
+defines them, community phenotype mapping, and cross-source comparison — from every
+major source, everywhere in the world.
 
-## Schema (data/seedbanks.json)
-| field | meaning |
-|---|---|
-| name / slug | display name / url-safe id |
-| type | `breeder` (creates genetics) · `retailer` (sells others') · `bank` (both/house brand) |
-| region | HQ country |
-| specialty | e.g. autoflowers, landraces, cup winners, CBD |
-| ships_to | broad regions, informational |
-| notable_lines | flagship strains/series |
-| source | public URL backing the entry |
-| verify_status | `seed-v0` (community seed) → `verified` (source-checked) |
-| last_checked | ISO date |
+Community-curated. Source-cited. Honest about what it doesn't know.
 
-## Roadmap
-- [ ] Grow dataset to exhaustive (every known bank/breeder, worldwide)
-- [ ] Breeder ↔ strain cross-reference tables
-- [ ] Landrace-focused registry (partner: CannaIntel ROADMAP M3/M4)
-- [ ] Cup-winner sourcing index
-- [ ] Change-verification workflow (source-cited PRs only)
+> ⚠️ **Legal note:** cannabis seed and cultivation laws vary by jurisdiction and change
+> often. This repository is **informational only** and contains no legal advice.
+> Know your local laws.
 
-Part of the **Continuity OS** fleet — data feeds CannaIntel's strain DB.
+## Entity map
+
+```
+                        ┌────────────────────────────┐
+                        │      sources.json           │
+                        │  provenance + trust tiers   │
+                        │  lab > cup > breeder >      │
+                        │  community > academic       │
+                        └──────────────┬─────────────┘
+                                       │ every claim cites a source
+        ┌──────────────┬───────────────┼───────────────┬──────────────────┐
+        ▼              ▼               ▼               ▼                  ▼
+┌──────────────┐ ┌────────────┐ ┌─────────────┐ ┌──────────────┐ ┌────────────────┐
+│ seedbanks    │ │ strains    │ │ compounds   │ │ pheno_reports│ │ compare/       │
+│ 23 banks +   │ │ 28 landmark│ │ 35 chems:   │ │ phenotype    │ │ engine spec:   │
+│ breeders     │ │ landraces→ │ │ cannabinoids│ │ expressions  │ │ same strain ×  │
+│ (v0.1 data,  │ │ cup winners│ │ terpenes    │ │ (example     │ │ N banks,       │
+│ moved as-is) │ │            │ │ flavonoids  │ │  templates)  │ │ scored +       │
+│              │ │            │ │ alkaloids*  │ │              │ │ explained      │
+└──────────────┘ └────────────┘ └─────────────┘ └──────────────┘ └────────────────┘
+                                       ▲
+                                       │ future: price/COA connectors
+                               pipelines/ — ingestion roadmap (PRs first)
+```
+
+*Alkaloids flagged honestly: trace occurrence, severely understudied in cannabis.*
+
+## Data files (`data/`)
+
+| file | contents | entries |
+|---|---|---|
+| `seedbanks.json` | banks/breeders/retailers (carried over from v0.1, unchanged) | 23 |
+| `strains.json` | landmark strains: landraces, classics, cup winners, first autoflower | 28 |
+| `compounds.json` | cannabinoids, terpenes, flavonoids, alkaloids | 35 |
+| `pheno_reports.json` | expression-report schema + 3 clearly-labeled example templates | 3 |
+| `sources.json` | provenance registry with 5 trust tiers | 10 sources, 5 tiers |
+
+## Schema versioning
+
+- **v0.1** (2026-10-05): single-entity seedbank directory.
+- **v0.2** (2026-10-05): multi-entity platform — strains, compounds, pheno reports,
+  provenance registry, comparison + pipeline specs.
+- Schemas are additive-first: new fields may appear; existing fields are not renamed
+  or removed within a major version. Consumers should ignore unknown fields.
+
+## Trust model
+
+Nothing here is "true" by default. Every entry carries:
+
+- `verify_status`: `seed-v0` (community seed — unverified) → `verified` (source-checked).
+- `source`: URL or `community-knowledge`, backed by `sources.json` trust tiers
+  (lab COA > cup result > breeder claim > community report > academic).
+
+Conflicts resolve by tier: a lab COA overrides a breeder claim, which overrides
+community consensus. Ranges (e.g. `typical_thc_pct`) are published/community-reported
+figures, not guarantees — treat them as leads for verification, not facts.
+
+## Language rules (non-negotiable)
+
+- **Zero medical claims.** Nothing here treats, cures, or diagnoses anything.
+- Effect language is **community-reported framing** ("users commonly report…"),
+  never clinical.
+- Uncertainty is stated in-line (`reported`, `disputed`, `flagged for lab sourcing`).
+  If we don't know, the entry says so.
+
+## Contributing
+
+See `pipelines/README.md` for the full ingestion roadmap. Short version:
+
+1. PRs only — every claim needs `source` + `verify_status`.
+2. `python3 -m json.tool` must pass on every data file.
+3. Slugs must cross-reference existing entities.
+4. Follow the language rules above.
+
+Part of the **Continuity OS** fleet.
