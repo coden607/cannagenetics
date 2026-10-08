@@ -31,7 +31,7 @@ This is the operating manual: start → flawless deploy → dark-factory mainten
 
 ## 3. Dark-Factory Maintenance (forever)
 
-The dark factory is the set of scheduled jobs that keeps the database alive without heroics. Full detail in [`docs/dark-factory.md`](./docs/dark-factory.md); the workflow itself lives at [`.github/workflows/maintenance.yml`](./.github/workflows/maintenance.yml).
+The dark factory is the set of scheduled jobs that keeps the database alive without heroics. Full detail in [`docs/dark-factory.md`](./docs/dark-factory.md); the workflow itself lives at [`docs/maintenance.yml`](./docs/maintenance.yml) — canonical deploy location is `.github/workflows/maintenance.yml` (held in `docs/` only because the bootstrap token lacked the `workflow` OAuth scope; one `gh auth refresh -s workflow` + `git mv` activates it).
 
 ### Jobs
 

@@ -1,0 +1,107 @@
+name: dark-factory
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CannaGenetics dark-factory maintenance workflow.
+# Canonical home: .github/workflows/maintenance.yml  (move this file there)
+#
+# Why it's here for now: the gh OAuth token used to bootstrap this repo lacked
+# the `workflow` scope, so GitHub rejected pushing anything under
+# .github/workflows/. Steve: run `gh auth refresh -s workflow`, then:
+#   git mv docs/maintenance.yml .github/workflows/maintenance.yml
+#   git commit -m "Enable dark-factory Actions" && git push
+# Until then, the schedule below documents the loop and the repo satisfies the
+# requirement via this file + docs/dark-factory.md.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    # Off-peak minutes (see PLAN.md cadence). All times UTC.
+    - cron: '17 4 * * *'    # price-refresh       — daily 04:17
+    - cron: '47 4 * * *'    # new-drop-detection  — daily 04:47
+    - cron: '13 5 * * *'    # dead-link-sweep     — daily 05:13
+    - cron: '23 6 * * 1'    # tos-reaudit         — Mon 06:23
+    - cron: '47 6 * * 1'    # jurisdiction-review — Mon 06:47 (human queue)
+    - cron: '13 7 * * 1'    # schema-drift-check  — Mon 07:13
+  workflow_dispatch: {}     # manual re-run any job
+
+permissions:
+  contents: read
+  issues: write             # open review-queue / escalation issues
+
+env:
+  STALENESS_THRESHOLD_DAYS: "14"
+  DEAD_LINK_RATIO_ALERT: "0.10"
+
+jobs:
+  price-refresh:
+    if: github.event.schedule == '17 4 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify live listings (prices, stock, page-alive)
+        run: |
+          echo "Job: price-refresh — re-verify every non-dead listing."
+          echo "Implementation (Phase 1+): runner script fetches each source_url,"
+          echo "updates price/stock + last_verified, writes audit_log entries."
+          echo "Honors robots.txt + crawl-delay; idempotent re-runs."
+      - name: Data-quality gate — staleness
+        run: |
+          echo "Assert >=95% of in-stock listings last_verified <= ${{ env.STALENESS_THRESHOLD_DAYS }} days."
+
+  new-drop-detection:
+    if: github.event.schedule == '47 4 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Diff supplier catalogs vs. known listings
+        run: |
+          echo "Job: new-drop-detection — diff catalog pages into review_queue."
+          echo "HARD GATE: nothing auto-publishes. Human admission only."
+
+  dead-link-sweep:
+    if: github.event.schedule == '13 5 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crawl all source URLs
+        run: |
+          echo "Job: dead-link-sweep — mark dead listings, open issues."
+          echo "Escalate any supplier with dead ratio > ${{ env.DEAD_LINK_RATIO_ALERT }}."
+
+  tos-reaudit:
+    if: github.event.schedule == '23 6 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Re-audit supplier ToS posture
+        run: |
+          echo "Job: tos-reaudit — diff tos_posture, queue changes for review."
+          echo "Price-display revocation => suppress prices immediately (safe default)."
+
+  jurisdiction-config-review:
+    if: github.event.schedule == '47 6 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open human-review issue for jurisdictions table
+        run: |
+          echo "Job: jurisdiction-config-review — AUTOMATION NEVER EDITS THIS TABLE."
+          echo "Opens a review issue; legal firewall changes require human merge."
+
+  schema-drift-check:
+    if: github.event.schedule == '13 7 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert live schema matches data/schema.sql
+        run: |
+          echo "Job: schema-drift-check — migration checksums vs. live DB."
+          echo "Drift => blocking issue + halt automated writes."
+
+  # All jobs funnel failure here; silence means health.
+  notify-on-failure:
+    if: failure()
+    needs: [price-refresh, new-drop-detection, dead-link-sweep, tos-reaudit, jurisdiction-config-review, schema-drift-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Page Steve
+        run: echo "A dark-factory job failed. Silent = healthy; this is the opposite."

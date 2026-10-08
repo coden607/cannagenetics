@@ -17,7 +17,7 @@ Sister project: **[CannaIntel](https://github.com/coden607/cannaintel)** — the
 | [`SUPPLIERS.md`](./SUPPLIERS.md) | Starter supplier registry schema + seed list of major suppliers. Field definitions only — **no scraped data**. |
 | [`data/schema.sql`](./data/schema.sql) | Initial relational schema: breeders, cultivars, lineage edges, suppliers, listings (with source URLs + timestamps), jurisdictions. |
 | [`docs/dark-factory.md`](./docs/dark-factory.md) | The maintenance loop in detail: jobs, schedules, failure handling, data-quality gates. |
-| [`.github/workflows/maintenance.yml`](./.github/workflows/maintenance.yml) | The dark-factory workflow itself: price refresh, new-drop detection, dead-link sweep, schema drift check. |
+| [`.github/workflows/maintenance.yml`](./docs/maintenance.yml) | The dark-factory workflow itself (canonical source; lives in `docs/` until the `workflow` OAuth scope is granted — see its header): price refresh, new-drop detection, dead-link sweep, ToS re-audit, jurisdiction review, schema drift check. |
 
 ## Vision
 
