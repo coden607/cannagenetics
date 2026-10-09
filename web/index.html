@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CannaGenetics — worldwide seed and clone hub</title>
+<meta name="description" content="Informational catalog of cannabis genetics, seed banks, and breeders. Link-out only. Not a store. Laws vary by jurisdiction." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,680&family=Outfit:wght@380;520;640&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #10140f;
+    --paper: #f4f1e8;
+    --moss: #1f3d2b;
+    --leaf: #3d6b45;
+    --gold: #c4a15a;
+    --line: #d9d2c3;
+    --muted: #5d645c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: Outfit, sans-serif; }
+  a { color: var(--moss); }
+  header, main, footer { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+  .gate {
+    position: fixed; inset: 0; background: #0e1611; color: #efe8d8;
+    display: flex; align-items: center; justify-content: center; z-index: 20; padding: 24px;
+  }
+  .gate[hidden] { display: none; }
+  .gate card, .gate .card { max-width: 460px; }
+  .gate h1 { font-family: Fraunces, serif; font-weight: 520; font-size: 42px; margin: 0 0 8px; }
+  .gate p { color: #c9c2b3; line-height: 1.5; }
+  button, .chip {
+    font: inherit; border: 1px solid var(--line); background: #fff; border-radius: 999px;
+    padding: 8px 14px; cursor: pointer;
+  }
+  .gate button { background: var(--gold); color: #1a1408; border: 0; font-weight: 640; padding: 12px 18px; }
+  .ghost { background: transparent; color: #efe8d8; border-color: #3c4a40; margin-left: 8px; }
+  header { padding: 28px 0 8px; display: flex; justify-content: space-between; gap: 16px; align-items: end; }
+  h1 { font-family: Fraunces, serif; font-weight: 520; font-size: clamp(36px, 6vw, 64px); line-height: .95; margin: 0; }
+  .kicker { letter-spacing: .16em; text-transform: uppercase; font-size: 12px; color: var(--leaf); font-weight: 640; }
+  .lede { max-width: 640px; color: var(--muted); font-size: 18px; line-height: 1.45; }
+  .stats { display: flex; gap: 18px; color: var(--moss); font-weight: 640; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0; }
+  input[type="search"] {
+    flex: 1; min-width: 220px; border: 1px solid var(--line); background: #fff;
+    border-radius: 12px; padding: 12px 14px; font: inherit;
+  }
+  .chip.on { background: var(--moss); color: #fff; border-color: var(--moss); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  article {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  article h2 { font-family: Fraunces, serif; font-size: 24px; margin: 0; font-weight: 520; }
+  .meta { color: var(--muted); font-size: 14px; line-height: 1.4; }
+  .tag { display: inline-block; background: #eef3ea; color: var(--moss); border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 640; }
+  .warn { background: #fff7e8; border: 1px solid #ead7a8; border-radius: 12px; padding: 12px 14px; color: #5c4a22; font-size: 14px; }
+  footer { padding: 28px 0 48px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  h3 { font-family: Fraunces, serif; font-weight: 520; }
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>This is an informational genetics catalog. It does not sell seeds or clones, take payment, or ship anything. Cannabis laws differ by country and state. Enter only if you are of legal age where you live and you will check local law before following any supplier link.</p>
+    <button id="enter" type="button">I am 18 or older</button>
+    <button class="ghost" type="button" onclick="location.href='https://github.com/coden607/cannagenetics'">Leave</button>
+  </div>
+</div>
+<header>
+  <div>
+    <p class="kicker">Worldwide genetics</p>
+    <h1>Your cannabis seed and clone hub.</h1>
+    <p class="lede">Sourced catalog from the CannaGenetics repo. Seed banks and landmark cultivars, compared by name — not a storefront. Every listing is seed-v0 and unverified until a source check lands.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+<main>
+  <p class="warn">Preview deploy of <a href="https://github.com/coden607/cannagenetics">coden607/cannagenetics</a>. Prices stay off until supplier terms allow them. Clone nurseries are named only; clones are not listed for sale. Catalog data is carried from the sister <a href="https://github.com/coden607/seedbank-index">seedbank-index</a> atlas.</p>
+  <div class="bar">
+    <input id="q" type="search" placeholder="Search cultivars, breeders, banks" />
+    <button class="chip on" data-view="strains" type="button">Cultivars</button>
+    <button class="chip" data-view="banks" type="button">Seed banks</button>
+    <button class="chip" data-view="clones" type="button">Clones</button>
+  </div>
+  <div class="bar" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  Informational only. No medical claims. No checkout. Link-out to the supplier’s own site. Know your local law. Built from planning docs in coden607/cannagenetics. Status of the product requirements is still planning — this page is the public catalog shell.
+</footer>
+<script>
+const banks = [{"name":"Seedsman","slug":"seedsman","type":"retailer","region":"UK","specialty":"huge multi-breeder catalog, house brand","ships_to":"worldwide (restrictions apply)","notable_lines":["Seedsman Originals"],"source":"https://www.seedsman.com"},{"name":"Sensi Seeds","slug":"sensi-seeds","type":"bank","region":"Netherlands","specialty":"heritage NL genetics, landrace preservation","ships_to":"EU-focused","notable_lines":["Skunk #1","Northern Lights","Haze lines"],"source":"https://sensiseeds.com"},{"name":"Dutch Passion","slug":"dutch-passion","type":"bank","region":"Netherlands","specialty":"early autoflower pioneers, classics","ships_to":"EU + international","notable_lines":["Blueberry","Mazar","Auto collection"],"source":"https://www.dutch-passion.com"},{"name":"Barney's Farm","slug":"barnys-farm","type":"breeder","region":"Netherlands","specialty":"cup-winning hybrids","ships_to":"international","notable_lines":["Pineapple Chunk","Gorilla Zkittlez","Runtz Muffin"],"source":"https://www.barneysfarm.com"},{"name":"Royal Queen Seeds","slug":"royal-queen-seeds","type":"bank","region":"Spain/Netherlands","specialty":"beginner-friendly, big catalog","ships_to":"EU + US","notable_lines":["Amnesia Haze","Northern Light","Fat Banana"],"source":"https://www.royalqueenseeds.com"},{"name":"FastBuds","slug":"fastbuds","type":"breeder","region":"Spain","specialty":"autoflowers","ships_to":"international","notable_lines":["Gorilla Glue Auto","Zkittlez Auto"],"source":"https://fastbuds.com"},{"name":"Mephisto Genetics","slug":"mephisto-genetics","type":"breeder","region":"Spain","specialty":"artisan autoflowers, limited drops","ships_to":"direct-store model","notable_lines":["Sour Stomper","Forum Stomper","Double Grape"],"source":"https://www.mephisto-genetics.com"},{"name":"Humboldt Seed Company","slug":"humboldt-seed-company","type":"breeder","region":"USA (California)","specialty":"NorCal heritage, high-THC + CBD lines","ships_to":"US (legal states)","notable_lines":["Pineapple Upside Down Cake","Magic Melon","Blueberry Muffin"],"source":"https://humboldtseedcompany.com"},{"name":"Ethos Genetics","slug":"ethos-genetics","type":"breeder","region":"USA","specialty":"hybrid vigor, dessert lines","ships_to":"US (legal states)","notable_lines":["Planet of the Grapes","Mandarin Cookies"],"source":"https://ethosgenetics.com"},{"name":"Exotic Genetix","slug":"exotic-genetix","type":"breeder","region":"USA (Washington)","specialty":"flavor-forward hybrids","ships_to":"US (legal states)","notable_lines":["Grease Monkey","Kimbo Kush"],"source":"https://exoticgenetix.com"},{"name":"Seed Junky Genetics","slug":"seed-junky","type":"breeder","region":"USA (California)","specialty":"OG/gas lines, cup winners","ships_to":"US (legal states)","notable_lines":["Wedding Cake","Kush Mints"],"source":"https://seedjunkygenetics.com"},{"name":"Jungle Boys","slug":"jungle-boys","type":"breeder","region":"USA (California)","specialty":"cultivar drops from retail brand","ships_to":"US (legal states)","notable_lines":["Jungle Cake","Strawberries & Cream"],"source":"https://jungleboys.com"},{"name":"Nirvana Seeds","slug":"nirvana-seeds","type":"bank","region":"Netherlands","specialty":"classics, value pricing","ships_to":"international","notable_lines":["AK-48","Wonder Woman"],"source":"https://www.nirvanashop.com"},{"name":"MSNL","slug":"msnl","type":"bank","region":"UK","specialty":"since-1999 catalog","ships_to":"international","notable_lines":["White Widow","Super Lemon Haze"],"source":"https://www.marijuana-seeds.nl"},{"name":"ILGM","slug":"ilgm","type":"bank","region":"Netherlands","specialty":"beginner focus, guarantees","ships_to":"US + Australia focus","notable_lines":["White Widow autoflower","Gold Leaf"],"source":"https://ilgm.com"},{"name":"Crop King Seeds","slug":"crop-king-seeds","type":"bank","region":"Canada","specialty":"Canadian market, retail stores","ships_to":"Canada + international","notable_lines":["White Widow","Early Miss"],"source":"https://www.cropkingseeds.com"},{"name":"Attitude Seed Bank","slug":"attitude-seed-bank","type":"retailer","region":"UK","specialty":"multi-breeder mega-catalog","ships_to":"international","notable_lines":["promos/freebies"],"source":"https://www.cannabis-seeds-store.co.uk"},{"name":"Herbies","slug":"herbies","type":"retailer","region":"Spain","specialty":"multi-breeder, EU focus","ships_to":"EU + more","notable_lines":["house promos"],"source":"https://herbiesheadshop.com"},{"name":"SeedsHereNow","slug":"seeds-here-now","type":"retailer","region":"USA","specialty":"US breeder drops","ships_to":"US","notable_lines":["limited US releases"],"source":"https://seedsherenow.com"},{"name":"Ace Seeds","slug":"ace-seeds","type":"breeder","region":"Spain","specialty":"landraces + heirloom preservation","ships_to":"international","notable_lines":["Malawi","Thai strains","Central American lines"],"source":"https://aceseeds.org"},{"name":"Bodhi Seeds","slug":"bodhi-seeds","type":"breeder","region":"USA","specialty":"organic breeding, rare crosses","ships_to":"limited drops","notable_lines":["Goji OG","Space Monkey"],"source":"https://bodhiseeds.com"},{"name":"DNA Genetics","slug":"dna-genetics","type":"breeder","region":"USA/Netherlands","specialty":"award classics","ships_to":"international","notable_lines":["LA Confidential","Chocolope"],"source":"https://dnagenetics.com"},{"name":"Serious Seeds","slug":"serious-seeds","type":"breeder","region":"Netherlands","specialty":"small stable catalog","ships_to":"international","notable_lines":["AK-47","White Russian"],"source":"https://seriousseeds.com"}];
+const strains = [{"name":"Afghani","slug":"afghani","type":"indica","lineage_parents":[],"origin":"Afghanistan (Hindu Kush region), landrace era pre-1970s","breeders_known":["landrace (traditional)","Sensi Seeds (Afghani #1 line)"],"typical_thc_pct":[15,20],"dominant_terpenes":["Myrcene","beta-Caryophyllene","alpha-Humulene"],"available_at_seedbanks":["sensi-seeds","seedsman","attitude-seed-bank"]},{"name":"Hindu Kush","slug":"hindu-kush","type":"indica","lineage_parents":[],"origin":"Hindu Kush mountain range, landrace era pre-1970s","breeders_known":["landrace (traditional)","Sensi Seeds"],"typical_thc_pct":[15,20],"dominant_terpenes":["Myrcene","beta-Caryophyllene","Limonene"],"available_at_seedbanks":["sensi-seeds","seedsman","attitude-seed-bank"]},{"name":"Thai","slug":"thai","type":"sativa","lineage_parents":[],"origin":"Thailand, landrace era pre-1970s","breeders_known":["landrace (traditional)","Ace Seeds"],"typical_thc_pct":[15,22],"dominant_terpenes":["Terpinolene","beta-Ocimene","Limonene"],"available_at_seedbanks":["ace-seeds","seedsman"]},{"name":"Durban Poison","slug":"durban-poison","type":"sativa","lineage_parents":[],"origin":"Durban, South Africa, landrace era","breeders_known":["landrace (traditional)","Dutch Passion"],"typical_thc_pct":[15,24],"dominant_terpenes":["Terpinolene","Limonene","beta-Caryophyllene"],"available_at_seedbanks":["dutch-passion","seedsman","attitude-seed-bank"]},{"name":"Colombian Gold","slug":"colombian-gold","type":"sativa","lineage_parents":[],"origin":"Colombia (Santa Marta), 1960s-1970s","breeders_known":["landrace (traditional)"],"typical_thc_pct":[14,20],"dominant_terpenes":["Limonene","Myrcene","beta-Pinene"],"available_at_seedbanks":["seedsman","attitude-seed-bank"]},{"name":"Acapulco Gold","slug":"acapulco-gold","type":"sativa","lineage_parents":[],"origin":"Acapulco, Mexico, 1960s-1970s","breeders_known":["landrace (traditional)"],"typical_thc_pct":[15,24],"dominant_terpenes":["Limonene","beta-Caryophyllene","Geraniol"],"available_at_seedbanks":["seedsman","attitude-seed-bank"]},{"name":"Panama Red","slug":"panama-red","type":"sativa","lineage_parents":[],"origin":"Panama, 1960s-1970s","breeders_known":["landrace (traditional)","Ace Seeds"],"typical_thc_pct":[10,16],"dominant_terpenes":["Myrcene","Limonene"],"available_at_seedbanks":["ace-seeds","seedsman"]},{"name":"Malawi","slug":"malawi","type":"sativa","lineage_parents":[],"origin":"Malawi (Likuni), landrace era","breeders_known":["landrace (traditional)","Ace Seeds"],"typical_thc_pct":[18,27],"dominant_terpenes":["Terpinolene","beta-Ocimene","alpha-Pinene"],"available_at_seedbanks":["ace-seeds","seedsman"]},{"name":"Northern Lights #5","slug":"northern-lights-5","type":"indica","lineage_parents":["Afghani","Thai (reported)"],"origin":"Pacific Northwest, late 1970s; refined in Netherlands","breeders_known":["Sensi Seeds"],"typical_thc_pct":[16,21],"dominant_terpenes":["Myrcene","alpha-Pinene","beta-Caryophyllene"],"available_at_seedbanks":["sensi-seeds","seedsman","nirvana-seeds","attitude-seed-bank"]},{"name":"Haze","slug":"haze","type":"sativa","lineage_parents":["Thai","Colombian Gold","Mexican landrace (reported)"],"origin":"California, 1960s-1970s","breeders_known":["Haze Brothers"],"typical_thc_pct":[18,25],"dominant_terpenes":["Terpinolene","Limonene","beta-Ocimene"],"available_at_seedbanks":["sensi-seeds","dutch-passion","seedsman"]},{"name":"Skunk #1","slug":"skunk-1","type":"hybrid","lineage_parents":["Afghani","Mexican landrace","Colombian Gold (reported)"],"origin":"California, late 1970s; stabilized in Netherlands","breeders_known":["Sensi Seeds"],"typical_thc_pct":[15,19],"dominant_terpenes":["Myrcene","Limonene","beta-Caryophyllene"],"available_at_seedbanks":["sensi-seeds","nirvana-seeds","seedsman"]},{"name":"White Widow","slug":"white-widow","type":"hybrid","lineage_parents":["Brazilian sativa","South Indian indica (reported)"],"origin":"Netherlands, early 1990s","breeders_known":["Green House Seeds (reported)"],"typical_thc_pct":[18,25],"dominant_terpenes":["Myrcene","alpha-Pinene","beta-Caryophyllene"],"available_at_seedbanks":["dutch-passion","seedsman","nirvana-seeds","royal-queen-seeds","herbies"]},{"name":"Blueberry","slug":"blueberry","type":"indica","lineage_parents":["Purple Thai","Afghani (reported)"],"origin":"California, DJ Short line","breeders_known":["DJ Short"],"typical_thc_pct":[16,24],"dominant_terpenes":["Myrcene","beta-Caryophyllene","alpha-Pinene"],"available_at_seedbanks":["seedsman","herbies","attitude-seed-bank","dutch-passion"]},{"name":"OG Kush","slug":"og-kush","type":"hybrid","lineage_parents":["Chemdawg","Hindu Kush (reported; disputed)"],"origin":"California, 1990s","breeders_known":["breeder disputed"],"typical_thc_pct":[19,26],"dominant_terpenes":["Myrcene","Limonene","beta-Caryophyllene"],"available_at_seedbanks":["seedsman","herbies","attitude-seed-bank","seeds-here-now"]},{"name":"Sour Diesel","slug":"sour-diesel","type":"sativa","lineage_parents":["Chemdawg 91","Super Skunk (reported)"],"origin":"New York, early 1990s","breeders_known":["community (reported)"],"typical_thc_pct":[18,26],"dominant_terpenes":["Limonene","Myrcene","beta-Caryophyllene"],"available_at_seedbanks":["seedsman","attitude-seed-bank","seeds-here-now"]},{"name":"Girl Scout Cookies","slug":"girl-scout-cookies","type":"hybrid","lineage_parents":["OG Kush","Durban Poison (reported)"],"origin":"California, 2010s","breeders_known":["Cookie Fam (reported)"],"typical_thc_pct":[18,28],"dominant_terpenes":["beta-Caryophyllene","Limonene","alpha-Humulene"],"available_at_seedbanks":["seedsman","herbies","seeds-here-now"]},{"name":"Gelato","slug":"gelato","type":"hybrid","lineage_parents":["Sunset Sherbet","Thin Mint GSC (reported)"],"origin":"California, mid-2010s","breeders_known":["Cookie Fam (reported)"],"typical_thc_pct":[17,25],"dominant_terpenes":["beta-Caryophyllene","Limonene","alpha-Humulene"],"available_at_seedbanks":["seedsman","herbies","attitude-seed-bank","seeds-here-now"]},{"name":"Wedding Cake","slug":"wedding-cake","type":"hybrid","lineage_parents":["Triangle Kush","Animal Mints (reported)"],"origin":"California, mid-2010s","breeders_known":["Seed Junky Genetics (reported)"],"typical_thc_pct":[16,25],"dominant_terpenes":["Limonene","beta-Caryophyllene","Linalool"],"available_at_seedbanks":["seeds-here-now","seedsman","herbies"]},{"name":"Gorilla Glue #4","slug":"gorilla-glue-4","type":"hybrid","lineage_parents":["Chem's Sister","Sour Dubb","Chocolate Diesel (reported)"],"origin":"Nevada, early 2010s","breeders_known":["GG Strains (reported)"],"typical_thc_pct":[20,30],"dominant_terpenes":["beta-Caryophyllene","Limonene","Myrcene"],"available_at_seedbanks":["seeds-here-now","seedsman","attitude-seed-bank","herbies"]},{"name":"Zkittlez","slug":"zkittlez","type":"hybrid","lineage_parents":["Grape Ape","Grapefruit (reported)"],"origin":"California, 2010s","breeders_known":["Terp Hogz (reported)"],"typical_thc_pct":[15,23],"dominant_terpenes":["beta-Caryophyllene","Limonene","Linalool"],"available_at_seedbanks":["seedsman","herbies","seeds-here-now"]},{"name":"Runtz","slug":"runtz","type":"hybrid","lineage_parents":["Zkittlez","Gelato (reported)"],"origin":"California, late 2010s","breeders_known":["Cookies/Runtz crew (reported)"],"typical_thc_pct":[19,29],"dominant_terpenes":["beta-Caryophyllene","Limonene","Linalool"],"available_at_seedbanks":["seedsman","herbies","seeds-here-now"]},{"name":"Purple Punch","slug":"purple-punch","type":"indica","lineage_parents":["Larry OG","Granddaddy Purple (reported)"],"origin":"California, mid-2010s","breeders_known":["Supernova/Gromer (reported)"],"typical_thc_pct":[18,25],"dominant_terpenes":["Limonene","beta-Caryophyllene","Linalool"],"available_at_seedbanks":["seedsman","herbies","attitude-seed-bank"]},{"name":"Chemdawg","slug":"chemdawg","type":"hybrid","lineage_parents":[],"origin":"USA East Coast, early 1990s — lineage disputed","breeders_known":["unknown"],"typical_thc_pct":[15,20],"dominant_terpenes":["beta-Caryophyllene","Limonene","Myrcene"],"available_at_seedbanks":["seedsman","attitude-seed-bank","seeds-here-now"]},{"name":"Jack Herer","slug":"jack-herer","type":"hybrid","lineage_parents":["Haze","Northern Lights #5","Shiva Skunk (reported)"],"origin":"Netherlands, 1990s","breeders_known":["Sensi Seeds"],"typical_thc_pct":[15,24],"dominant_terpenes":["Terpinolene","alpha-Pinene","beta-Caryophyllene"],"available_at_seedbanks":["sensi-seeds","seedsman","royal-queen-seeds","herbies"]},{"name":"AK-47","slug":"ak-47","type":"hybrid","lineage_parents":["Colombian Gold","Mexican landrace","Thai","Afghani (reported)"],"origin":"Netherlands, early 1990s","breeders_known":["Serious Seeds"],"typical_thc_pct":[13,20],"dominant_terpenes":["Myrcene","alpha-Pinene","beta-Caryophyllene"],"available_at_seedbanks":["serious-seeds","seedsman","herbies"]},{"name":"Granddaddy Purple","slug":"granddaddy-purple","type":"indica","lineage_parents":["Purple Urkle","Big Bud (reported)"],"origin":"California, 2003","breeders_known":["Ken Estes (reported)"],"typical_thc_pct":[17,23],"dominant_terpenes":["Myrcene","beta-Caryophyllene","alpha-Pinene"],"available_at_seedbanks":["seedsman","herbies","attitude-seed-bank"]},{"name":"Amnesia Haze","slug":"amnesia-haze","type":"sativa","lineage_parents":["Haze","Thai","Cambodian (reported)"],"origin":"Netherlands, 1990s-2000s","breeders_known":["Super Strains (reported)"],"typical_thc_pct":[18,25],"dominant_terpenes":["Limonene","Terpinolene","beta-Caryophyllene"],"available_at_seedbanks":["royal-queen-seeds","seedsman","herbies"]},{"name":"Lowryder","slug":"lowryder","type":"autoflower","lineage_parents":["Northern Lights #2","William's Wonder","Russian ruderalis (reported)"],"origin":"Canada/USA, early 2000s","breeders_known":["The Joint Doctor"],"typical_thc_pct":[11,14],"dominant_terpenes":["Myrcene","alpha-Pinene","beta-Caryophyllene"],"available_at_seedbanks":["seedsman","attitude-seed-bank"]}];
+const clones = [
+  {name:"Dark Heart Nursery", region:"California", note:"Named in the supplier registry. Not listed for sale here. Clones only where that jurisdiction allows them."},
+  {name:"Kind Roots Nursery", region:"Colorado", note:"Named in the supplier registry. Not listed for sale here. Clones only where that jurisdiction allows them."},
+  {name:"Dispensary clone shelves", region:"Legal markets only", note:"Tracked later as regional sources. Off until jurisdiction config is signed off."}
+];
+const bankBySlug = Object.fromEntries(banks.map(b => [b.slug, b]));
+let view = "strains";
+let typeFilter = "all";
+const grid = document.getElementById("grid");
+const filters = document.getElementById("filters");
+document.getElementById("stats").innerHTML = `<span>${strains.length} cultivars</span><span>${banks.length} banks</span>`;
+document.getElementById("enter").onclick = () => { document.getElementById("gate").hidden = true; };
+document.querySelectorAll("[data-view]").forEach(btn => btn.onclick = () => {
+  document.querySelectorAll("[data-view]").forEach(b => b.classList.toggle("on", b === btn));
+  view = btn.dataset.view; typeFilter = "all"; render();
+});
+document.getElementById("q").oninput = render;
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&','<':'<','>':'>','"':'"'}[c])); }
+function render(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  filters.innerHTML = "";
+  if (view === "strains") {
+    ["all","indica","sativa","hybrid","autoflower"].forEach(t => {
+      const b = document.createElement("button");
+      b.className = "chip" + (typeFilter === t ? " on" : "");
+      b.textContent = t;
+      b.onclick = () => { typeFilter = t; render(); };
+      filters.appendChild(b);
+    });
+    const rows = strains.filter(s => (typeFilter === "all" || s.type === typeFilter) && (!q || (s.name + s.origin + s.breeders_known.join(" ")).toLowerCase().includes(q)));
+    grid.innerHTML = rows.map(s => {
+      const links = s.available_at_seedbanks.map(slug => bankBySlug[slug]).filter(Boolean).map(b => `<a href="${esc(b.source)}" rel="noopener noreferrer">${esc(b.name)}</a>`).join(" · ");
+      return `<article><span class="tag">${esc(s.type)}</span><h2>${esc(s.name)}</h2><p class="meta">${esc(s.origin)}</p><p class="meta">Lineage: ${esc(s.lineage_parents.join(" × ") || "landrace / unknown")}</p><p class="meta">Reported THC ${s.typical_thc_pct[0]}–${s.typical_thc_pct[1]}%. Terpenes: ${esc(s.dominant_terpenes.join(", "))}. Figures are reported, not lab results.</p><p class="meta">Carried at: ${links || "—"}</p></article>`;
+    }).join("") || "<p>No matches.</p>";
+  } else if (view === "banks") {
+    const rows = banks.filter(b => !q || (b.name + b.region + b.specialty).toLowerCase().includes(q));
+    grid.innerHTML = rows.map(b => `<article><span class="tag">${esc(b.type)}</span><h2>${esc(b.name)}</h2><p class="meta">${esc(b.region)} · ships: ${esc(b.ships_to)}</p><p class="meta">${esc(b.specialty)}</p><p class="meta">Lines: ${esc(b.notable_lines.join(", "))}</p><p><a href="${esc(b.source)}" rel="noopener noreferrer">Official site</a></p></article>`).join("") || "<p>No matches.</p>";
+  } else {
+    grid.innerHTML = clones.map(c => `<article><span class="tag">clone registry</span><h2>${esc(c.name)}</h2><p class="meta">${esc(c.region)}</p><p class="meta">${esc(c.note)}</p></article>`).join("");
+  }
+}
+render();
+</script>
+</body>
+</html>
