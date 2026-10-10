@@ -146,6 +146,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/lineage.html">Lineage</a>
 <a href="/compounds/index.html">Compounds</a>
 <a href="/compare.html">Compare</a>
+<a href="/cross.html">Cross</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -355,7 +356,88 @@ write("clones.html", page("Clones", """<main><h1>Clones</h1>
 <article><h2>Kind Roots Nursery</h2><p class="meta">Colorado. Named only.</p></article>
 </div></main>"""))
 
-urls = ["/", "/lineage.html", "/compare.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+payload = []
+for s in STRAINS:
+    payload.append({
+        "name": s["name"],
+        "slug": s["slug"],
+        "type": s["type"],
+        "parents": s.get("lineage_parents") or [],
+        "origin": s.get("origin") or "",
+        "thc": s.get("typical_thc_pct") or [0, 0],
+        "terpenes": s.get("dominant_terpenes") or [],
+        "breeders": s.get("breeders_known") or [],
+    })
+cross_js = json.dumps(payload)
+write("cross.html", page("Cross calculator", """
+<main>
+<p class="kicker">Genetics model</p>
+<h1>Cross two cultivars.</h1>
+<p class="lede">Pick two parents. The tool estimates the offspring from the catalog records and finds any known cultivar that already claims that pair. This is a model, not a lab result.</p>
+<div class="grid">
+<article>
+<label>Parent A<br><select id="a"></select></label>
+</article>
+<article>
+<label>Parent B<br><select id="b"></select></label>
+</article>
+</div>
+<p><button id="go" class="chip on" type="button">Predict offspring</button></p>
+<div id="out"></div>
+<p class="warn">Cannabis traits are polygenic. A real cross can throw phenotypes neither parent shows. Autoflower and sex are not guaranteed by this model. No grow instructions.</p>
+</main>
+""", """<script>
+const STRAINS = %s;
+const a = document.getElementById("a");
+const b = document.getElementById("b");
+const out = document.getElementById("out");
+function fill(sel) {
+  sel.innerHTML = STRAINS.map(s => `<option value="${s.slug}">${s.name}</option>`).join("");
+}
+fill(a); fill(b);
+b.selectedIndex = 1;
+function norm(s){ return s.toLowerCase().replace(/\\s*\\(.*?\\)/g,"").trim(); }
+function claims(child, parent){
+  return (child.parents || []).some(p => norm(p).includes(norm(parent.name)) || norm(parent.name).includes(norm(p)));
+}
+function predict(){
+  const A = STRAINS.find(s => s.slug === a.value);
+  const B = STRAINS.find(s => s.slug === b.value);
+  if (!A || !B || A.slug === B.slug) { out.innerHTML = "<p>Pick two different parents.</p>"; return; }
+  const types = new Set([A.type, B.type]);
+  const type = types.size === 1 ? A.type : "hybrid";
+  const auto = [A.type, B.type].includes("autoflower");
+  const lo = Math.min(A.thc[0], B.thc[0]);
+  const hi = Math.max(A.thc[1], B.thc[1]);
+  const mid = Math.round(((A.thc[0]+A.thc[1]+B.thc[0]+B.thc[1]) / 4) * 10) / 10;
+  const shared = A.terpenes.filter(t => B.terpenes.includes(t));
+  const all = [...new Set([...A.terpenes, ...B.terpenes])];
+  const known = STRAINS.filter(s => s.slug !== A.slug && s.slug !== B.slug && claims(s, A) && claims(s, B));
+  const knownHtml = known.length
+    ? known.map(s => `<li><a href="/cultivars/${s.slug}.html">${s.name}</a> claims this pair.</li>`).join("")
+    : "<li>No catalogued cultivar claims both parents.</li>";
+  out.innerHTML = `
+    <article>
+      <p class="kicker">Predicted F1</p>
+      <h2>${A.name} × ${B.name}</h2>
+      <p>Likely type: <strong>${type}</strong>${auto ? " · autoflower possible if the auto parent passes ruderalis" : ""}</p>
+      <p>Reported THC span: ${lo}–${hi}%% · midpoint about ${mid}%%</p>
+      <p>Shared terpenes: ${shared.join(", ") || "none recorded"}</p>
+      <p>Combined terpene set: ${all.join(", ") || "—"}</p>
+      <p class="meta">${A.name}: ${A.type}, ${A.origin}</p>
+      <p class="meta">${B.name}: ${B.type}, ${B.origin}</p>
+    </article>
+    <h2>Already in the catalog</h2>
+    <ul>${knownHtml}</ul>
+    <p><a href="/cultivars/${A.slug}.html">${A.name}</a> · <a href="/cultivars/${B.slug}.html">${B.name}</a></p>
+  `;
+}
+document.getElementById("go").onclick = predict;
+predict();
+</script>""" % cross_js))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
