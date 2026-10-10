@@ -922,5 +922,215 @@
     "difficulty": "easy",
     "height": "short",
     "climate": "short season"
+  },
+  "northern-lights-auto": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "white-widow-auto": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "critical-auto": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "blue-dream-auto": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "strawberry-cough": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "trainwreck": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "maui-wowie": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "gelato-41": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "ice-cream-cake": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "white-rhino": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
   }
 }

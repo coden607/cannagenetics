@@ -462,5 +462,295 @@
     "verify_status": "seed-v0",
     "color": "green",
     "ruderalis": true
+  },
+  {
+    "name": "Northern Lights Auto",
+    "slug": "northern-lights-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Northern Lights",
+      "Ruderalis"
+    ],
+    "origin": "Netherlands / Canada",
+    "breeders_known": [
+      "multiple"
+    ],
+    "typical_thc_pct": [
+      14,
+      18
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "royal-queen-seeds",
+      "seedsman",
+      "dutch-passion"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": true
+  },
+  {
+    "name": "White Widow Auto",
+    "slug": "white-widow-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "White Widow",
+      "Ruderalis"
+    ],
+    "origin": "Netherlands",
+    "breeders_known": [
+      "multiple"
+    ],
+    "typical_thc_pct": [
+      15,
+      20
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "royal-queen-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": true
+  },
+  {
+    "name": "Critical Auto",
+    "slug": "critical-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Critical",
+      "Ruderalis"
+    ],
+    "origin": "Spain",
+    "breeders_known": [
+      "multiple"
+    ],
+    "typical_thc_pct": [
+      15,
+      20
+    ],
+    "dominant_terpenes": [
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "silent-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": true
+  },
+  {
+    "name": "Blue Dream Auto",
+    "slug": "blue-dream-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Blue Dream",
+      "Ruderalis"
+    ],
+    "origin": "USA / Netherlands",
+    "breeders_known": [
+      "multiple"
+    ],
+    "typical_thc_pct": [
+      16,
+      22
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": true
+  },
+  {
+    "name": "Strawberry Cough",
+    "slug": "strawberry-cough",
+    "type": "sativa",
+    "lineage_parents": [
+      "Strawberry Fields",
+      "Haze"
+    ],
+    "origin": "USA",
+    "breeders_known": [
+      "Kyle Kushman (reported)"
+    ],
+    "typical_thc_pct": [
+      15,
+      22
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "dutch-passion"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Trainwreck",
+    "slug": "trainwreck",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Mexican",
+      "Thai",
+      "Afghani"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "community"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Maui Wowie",
+    "slug": "maui-wowie",
+    "type": "sativa",
+    "lineage_parents": [],
+    "origin": "Hawaii, landrace era",
+    "breeders_known": [
+      "landrace (traditional)"
+    ],
+    "typical_thc_pct": [
+      14,
+      20
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "ace-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Gelato 41",
+    "slug": "gelato-41",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Sunset Sherbet",
+      "Thin Mint GSC"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "Cookie Fam"
+    ],
+    "typical_thc_pct": [
+      20,
+      26
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now",
+      "seed-junky"
+    ],
+    "verify_status": "seed-v0",
+    "color": "mixed",
+    "ruderalis": false
+  },
+  {
+    "name": "Ice Cream Cake",
+    "slug": "ice-cream-cake",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Wedding Cake",
+      "Gelato 33"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "Seed Junky Genetics"
+    ],
+    "typical_thc_pct": [
+      20,
+      25
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seed-junky",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "White Rhino",
+    "slug": "white-rhino",
+    "type": "indica",
+    "lineage_parents": [
+      "White Widow",
+      "North American indica"
+    ],
+    "origin": "Netherlands",
+    "breeders_known": [
+      "Green House Seeds"
+    ],
+    "typical_thc_pct": [
+      18,
+      24
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "green-house-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
   }
 ]
