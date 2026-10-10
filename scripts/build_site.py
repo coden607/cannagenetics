@@ -126,6 +126,8 @@ article:hover,.card:hover { transform:translateY(-3px); border-color:rgba(157,25
 footer { padding:32px 0 56px; color:var(--muted); font-size:13px; position:relative; z-index:1; }
 #field { position:fixed; inset:0; z-index:0; pointer-events:none; }
 article,.card { transform-style:preserve-3d; }
+.hero-img { width:min(420px,100%); border-radius:18px; border:1px solid var(--line); margin:12px 0; }
+.thumb { width:100%; height:160px; object-fit:cover; border-radius:12px; margin-bottom:10px; }
 table { width:100%; border-collapse:collapse; background:rgba(16,28,22,.6); border-radius:14px; overflow:hidden; }
 th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
 """
@@ -178,10 +180,22 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/rank.html">Rank</a>
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
+<a href="/gallery.html">Gallery</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
+
+def img_for(s):
+    if s.get("color") == "purple":
+        return "/img/purple.jpg"
+    if s.get("type") == "sativa":
+        return "/img/sativa.jpg"
+    if s.get("type") in ("autoflower", "ruderalis"):
+        return "/img/auto.jpg"
+    if s.get("type") == "indica":
+        return "/img/indica.jpg"
+    return "/img/hybrid.jpg"
 
 def page(title, body, extra=""):
     return f"""<!DOCTYPE html>
@@ -212,6 +226,7 @@ cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
     cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
+<img class="thumb" src="{img_for(s)}" alt="">
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
@@ -275,7 +290,7 @@ for s in STRAINS:
     for slug in s.get("available_at_seedbanks", []):
         bank = BANK.get(slug)
         if bank:
-            links.append(f"<li><a href='/suppliers/{e(slug)}.html'>{e(bank['name'])}</a> · <a href='{e(bank['source'])}' rel='noopener noreferrer'>official site</a> · {e(bank.get('region',''))}</li>")
+            links.append(f"<li><a href='/suppliers/{e(slug)}.html'>{e(bank['name'])}</a> · <a href='{e(bank['source'])}' rel='noopener noreferrer'>their photo</a> · {e(bank.get('region',''))}</li>")
     rel = "".join(f"<li><a href='/cultivars/{e(o['slug'])}.html'>{e(o['name'])}</a> · {e(', '.join(set(s.get('dominant_terpenes') or []) & set(o.get('dominant_terpenes') or [])))}</li>" for o in related(s))
     awards = "".join(f"<li>{e(a)}</li>" for a in s.get("awards") or []) or "<li>None recorded.</li>"
     terp_links = []
@@ -286,6 +301,8 @@ for s in STRAINS:
 <p class="kicker">{e(s['type'])} · {e(s.get('verify_status','seed-v0'))}</p>
 <h1>{e(s['name'])}</h1>
 <p class="lede">{e(s['origin'])}</p>
+<img class="hero-img" src="{img_for(s)}" alt="Illustration of {e(s['name'])}, not a seed-bank photo">
+<p class="meta">Original illustration by type and color. Each bank's own photo is on their site.</p>
 <div class="card">
 <p><strong>Lineage claim:</strong> {e(' × '.join(s.get('lineage_parents') or []) or 'landrace / unknown')}</p>
 <p><strong>Breeders known:</strong> {e(', '.join(s.get('breeders_known') or []))}</p>
@@ -615,7 +632,11 @@ write("geo.html", page("Places", """<main>
 <p><a href="/suppliers/index.html">Search banks by region</a></p>
 </main>""" % "".join(geo_cards)))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+cards = "".join("<article><img class='thumb' src='%s' alt=''><h2><a href='/cultivars/%s.html'>%s</a></h2><p class='meta'>%s · %s</p></article>" % (img_for(s), e(s["slug"]), e(s["name"]), e(s["type"]), e(s.get("color","green"))) for s in STRAINS)
+write("gallery.html", page("Gallery", "<main><p class='kicker'>Illustrations</p><h1>Gallery.</h1><p class='lede'>Original illustrations by type and color. Official photos stay on each seed bank's site.</p><div class='grid'>%s</div></main>" % cards))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]

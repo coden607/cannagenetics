@@ -47,5 +47,7 @@ article:hover,.card:hover { transform:translateY(-3px); border-color:rgba(157,25
 footer { padding:32px 0 56px; color:var(--muted); font-size:13px; position:relative; z-index:1; }
 #field { position:fixed; inset:0; z-index:0; pointer-events:none; }
 article,.card { transform-style:preserve-3d; }
+.hero-img { width:min(420px,100%); border-radius:18px; border:1px solid var(--line); margin:12px 0; }
+.thumb { width:100%; height:160px; object-fit:cover; border-radius:12px; margin-bottom:10px; }
 table { width:100%; border-collapse:collapse; background:rgba(16,28,22,.6); border-radius:14px; overflow:hidden; }
 th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
