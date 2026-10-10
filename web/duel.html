@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Side by side</title>
+<link rel="icon" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+<nav class="wrap"><strong>CannaGenetics</strong><a href="/">Catalog</a><a href="/search.html">Search</a><a href="/cross.html">Cross</a><a href="/compare.html">Compare</a></nav>
+<main>
+<p class="kicker">Compare</p>
+<h1>Side by side.</h1>
+<p class="lede">Two cultivars, same fields. Reported figures only.</p>
+<div class="grid">
+<article><label>Left<br><select id="l"></select></label></article>
+<article><label>Right<br><select id="r"></select></label></article>
+</div>
+<div class="grid" id="out"></div>
+</main>
+<footer>Informational only. Not a lab result.</footer>
+<script>
+const S = [{"name": "Afghani", "slug": "afghani", "type": "indica", "thc": [15, 20], "terpenes": ["Myrcene", "beta-Caryophyllene", "alpha-Humulene"], "origin": "Afghanistan (Hindu Kush region), landrace era pre-1970s"}, {"name": "Hindu Kush", "slug": "hindu-kush", "type": "indica", "thc": [15, 20], "terpenes": ["Myrcene", "beta-Caryophyllene", "Limonene"], "origin": "Hindu Kush mountain range (Afghanistan/Pakistan border), landrace era pre-1970s"}, {"name": "Thai", "slug": "thai", "type": "sativa", "thc": [15, 22], "terpenes": ["Terpinolene", "beta-Ocimene", "Limonene"], "origin": "Thailand, landrace era pre-1970s"}, {"name": "Durban Poison", "slug": "durban-poison", "type": "sativa", "thc": [15, 24], "terpenes": ["Terpinolene", "Limonene", "beta-Caryophyllene"], "origin": "Durban, South Africa, landrace era"}, {"name": "Colombian Gold", "slug": "colombian-gold", "type": "sativa", "thc": [14, 20], "terpenes": ["Limonene", "Myrcene", "beta-Pinene"], "origin": "Colombia (Santa Marta region), 1960s-1970s"}, {"name": "Acapulco Gold", "slug": "acapulco-gold", "type": "sativa", "thc": [15, 24], "terpenes": ["Limonene", "beta-Caryophyllene", "Geraniol"], "origin": "Acapulco, Mexico, 1960s-1970s"}, {"name": "Panama Red", "slug": "panama-red", "type": "sativa", "thc": [10, 16], "terpenes": ["Myrcene", "Limonene"], "origin": "Panama, 1960s-1970s"}, {"name": "Malawi", "slug": "malawi", "type": "sativa", "thc": [18, 27], "terpenes": ["Terpinolene", "beta-Ocimene", "alpha-Pinene"], "origin": "Malawi (Likuni region), landrace era"}, {"name": "Northern Lights #5", "slug": "northern-lights-5", "type": "indica", "thc": [16, 21], "terpenes": ["Myrcene", "alpha-Pinene", "beta-Caryophyllene"], "origin": "Pacific Northwest USA (reported), late 1970s-1980s; refined in Netherlands"}, {"name": "Haze", "slug": "haze", "type": "sativa", "thc": [18, 25], "terpenes": ["Terpinolene", "Limonene", "beta-Ocimene"], "origin": "California USA, 1960s-1970s (Haze Brothers)"}, {"name": "Skunk #1", "slug": "skunk-1", "type": "hybrid", "thc": [15, 19], "terpenes": ["Myrcene", "Limonene", "beta-Caryophyllene"], "origin": "California USA, late 1970s; stabilized in Netherlands"}, {"name": "White Widow", "slug": "white-widow", "type": "hybrid", "thc": [18, 25], "terpenes": ["Myrcene", "alpha-Pinene", "beta-Caryophyllene"], "origin": "Netherlands, early 1990s"}, {"name": "Blueberry", "slug": "blueberry", "type": "indica", "thc": [16, 24], "terpenes": ["Myrcene", "beta-Caryophyllene", "alpha-Pinene"], "origin": "California USA, 1970s-1990s (DJ Short)"}, {"name": "OG Kush", "slug": "og-kush", "type": "hybrid", "thc": [19, 26], "terpenes": ["Myrcene", "Limonene", "beta-Caryophyllene"], "origin": "California USA, 1990s (San Fernando Valley)"}, {"name": "Sour Diesel", "slug": "sour-diesel", "type": "sativa", "thc": [18, 26], "terpenes": ["Limonene", "Myrcene", "beta-Caryophyllene"], "origin": "New York USA, early 1990s"}, {"name": "Girl Scout Cookies", "slug": "girl-scout-cookies", "type": "hybrid", "thc": [18, 28], "terpenes": ["beta-Caryophyllene", "Limonene", "alpha-Humulene"], "origin": "California USA, 2010s (Bay Area)"}, {"name": "Gelato", "slug": "gelato", "type": "hybrid", "thc": [17, 25], "terpenes": ["beta-Caryophyllene", "Limonene", "alpha-Humulene"], "origin": "California USA, mid-2010s"}, {"name": "Wedding Cake", "slug": "wedding-cake", "type": "hybrid", "thc": [16, 25], "terpenes": ["Limonene", "beta-Caryophyllene", "Linalool"], "origin": "California USA, mid-2010s"}, {"name": "Gorilla Glue #4", "slug": "gorilla-glue-4", "type": "hybrid", "thc": [20, 30], "terpenes": ["beta-Caryophyllene", "Limonene", "Myrcene"], "origin": "Nevada USA, early 2010s"}, {"name": "Zkittlez", "slug": "zkittlez", "type": "hybrid", "thc": [15, 23], "terpenes": ["beta-Caryophyllene", "Limonene", "Linalool"], "origin": "California USA, 2010s"}, {"name": "Runtz", "slug": "runtz", "type": "hybrid", "thc": [19, 29], "terpenes": ["beta-Caryophyllene", "Limonene", "Linalool"], "origin": "California USA, late 2010s"}, {"name": "Purple Punch", "slug": "purple-punch", "type": "indica", "thc": [18, 25], "terpenes": ["Limonene", "beta-Caryophyllene", "Linalool"], "origin": "California USA, mid-2010s"}, {"name": "Chemdawg", "slug": "chemdawg", "type": "hybrid", "thc": [15, 20], "terpenes": ["beta-Caryophyllene", "Limonene", "Myrcene"], "origin": "USA (East Coast), early 1990s - lineage disputed"}, {"name": "Jack Herer", "slug": "jack-herer", "type": "hybrid", "thc": [15, 24], "terpenes": ["Terpinolene", "alpha-Pinene", "beta-Caryophyllene"], "origin": "Netherlands, 1990s"}, {"name": "AK-47", "slug": "ak-47", "type": "hybrid", "thc": [13, 20], "terpenes": ["Myrcene", "alpha-Pinene", "beta-Caryophyllene"], "origin": "Netherlands, early 1990s"}, {"name": "Granddaddy Purple", "slug": "granddaddy-purple", "type": "indica", "thc": [17, 23], "terpenes": ["Myrcene", "beta-Caryophyllene", "alpha-Pinene"], "origin": "California USA, 2003"}, {"name": "Amnesia Haze", "slug": "amnesia-haze", "type": "sativa", "thc": [18, 25], "terpenes": ["Limonene", "Terpinolene", "beta-Caryophyllene"], "origin": "Netherlands, 1990s-2000s"}, {"name": "Lowryder", "slug": "lowryder", "type": "autoflower", "thc": [11, 14], "terpenes": ["Myrcene", "alpha-Pinene", "beta-Caryophyllene"], "origin": "Canada/USA, early 2000s"}];
+const l = document.getElementById("l"), r = document.getElementById("r"), out = document.getElementById("out");
+function fill(sel) { sel.innerHTML = S.map(s => `<option value="${s.slug}">${s.name}</option>`).join(""); }
+fill(l); fill(r); r.selectedIndex = 1;
+function card(s) {
+  return `<article><span class="tag">${s.type}</span><h2><a href="/cultivars/${s.slug}.html">${s.name}</a></h2><p>Reported THC ${s.thc[0]}–${s.thc[1]}%</p><p class="meta">${s.terpenes.join(", ")}</p><p class="meta">${s.origin}</p></article>`;
+}
+function render() {
+  const A = S.find(s => s.slug === l.value), B = S.find(s => s.slug === r.value);
+  out.innerHTML = card(A) + card(B);
+}
+l.onchange = r.onchange = render; render();
+</script>
+</body></html>

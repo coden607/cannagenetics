@@ -69,38 +69,45 @@ def related(strain):
     return [item[1] for item in out[:4]]
 
 CSS = """
-:root { --ink:#10140f; --paper:#f3efe4; --moss:#1c3a28; --leaf:#3f6d46; --gold:#b8923e; --line:#ddd4c4; --muted:#5e665d; --card:#fffdf8; }
+:root {
+  --ink:#142018; --paper:#f6f1e6; --moss:#1b3d2a; --leaf:#3e6b45; --gold:#b8893a;
+  --line:#e4d9c6; --muted:#667064; --card:#fffdf8; --shadow:0 10px 30px rgba(20,32,24,.06);
+}
 * { box-sizing:border-box; }
-html,body { margin:0; background:var(--paper); color:var(--ink); font-family:Outfit,system-ui,sans-serif; }
+html,body { margin:0; background:
+  radial-gradient(1200px 400px at 10% -10%, #efe6d2, transparent 50%),
+  var(--paper); color:var(--ink); font-family:Outfit,system-ui,sans-serif; }
 a { color:var(--moss); }
-header,main,footer,nav.wrap { width:min(1100px,calc(100% - 28px)); margin:0 auto; }
-nav.wrap { display:flex; gap:14px; align-items:center; padding:16px 0 0; flex-wrap:wrap; font-size:14px; }
-nav.wrap strong { font-family:Fraunces,serif; font-size:18px; margin-right:6px; }
-h1 { font-family:Fraunces,serif; font-weight:520; font-size:clamp(34px,6vw,60px); line-height:.95; margin:8px 0 10px; }
+header,main,footer,nav.wrap { width:min(1120px,calc(100% - 28px)); margin:0 auto; }
+nav.wrap { position:sticky; top:0; z-index:5; display:flex; gap:12px; align-items:center; padding:14px 0; flex-wrap:wrap; font-size:14px; background:rgba(246,241,230,.92); backdrop-filter:blur(8px); }
+nav.wrap strong { font-family:Fraunces,serif; font-size:20px; margin-right:8px; }
+h1 { font-family:Fraunces,serif; font-weight:520; font-size:clamp(36px,6vw,64px); line-height:.92; margin:8px 0 12px; letter-spacing:-.02em; }
 h2,h3 { font-family:Fraunces,serif; font-weight:520; }
-.kicker { letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--leaf); font-weight:700; }
-.lede,.meta { color:var(--muted); line-height:1.45; }
-.stats { display:flex; gap:16px; flex-wrap:wrap; font-weight:700; color:var(--moss); }
+.kicker { letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--leaf); font-weight:700; }
+.lede,.meta { color:var(--muted); line-height:1.5; }
+.stats { display:flex; gap:18px; flex-wrap:wrap; font-weight:700; color:var(--moss); }
 .bar { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; }
-input,select { border:1px solid var(--line); background:#fff; border-radius:12px; padding:12px 14px; font:inherit; }
-input[type=search] { flex:1; min-width:200px; }
+input,select { border:1px solid var(--line); background:#fff; border-radius:14px; padding:12px 14px; font:inherit; }
+input[type=search] { flex:1; min-width:220px; }
 button,.chip { font:inherit; border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; cursor:pointer; text-decoration:none; color:inherit; }
-.chip.on { background:var(--moss); color:#fff; border-color:var(--moss); }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
-article,.card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; }
-.tag { display:inline-block; background:#e8f0e6; color:var(--moss); border-radius:999px; padding:2px 8px; font-size:12px; font-weight:700; }
-.warn { background:#fff6e4; border:1px solid #ead7a8; border-radius:12px; padding:12px 14px; color:#5c4a22; font-size:14px; }
+.chip.on, button.primary { background:var(--moss); color:#fff; border-color:var(--moss); }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; }
+article,.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; box-shadow:var(--shadow); }
+article:hover { transform:translateY(-1px); }
+.tag { display:inline-block; background:#e7f0e4; color:var(--moss); border-radius:999px; padding:3px 9px; font-size:12px; font-weight:700; }
+.warn { background:#fff6e4; border:1px solid #ead7a8; border-radius:14px; padding:12px 14px; color:#5c4a22; font-size:14px; }
 .tree { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 .tree .node { background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 10px; }
 .gate { position:fixed; inset:0; background:#0e1611; color:#efe8d8; display:flex; align-items:center; justify-content:center; z-index:20; padding:24px; }
 .gate[hidden] { display:none; }
-.gate .card { max-width:480px; background:#162019; border:1px solid #314237; }
-.gate h1 { font-size:40px; }
+.gate .card { max-width:480px; background:#162019; border:1px solid #314237; box-shadow:none; }
+.gate h1 { font-size:42px; }
 .gate p { color:#c9c2b3; }
 .gate button { background:var(--gold); color:#1a1408; border:0; font-weight:700; }
-footer { padding:28px 0 48px; color:var(--muted); font-size:13px; }
-table { width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; }
+footer { padding:32px 0 56px; color:var(--muted); font-size:13px; }
+table { width:100%; border-collapse:collapse; background:#fff; border-radius:14px; overflow:hidden; }
 th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+.hero { padding:18px 0 8px; }
 """
 
 GATE = """
@@ -147,6 +154,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/compounds/index.html">Compounds</a>
 <a href="/compare.html">Compare</a>
 <a href="/cross.html">Cross</a>
+<a href="/search.html">Search</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -160,6 +168,7 @@ def page(title, body, extra=""):
 <meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
 </head><body>
 {GATE}{NAV}{body}
@@ -437,7 +446,39 @@ document.getElementById("go").onclick = predict;
 predict();
 </script>""" % cross_js))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+search_items = []
+for s in STRAINS:
+    search_items.append({"kind":"cultivar","name":s["name"],"href":"/cultivars/%s.html" % s["slug"],"blurb":s["type"] + " · " + s["origin"]})
+for b in BANKS:
+    search_items.append({"kind":"supplier","name":b["name"],"href":"/suppliers/%s.html" % b["slug"],"blurb":b["type"] + " · " + b["region"]})
+for c in COMPOUNDS:
+    search_items.append({"kind":"compound","name":c["name"],"href":"/compounds/%s.html" % slugify(c["name"]),"blurb":c.get("cls","") + " · " + (c.get("aroma") or "")})
+write("search.html", page("Search", """
+<main>
+<p class="kicker">Catalog</p>
+<h1>Search everything.</h1>
+<p class="lede">Cultivars, banks, and compounds. Nicknames work: GG4, GSC, NL, GDP.</p>
+<input id="q" type="search" placeholder="Search the catalog">
+<div class="grid" id="hits"></div>
+</main>
+""", """<script>
+const ITEMS = %s;
+const ALIAS = {"gg4":"gorilla glue","gsc":"girl scout cookies","nl":"northern lights","gdp":"granddaddy purple","og":"og kush","widow":"white widow"};
+const q = document.getElementById("q");
+const hits = document.getElementById("hits");
+function render(){
+  let query = q.value.trim().toLowerCase();
+  if (ALIAS[query]) query = ALIAS[query];
+  const found = ITEMS.filter(i => !query || (i.name + " " + i.blurb).toLowerCase().includes(query)).slice(0, 60);
+  hits.innerHTML = found.map(i => `<article><span class="tag">${i.kind}</span><h2><a href="${i.href}">${i.name}</a></h2><p class="meta">${i.blurb}</p></article>`).join("") || "<p>Nothing matched.</p>";
+}
+q.oninput = render;
+render();
+</script>""" % json.dumps(search_items)))
+write("favicon.svg", "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='#1b3d2a'/><path d='M32 10c8 8 10 16 8 24-6-2-10-8-8-24zm0 0c-8 8-10 16-8 24 6-2 10-8 8-24z' fill='#b8893a'/></svg>")
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
