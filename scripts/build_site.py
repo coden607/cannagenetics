@@ -166,6 +166,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/compare.html">Compare</a>
 <a href="/cross.html">Cross</a>
 <a href="/search.html">Search</a>
+<a href="/rank.html">Rank</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -491,7 +492,51 @@ render();
 </script>""" % json.dumps(search_items)))
 write("favicon.svg", "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='#07110d'/><path d='M32 8c9 9 12 18 9 28-7-2-12-9-9-28zm0 0c-9 9-12 18-9 28 7-2 12-9 9-28z' fill='#5ee0a0'/><circle cx='32' cy='40' r='3' fill='#f0c36a'/></svg>")
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+rows = []
+for s in sorted(STRAINS, key=lambda x: -x["typical_thc_pct"][1]):
+    rows.append({
+        "name": s["name"], "slug": s["slug"], "type": s["type"],
+        "thc_lo": s["typical_thc_pct"][0], "thc_hi": s["typical_thc_pct"][1],
+        "mid": round(sum(s["typical_thc_pct"]) / 2, 1),
+        "banks": len(s.get("available_at_seedbanks") or []),
+        "terps": ", ".join(s.get("dominant_terpenes") or []),
+    })
+write("rank.html", page("Rankings", """
+<main>
+<p class="kicker">Sort the catalog</p>
+<h1>Rank cultivars.</h1>
+<p class="lede">Order by reported THC or by how many banks carry it. CBD, yield, flowering time, and veg time are not in the seed-v0 records, so those columns stay blank instead of guessed.</p>
+<div class="bar">
+<button class="chip on" data-sort="thc" type="button">Highest THC</button>
+<button class="chip" data-sort="thc-low" type="button">Lowest THC</button>
+<button class="chip" data-sort="banks" type="button">Most banks</button>
+<button class="chip" data-sort="name" type="button">Name</button>
+<button class="chip" data-sort="type" type="button">Type</button>
+</div>
+<div style="overflow-x:auto"><table id="rank"><thead><tr><th>#</th><th>Cultivar</th><th>Type</th><th>Reported THC</th><th>CBD</th><th>Banks</th><th>Yield</th><th>Flower</th><th>Veg</th></tr></thead><tbody></tbody></table></div>
+</main>
+""", """<script>
+const ROWS = %s;
+const body = document.querySelector("#rank tbody");
+function draw(key){
+  const list = ROWS.slice().sort((a,b) => {
+    if (key === "thc") return b.thc_hi - a.thc_hi || b.mid - a.mid;
+    if (key === "thc-low") return a.thc_lo - b.thc_lo || a.mid - b.mid;
+    if (key === "banks") return b.banks - a.banks || a.name.localeCompare(b.name);
+    if (key === "type") return a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
+    return a.name.localeCompare(b.name);
+  });
+  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_lo}–${r.thc_hi}%%</td><td>not recorded</td><td>${r.banks}</td><td>not recorded</td><td>not recorded</td><td>not recorded</td></tr>`).join("");
+}
+document.querySelectorAll("[data-sort]").forEach(btn => btn.onclick = () => {
+  document.querySelectorAll("[data-sort]").forEach(b => b.classList.toggle("on", b === btn));
+  draw(btn.dataset.sort);
+});
+draw("thc");
+</script>""" % json.dumps(rows)))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]

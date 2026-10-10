@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rankings</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<canvas id="field" aria-hidden="true"></canvas>
+<script src="/fx.js"></script>
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/cross.html">Cross</a>
+<a href="/search.html">Search</a>
+<a href="/rank.html">Rank</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav>
+<main>
+<p class="kicker">Sort the catalog</p>
+<h1>Rank cultivars.</h1>
+<p class="lede">Order by reported THC or by how many banks carry it. CBD, yield, flowering time, and veg time are not in the seed-v0 records, so those columns stay blank instead of guessed.</p>
+<div class="bar">
+<button class="chip on" data-sort="thc" type="button">Highest THC</button>
+<button class="chip" data-sort="thc-low" type="button">Lowest THC</button>
+<button class="chip" data-sort="banks" type="button">Most banks</button>
+<button class="chip" data-sort="name" type="button">Name</button>
+<button class="chip" data-sort="type" type="button">Type</button>
+</div>
+<div style="overflow-x:auto"><table id="rank"><thead><tr><th>#</th><th>Cultivar</th><th>Type</th><th>Reported THC</th><th>CBD</th><th>Banks</th><th>Yield</th><th>Flower</th><th>Veg</th></tr></thead><tbody></tbody></table></div>
+</main>
+
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+<script>
+const ROWS = [{"name": "Gorilla Glue #4", "slug": "gorilla-glue-4", "type": "hybrid", "thc_lo": 20, "thc_hi": 30, "mid": 25.0, "banks": 4, "terps": "beta-Caryophyllene, Limonene, Myrcene"}, {"name": "Runtz", "slug": "runtz", "type": "hybrid", "thc_lo": 19, "thc_hi": 29, "mid": 24.0, "banks": 3, "terps": "beta-Caryophyllene, Limonene, Linalool"}, {"name": "Girl Scout Cookies", "slug": "girl-scout-cookies", "type": "hybrid", "thc_lo": 18, "thc_hi": 28, "mid": 23.0, "banks": 3, "terps": "beta-Caryophyllene, Limonene, alpha-Humulene"}, {"name": "Malawi", "slug": "malawi", "type": "sativa", "thc_lo": 18, "thc_hi": 27, "mid": 22.5, "banks": 2, "terps": "Terpinolene, beta-Ocimene, alpha-Pinene"}, {"name": "OG Kush", "slug": "og-kush", "type": "hybrid", "thc_lo": 19, "thc_hi": 26, "mid": 22.5, "banks": 4, "terps": "Myrcene, Limonene, beta-Caryophyllene"}, {"name": "Sour Diesel", "slug": "sour-diesel", "type": "sativa", "thc_lo": 18, "thc_hi": 26, "mid": 22.0, "banks": 3, "terps": "Limonene, Myrcene, beta-Caryophyllene"}, {"name": "Haze", "slug": "haze", "type": "sativa", "thc_lo": 18, "thc_hi": 25, "mid": 21.5, "banks": 3, "terps": "Terpinolene, Limonene, beta-Ocimene"}, {"name": "White Widow", "slug": "white-widow", "type": "hybrid", "thc_lo": 18, "thc_hi": 25, "mid": 21.5, "banks": 5, "terps": "Myrcene, alpha-Pinene, beta-Caryophyllene"}, {"name": "Gelato", "slug": "gelato", "type": "hybrid", "thc_lo": 17, "thc_hi": 25, "mid": 21.0, "banks": 4, "terps": "beta-Caryophyllene, Limonene, alpha-Humulene"}, {"name": "Wedding Cake", "slug": "wedding-cake", "type": "hybrid", "thc_lo": 16, "thc_hi": 25, "mid": 20.5, "banks": 3, "terps": "Limonene, beta-Caryophyllene, Linalool"}, {"name": "Purple Punch", "slug": "purple-punch", "type": "indica", "thc_lo": 18, "thc_hi": 25, "mid": 21.5, "banks": 3, "terps": "Limonene, beta-Caryophyllene, Linalool"}, {"name": "Amnesia Haze", "slug": "amnesia-haze", "type": "sativa", "thc_lo": 18, "thc_hi": 25, "mid": 21.5, "banks": 3, "terps": "Limonene, Terpinolene, beta-Caryophyllene"}, {"name": "Durban Poison", "slug": "durban-poison", "type": "sativa", "thc_lo": 15, "thc_hi": 24, "mid": 19.5, "banks": 3, "terps": "Terpinolene, Limonene, beta-Caryophyllene"}, {"name": "Acapulco Gold", "slug": "acapulco-gold", "type": "sativa", "thc_lo": 15, "thc_hi": 24, "mid": 19.5, "banks": 2, "terps": "Limonene, beta-Caryophyllene, Geraniol"}, {"name": "Blueberry", "slug": "blueberry", "type": "indica", "thc_lo": 16, "thc_hi": 24, "mid": 20.0, "banks": 4, "terps": "Myrcene, beta-Caryophyllene, alpha-Pinene"}, {"name": "Jack Herer", "slug": "jack-herer", "type": "hybrid", "thc_lo": 15, "thc_hi": 24, "mid": 19.5, "banks": 4, "terps": "Terpinolene, alpha-Pinene, beta-Caryophyllene"}, {"name": "Zkittlez", "slug": "zkittlez", "type": "hybrid", "thc_lo": 15, "thc_hi": 23, "mid": 19.0, "banks": 3, "terps": "beta-Caryophyllene, Limonene, Linalool"}, {"name": "Granddaddy Purple", "slug": "granddaddy-purple", "type": "indica", "thc_lo": 17, "thc_hi": 23, "mid": 20.0, "banks": 3, "terps": "Myrcene, beta-Caryophyllene, alpha-Pinene"}, {"name": "Thai", "slug": "thai", "type": "sativa", "thc_lo": 15, "thc_hi": 22, "mid": 18.5, "banks": 2, "terps": "Terpinolene, beta-Ocimene, Limonene"}, {"name": "Northern Lights #5", "slug": "northern-lights-5", "type": "indica", "thc_lo": 16, "thc_hi": 21, "mid": 18.5, "banks": 4, "terps": "Myrcene, alpha-Pinene, beta-Caryophyllene"}, {"name": "Afghani", "slug": "afghani", "type": "indica", "thc_lo": 15, "thc_hi": 20, "mid": 17.5, "banks": 3, "terps": "Myrcene, beta-Caryophyllene, alpha-Humulene"}, {"name": "Hindu Kush", "slug": "hindu-kush", "type": "indica", "thc_lo": 15, "thc_hi": 20, "mid": 17.5, "banks": 3, "terps": "Myrcene, beta-Caryophyllene, Limonene"}, {"name": "Colombian Gold", "slug": "colombian-gold", "type": "sativa", "thc_lo": 14, "thc_hi": 20, "mid": 17.0, "banks": 2, "terps": "Limonene, Myrcene, beta-Pinene"}, {"name": "Chemdawg", "slug": "chemdawg", "type": "hybrid", "thc_lo": 15, "thc_hi": 20, "mid": 17.5, "banks": 3, "terps": "beta-Caryophyllene, Limonene, Myrcene"}, {"name": "AK-47", "slug": "ak-47", "type": "hybrid", "thc_lo": 13, "thc_hi": 20, "mid": 16.5, "banks": 3, "terps": "Myrcene, alpha-Pinene, beta-Caryophyllene"}, {"name": "Skunk #1", "slug": "skunk-1", "type": "hybrid", "thc_lo": 15, "thc_hi": 19, "mid": 17.0, "banks": 3, "terps": "Myrcene, Limonene, beta-Caryophyllene"}, {"name": "Panama Red", "slug": "panama-red", "type": "sativa", "thc_lo": 10, "thc_hi": 16, "mid": 13.0, "banks": 2, "terps": "Myrcene, Limonene"}, {"name": "Lowryder", "slug": "lowryder", "type": "autoflower", "thc_lo": 11, "thc_hi": 14, "mid": 12.5, "banks": 2, "terps": "Myrcene, alpha-Pinene, beta-Caryophyllene"}];
+const body = document.querySelector("#rank tbody");
+function draw(key){
+  const list = ROWS.slice().sort((a,b) => {
+    if (key === "thc") return b.thc_hi - a.thc_hi || b.mid - a.mid;
+    if (key === "thc-low") return a.thc_lo - b.thc_lo || a.mid - b.mid;
+    if (key === "banks") return b.banks - a.banks || a.name.localeCompare(b.name);
+    if (key === "type") return a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
+    return a.name.localeCompare(b.name);
+  });
+  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_lo}–${r.thc_hi}%</td><td>not recorded</td><td>${r.banks}</td><td>not recorded</td><td>not recorded</td><td>not recorded</td></tr>`).join("");
+}
+document.querySelectorAll("[data-sort]").forEach(btn => btn.onclick = () => {
+  document.querySelectorAll("[data-sort]").forEach(b => b.classList.toggle("on", b === btn));
+  draw(btn.dataset.sort);
+});
+draw("thc");
+</script></body></html>
