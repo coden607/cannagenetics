@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cups</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<canvas id="field" aria-hidden="true"></canvas>
+<script src="/fx.js"></script>
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/cross.html">Cross</a>
+<a href="/search.html">Search</a>
+<a href="/rank.html">Rank</a>
+<a href="/cups.html">Cups</a>
+<a href="/geo.html">Places</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main>
+<p class="kicker">Awards</p>
+<h1>Cup winners.</h1>
+<p class="lede">Historical wins tied to catalog cultivars, plus a few recent local cups where a producer entered that name. Reported, not a complete cup archive.</p>
+<h2>Catalog cultivars</h2>
+<div class="grid"><article><span class='tag'>reported</span><h2><a href='/cultivars/white-widow.html'>White Widow</a></h2><p>High Times Cannabis Cup - Hybrid, 1995 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/blueberry.html'>Blueberry</a></h2><p>High Times Cannabis Cup - Best Indica, 2000 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/girl-scout-cookies.html'>Girl Scout Cookies</a></h2><p>High Times Cannabis Cup - Hybrid, Denver 2013 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/gorilla-glue-4.html'>Gorilla Glue #4</a></h2><p>Multiple Cannabis Cup wins, 2014-2016 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/zkittlez.html'>Zkittlez</a></h2><p>High Times Cannabis Cup - Best Indica, San Francisco 2016 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/jack-herer.html'>Jack Herer</a></h2><p>Multiple High Times Cannabis Cup awards, 1990s (per breeder)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/ak-47.html'>AK-47</a></h2><p>High Times Cannabis Cup - 2nd place Hybrid, 1994 (per breeder)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/amnesia-haze.html'>Amnesia Haze</a></h2><p>High Times Cannabis Cup - Sativa, 2004 (reported)</p></article><article><span class='tag'>reported</span><h2><a href='/cultivars/lowryder.html'>Lowryder</a></h2><p>Landmark status: first widely marketed autoflower (community consensus)</p></article></div>
+<h2>Recent local cups</h2>
+<div class="grid"><article><span class='tag'>New York 2026</span><h2>Doobie Labs White Widow</h2><p>High Times Cannabis Cup, Best Sativa flower</p><p class='meta'>A producer using the <a href='/cultivars/white-widow.html'>catalog name</a>. Not the original breeder.</p></article><article><span class='tag'>Oregon 2023</span><h2>Pruf Cultivar Jack Herer</h2><p>High Times Cannabis Cup, First Sativa flower</p><p class='meta'>A producer using the <a href='/cultivars/jack-herer.html'>catalog name</a>. Not the original breeder.</p></article><article><span class='tag'>Montana 2026</span><h2>Sacred Sun Farms DJ Short Blueberry preroll</h2><p>High Times Cannabis Cup, preroll placing</p><p class='meta'>A producer using the <a href='/cultivars/blueberry.html'>catalog name</a>. Not the original breeder.</p></article></div>
+</main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+</body></html>

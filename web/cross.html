@@ -54,6 +54,8 @@ document.getElementById("enter").onclick = () => {
 <a href="/cross.html">Cross</a>
 <a href="/search.html">Search</a>
 <a href="/rank.html">Rank</a>
+<a href="/cups.html">Cups</a>
+<a href="/geo.html">Places</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -94,32 +96,35 @@ function predict(){
   const A = STRAINS.find(s => s.slug === a.value);
   const B = STRAINS.find(s => s.slug === b.value);
   if (!A || !B || A.slug === B.slug) { out.innerHTML = "<p>Pick two different parents.</p>"; return; }
-  const types = new Set([A.type, B.type]);
-  const type = types.size === 1 ? A.type : "hybrid";
-  const auto = [A.type, B.type].includes("autoflower");
+  const autos = [A,B].filter(s => s.type === "autoflower").length;
+  const autoNote = autos === 2 ? "Both parents are autoflower. Offspring are expected to autoflower."
+    : autos === 1 ? "Autoflower behaves as recessive. An F1 with one auto parent is usually photoperiod."
+    : "Neither parent is autoflower. Do not expect an auto unless a hidden ruderalis line is present.";
   const lo = Math.min(A.thc[0], B.thc[0]);
   const hi = Math.max(A.thc[1], B.thc[1]);
   const mid = Math.round(((A.thc[0]+A.thc[1]+B.thc[0]+B.thc[1]) / 4) * 10) / 10;
   const shared = A.terpenes.filter(t => B.terpenes.includes(t));
-  const all = [...new Set([...A.terpenes, ...B.terpenes])];
+  const onlyA = A.terpenes.filter(t => !B.terpenes.includes(t));
+  const onlyB = B.terpenes.filter(t => !A.terpenes.includes(t));
   const known = STRAINS.filter(s => s.slug !== A.slug && s.slug !== B.slug && claims(s, A) && claims(s, B));
   const knownHtml = known.length
     ? known.map(s => `<li><a href="/cultivars/${s.slug}.html">${s.name}</a> claims this pair.</li>`).join("")
     : "<li>No catalogued cultivar claims both parents.</li>";
   out.innerHTML = `
     <article>
-      <p class="kicker">Predicted F1</p>
+      <p class="kicker">Model, not a lab result</p>
       <h2>${A.name} × ${B.name}</h2>
-      <p>Likely type: <strong>${type}</strong>${auto ? " · autoflower possible if the auto parent passes ruderalis" : ""}</p>
-      <p>Reported THC span: ${lo}–${hi}% · midpoint about ${mid}%</p>
-      <p>Shared terpenes: ${shared.join(", ") || "none recorded"}</p>
-      <p>Combined terpene set: ${all.join(", ") || "—"}</p>
-      <p class="meta">${A.name}: ${A.type}, ${A.origin}</p>
-      <p class="meta">${B.name}: ${B.type}, ${B.origin}</p>
+      <p><strong>Type lean:</strong> ${A.type} × ${B.type}. Most seed will sit between the parents. A single plant can lean either way.</p>
+      <p><strong>Flowering habit:</strong> ${autoNote}</p>
+      <p><strong>Reported THC window:</strong> ${lo}–${hi}% · expected around ${mid}%. One seed can fall outside either parent.</p>
+      <p><strong>Terpenes more likely:</strong> ${shared.join(", ") || "none shared"}</p>
+      <p><strong>Terpenes possible from A:</strong> ${onlyA.join(", ") || "—"}</p>
+      <p><strong>Terpenes possible from B:</strong> ${onlyB.join(", ") || "—"}</p>
+      <p><strong>Sex:</strong> not determined here. It depends on whether the seed is regular or feminized.</p>
+      <p class="warn">Cannot be calculated: the exact THC of one plant, exact terpene percents, structure, color, or yield. Those are polygenic and environment-dependent. This is the full set the catalog can honestly model.</p>
     </article>
     <h2>Already in the catalog</h2>
     <ul>${knownHtml}</ul>
-    <p><a href="/cultivars/${A.slug}.html">${A.name}</a> · <a href="/cultivars/${B.slug}.html">${B.name}</a></p>
   `;
 }
 document.getElementById("go").onclick = predict;

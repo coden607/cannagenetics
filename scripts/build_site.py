@@ -168,6 +168,8 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/cross.html">Cross</a>
 <a href="/search.html">Search</a>
 <a href="/rank.html">Rank</a>
+<a href="/cups.html">Cups</a>
+<a href="/geo.html">Places</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -558,7 +560,51 @@ document.querySelectorAll("[data-sort]").forEach(btn => btn.onclick = () => {
 draw("thc");
 </script>""" % json.dumps(rows)))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+# cups
+cup_cards = []
+for s in STRAINS:
+    for award in s.get("awards") or []:
+        cup_cards.append("<article><span class='tag'>reported</span><h2><a href='/cultivars/%s.html'>%s</a></h2><p>%s</p></article>" % (e(s["slug"]), e(s["name"]), e(award)))
+local = [
+    ("New York 2026", "Doobie Labs White Widow", "High Times Cannabis Cup, Best Sativa flower", "white-widow"),
+    ("Oregon 2023", "Pruf Cultivar Jack Herer", "High Times Cannabis Cup, First Sativa flower", "jack-herer"),
+    ("Montana 2026", "Sacred Sun Farms DJ Short Blueberry preroll", "High Times Cannabis Cup, preroll placing", "blueberry"),
+]
+local_html = "".join("<article><span class='tag'>%s</span><h2>%s</h2><p>%s</p><p class='meta'>A producer using the <a href='/cultivars/%s.html'>catalog name</a>. Not the original breeder.</p></article>" % (e(a), e(b), e(c), e(d)) for a,b,c,d in local)
+write("cups.html", page("Cups", """<main>
+<p class="kicker">Awards</p>
+<h1>Cup winners.</h1>
+<p class="lede">Historical wins tied to catalog cultivars, plus a few recent local cups where a producer entered that name. Reported, not a complete cup archive.</p>
+<h2>Catalog cultivars</h2>
+<div class="grid">%s</div>
+<h2>Recent local cups</h2>
+<div class="grid">%s</div>
+</main>""" % ("".join(cup_cards), local_html)))
+
+# geography
+regions = {
+    "Central Asia": ["afghani","hindu-kush"],
+    "Southeast Asia": ["thai"],
+    "Africa": ["durban-poison","malawi"],
+    "Americas, landrace era": ["colombian-gold","acapulco-gold","panama-red"],
+    "United States": ["northern-lights-5","haze","og-kush","sour-diesel","girl-scout-cookies","gelato","wedding-cake","gorilla-glue-4","zkittlez","runtz","purple-punch","chemdawg","granddaddy-purple","blueberry"],
+    "Netherlands": ["skunk-1","white-widow","jack-herer","ak-47","amnesia-haze"],
+    "Canada / auto": ["lowryder"],
+}
+geo_cards = []
+for region, slugs in regions.items():
+    links = "".join("<li><a href='/cultivars/%s.html'>%s</a></li>" % (slug, BY_SLUG[slug]["name"]) for slug in slugs if slug in BY_SLUG)
+    geo_cards.append("<article><h2>%s</h2><ul>%s</ul></article>" % (e(region), links))
+write("geo.html", page("Places", """<main>
+<p class="kicker">Geography</p>
+<h1>Where the names come from.</h1>
+<p class="lede">Origin of the cultivar, not where it is legal to buy. Banks stay filterable on the banks page.</p>
+<div class="grid">%s</div>
+<p><a href="/suppliers/index.html">Search banks by region</a></p>
+</main>""" % "".join(geo_cards)))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
