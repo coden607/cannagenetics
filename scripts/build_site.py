@@ -183,6 +183,9 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
 <a href="/saved.html">Saved</a>
+<a href="/families.html">Families</a>
+<a href="/glossary.html">Glossary</a>
+<a href="/about.html">About</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -668,9 +671,64 @@ write("save.js", """function saveStrain(slug, name){
   localStorage.setItem(key, JSON.stringify(items));
   alert(name + " saved");
 }
+(function(){
+  const m = location.pathname.match(/\\/cultivars\\/([a-z0-9-]+)\\.html/);
+  if (!m) return;
+  const slug = m[1];
+  const name = document.querySelector("h1") ? document.querySelector("h1").textContent : slug;
+  const key = "cg-recent";
+  const items = JSON.parse(localStorage.getItem(key) || "[]").filter(s => s.slug !== slug);
+  items.unshift({slug, name});
+  localStorage.setItem(key, JSON.stringify(items.slice(0, 8)));
+})();
 """)
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+families = {
+    "Kush": ["afghani","hindu-kush","og-kush","bubba-kush"],
+    "Haze": ["haze","amnesia-haze","super-lemon-haze","super-silver-haze","purple-haze","jack-herer"],
+    "Cookies": ["girl-scout-cookies","gelato","gelato-41","wedding-cake","runtz","zkittlez"],
+    "Diesel": ["sour-diesel","chemdawg"],
+    "Skunk": ["skunk-1","cheese","critical"],
+    "Landrace": ["afghani","hindu-kush","thai","durban-poison","malawi","colombian-gold","acapulco-gold","panama-red","maui-wowie","ruderalis"],
+    "Autoflower": [s["slug"] for s in STRAINS if s["type"] in ("autoflower","ruderalis")],
+}
+fam_html = []
+for name, slugs in families.items():
+    links = "".join("<li><a href='/cultivars/%s.html'>%s</a></li>" % (slug, BY_SLUG[slug]["name"]) for slug in slugs if slug in BY_SLUG)
+    fam_html.append("<article><h2>%s</h2><ul>%s</ul></article>" % (name, links))
+write("families.html", page("Families", "<main><p class='kicker'>Lineage groups</p><h1>Families.</h1><p class='lede'>A cultivar can sit in more than one family. Claims, not proven pedigrees.</p><div class='grid'>%s</div></main>" % "".join(fam_html)))
+
+glossary = [
+    ("Indica","Broad-leaf drug type. A market label, not a species."),
+    ("Sativa","Narrow-leaf drug type. A market label, not a species."),
+    ("Hybrid","A cross of two market types."),
+    ("Ruderalis","The autoflowering wild type. The trait is recessive."),
+    ("Autoflower","A cultivar that flowers by age because it carries ruderalis."),
+    ("Landrace","A regional population kept before modern breeding."),
+    ("F1","The first generation of a cross. Not uniform unless the parents are stable."),
+    ("THC / CBD","Reported ranges in this catalog, not a lab result for one plant."),
+    ("Terpene","An aroma compound. Dominant terpenes here are reported, not assayed."),
+    ("Feminized","Seed bred to produce female plants. A seed product, not a genetic type."),
+    ("Clone","A cutting of one plant. Named only in this catalog."),
+]
+gloss = "".join("<article><h2>%s</h2><p>%s</p></article>" % (a,b) for a,b in glossary)
+write("glossary.html", page("Glossary", "<main><p class='kicker'>Terms</p><h1>Glossary.</h1><div class='grid'>%s</div></main>" % gloss))
+
+write("about.html", page("About", """<main>
+<p class="kicker">Status</p>
+<h1>What this is.</h1>
+<p class="lede">An informational genetics catalog. You compare. You leave to the supplier. We do not sell, and we do not give grow instructions.</p>
+<ul>
+<li>54 cultivars, 73 banks, 35 compounds</li>
+<li>Records are seed-v0: reported, not lab-verified</li>
+<li>Prices and checkout stay off</li>
+<li>Official bank photos stay on the bank site</li>
+</ul>
+<p><a href="/provenance.html">Provenance model</a></p>
+</main>"""))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/families.html", "/glossary.html", "/about.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
