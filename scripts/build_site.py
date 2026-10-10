@@ -115,6 +115,8 @@ article:hover,.card:hover { transform:translateY(-3px); border-color:rgba(157,25
 .gate p { color:#c9c2b3; }
 .gate button { background:linear-gradient(180deg,#f0c36a,#b8893a); color:#1a1408; border:0; font-weight:700; }
 footer { padding:32px 0 56px; color:var(--muted); font-size:13px; position:relative; z-index:1; }
+#field { position:fixed; inset:0; z-index:0; pointer-events:none; }
+article,.card { transform-style:preserve-3d; }
 table { width:100%; border-collapse:collapse; background:rgba(16,28,22,.6); border-radius:14px; overflow:hidden; }
 th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
 """
@@ -179,6 +181,43 @@ def page(title, body, extra=""):
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="/styles.css">
+<canvas id="field" aria-hidden="true"></canvas>
+<script>
+(() => {
+  const c = document.getElementById("field");
+  if (!c) return;
+  const x = c.getContext("2d");
+  const dots = Array.from({length: 70}, () => ({
+    x: Math.random(), y: Math.random(),
+    r: 1 + Math.random() * 2.2,
+    v: 0.15 + Math.random() * 0.45,
+    a: 0.15 + Math.random() * 0.45
+  }));
+  function resize(){ c.width = innerWidth; c.height = innerHeight; }
+  addEventListener("resize", resize); resize();
+  (function tick(){
+    x.clearRect(0,0,c.width,c.height);
+    for (const d of dots) {
+      d.y -= d.v / c.height;
+      if (d.y < 0) d.y = 1;
+      x.beginPath();
+      x.fillStyle = `rgba(94,224,160,${d.a})`;
+      x.arc(d.x * c.width, d.y * c.height, d.r, 0, 6.28);
+      x.fill();
+    }
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll("article, .card").forEach(el => {
+    el.addEventListener("mousemove", ev => {
+      const b = el.getBoundingClientRect();
+      const rx = ((ev.clientY - b.top) / b.height - 0.5) * -8;
+      const ry = ((ev.clientX - b.left) / b.width - 0.5) * 10;
+      el.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+    });
+    el.addEventListener("mouseleave", () => { el.style.transform = ""; });
+  });
+})();
+</script>
 </head><body>
 {GATE}{NAV}{body}
 <footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
