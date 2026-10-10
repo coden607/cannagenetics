@@ -1,0 +1,1075 @@
+[
+  {
+    "name": "Seedsman",
+    "slug": "seedsman",
+    "type": "retailer",
+    "region": "UK",
+    "specialty": "huge multi-breeder catalog, house brand",
+    "ships_to": "worldwide (restrictions apply)",
+    "notable_lines": [
+      "Seedsman Originals"
+    ],
+    "source": "https://www.seedsman.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Sensi Seeds",
+    "slug": "sensi-seeds",
+    "type": "bank",
+    "region": "Netherlands",
+    "specialty": "heritage NL genetics, landrace preservation",
+    "ships_to": "EU-focused",
+    "notable_lines": [
+      "Skunk #1",
+      "Northern Lights",
+      "Haze lines"
+    ],
+    "source": "https://sensiseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Dutch Passion",
+    "slug": "dutch-passion",
+    "type": "bank",
+    "region": "Netherlands",
+    "specialty": "early autoflower pioneers, classics",
+    "ships_to": "EU + international",
+    "notable_lines": [
+      "Blueberry",
+      "Mazar",
+      "Auto collection"
+    ],
+    "source": "https://www.dutch-passion.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Barney's Farm",
+    "slug": "barnys-farm",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "cup-winning hybrids",
+    "ships_to": "international",
+    "notable_lines": [
+      "Pineapple Chunk",
+      "Gorilla Zkittlez",
+      "Runtz Muffin"
+    ],
+    "source": "https://www.barneysfarm.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Royal Queen Seeds",
+    "slug": "royal-queen-seeds",
+    "type": "bank",
+    "region": "Spain/Netherlands",
+    "specialty": "beginner-friendly, big catalog",
+    "ships_to": "EU + US",
+    "notable_lines": [
+      "Amnesia Haze",
+      "Northern Light",
+      "Fat Banana"
+    ],
+    "source": "https://www.royalqueenseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "FastBuds",
+    "slug": "fastbuds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "autoflowers",
+    "ships_to": "international",
+    "notable_lines": [
+      "Gorilla Glue Auto",
+      "Zkittlez Auto"
+    ],
+    "source": "https://fastbuds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Mephisto Genetics",
+    "slug": "mephisto-genetics",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "artisan autoflowers, limited drops",
+    "ships_to": "direct-store model",
+    "notable_lines": [
+      "Sour Stomper",
+      "Forum Stomper",
+      "Double Grape"
+    ],
+    "source": "https://www.mephisto-genetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Humboldt Seed Company",
+    "slug": "humboldt-seed-company",
+    "type": "breeder",
+    "region": "USA (California)",
+    "specialty": "NorCal heritage, high-THC + CBD lines",
+    "ships_to": "US (legal states)",
+    "notable_lines": [
+      "Pineapple Upside Down Cake",
+      "Magic Melon",
+      "Blueberry Muffin"
+    ],
+    "source": "https://humboldtseedcompany.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Ethos Genetics",
+    "slug": "ethos-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "hybrid vigor, dessert lines",
+    "ships_to": "US (legal states)",
+    "notable_lines": [
+      "Planet of the Grapes",
+      "Mandarin Cookies"
+    ],
+    "source": "https://ethosgenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Exotic Genetix",
+    "slug": "exotic-genetix",
+    "type": "breeder",
+    "region": "USA (Washington)",
+    "specialty": "flavor-forward hybrids",
+    "ships_to": "US (legal states)",
+    "notable_lines": [
+      "Grease Monkey",
+      "Kimbo Kush"
+    ],
+    "source": "https://exoticgenetix.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Seed Junky Genetics",
+    "slug": "seed-junky",
+    "type": "breeder",
+    "region": "USA (California)",
+    "specialty": "OG/gas lines, cup winners",
+    "ships_to": "US (legal states)",
+    "notable_lines": [
+      "Wedding Cake",
+      "Kush Mints"
+    ],
+    "source": "https://seedjunkygenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Jungle Boys",
+    "slug": "jungle-boys",
+    "type": "breeder",
+    "region": "USA (California)",
+    "specialty": "cultivar drops from retail brand",
+    "ships_to": "US (legal states)",
+    "notable_lines": [
+      "Jungle Cake",
+      "Strawberries & Cream"
+    ],
+    "source": "https://jungleboys.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Nirvana Seeds",
+    "slug": "nirvana-seeds",
+    "type": "bank",
+    "region": "Netherlands",
+    "specialty": "classics, value pricing",
+    "ships_to": "international",
+    "notable_lines": [
+      "AK-48",
+      "Wonder Woman"
+    ],
+    "source": "https://www.nirvanashop.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "MSNL",
+    "slug": "msnl",
+    "type": "bank",
+    "region": "UK",
+    "specialty": "since-1999 catalog",
+    "ships_to": "international",
+    "notable_lines": [
+      "White Widow",
+      "Super Lemon Haze"
+    ],
+    "source": "https://www.marijuana-seeds.nl",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "ILGM (I Love Growing Marijuana)",
+    "slug": "ilgm",
+    "type": "bank",
+    "region": "Netherlands",
+    "specialty": "beginner focus, guarantees",
+    "ships_to": "US + Australia focus",
+    "notable_lines": [
+      "White Widow autoflower",
+      "Gold Leaf"
+    ],
+    "source": "https://ilgm.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Crop King Seeds",
+    "slug": "crop-king-seeds",
+    "type": "bank",
+    "region": "Canada",
+    "specialty": "Canadian market, retail stores",
+    "ships_to": "Canada + international",
+    "notable_lines": [
+      "White Widow",
+      "Early Miss"
+    ],
+    "source": "https://www.cropkingseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Attitude Seed Bank",
+    "slug": "attitude-seed-bank",
+    "type": "retailer",
+    "region": "UK",
+    "specialty": "multi-breeder mega-catalog",
+    "ships_to": "international",
+    "notable_lines": [
+      "promos/freebies"
+    ],
+    "source": "https://www.cannabis-seeds-store.co.uk",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Herbies",
+    "slug": "herbies",
+    "type": "retailer",
+    "region": "Spain",
+    "specialty": "multi-breeder, EU focus",
+    "ships_to": "EU + more",
+    "notable_lines": [
+      "house promos"
+    ],
+    "source": "https://herbiesheadshop.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "SeedsHereNow",
+    "slug": "seeds-here-now",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US breeder drops",
+    "ships_to": "US",
+    "notable_lines": [
+      "limited US releases"
+    ],
+    "source": "https://seedsherenow.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Ace Seeds",
+    "slug": "ace-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "landraces + heirloom preservation",
+    "ships_to": "international",
+    "notable_lines": [
+      "Malawi",
+      "Thai strains",
+      "Central American lines"
+    ],
+    "source": "https://aceseeds.org",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Bodhi Seeds",
+    "slug": "bodhi-seeds",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "organic breeding, rare crosses",
+    "ships_to": "limited drops",
+    "notable_lines": [
+      "Goji OG",
+      "Space Monkey"
+    ],
+    "source": "https://bodhiseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "DNA Genetics",
+    "slug": "dna-genetics",
+    "type": "breeder",
+    "region": "USA/Netherlands",
+    "specialty": "award classics",
+    "ships_to": "international",
+    "notable_lines": [
+      "LA Confidential",
+      "Chocolope"
+    ],
+    "source": "https://dnagenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Serious Seeds",
+    "slug": "serious-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "small stable catalog",
+    "ships_to": "international",
+    "notable_lines": [
+      "AK-47",
+      "White Russian"
+    ],
+    "source": "https://seriousseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-05"
+  },
+  {
+    "name": "Green House Seeds",
+    "slug": "green-house-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "cup classics, Super Lemon Haze, White Widow",
+    "ships_to": "EU, not US",
+    "notable_lines": [
+      "Super Lemon Haze",
+      "White Widow",
+      "Exodus Cheese"
+    ],
+    "source": "https://shop.greenhouseseeds.nl",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Paradise Seeds",
+    "slug": "paradise-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "Amsterdam classics since 1994",
+    "ships_to": "international",
+    "notable_lines": [
+      "Sensi Star",
+      "White Widow"
+    ],
+    "source": "https://www.paradise-seeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Sweet Seeds",
+    "slug": "sweet-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "F1 Fast Version, Red Family",
+    "ships_to": "international",
+    "notable_lines": [
+      "Green Poison",
+      "Jack 47"
+    ],
+    "source": "https://sweetseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Kannabia",
+    "slug": "kannabia",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "Granada breeder since 2009",
+    "ships_to": "international",
+    "notable_lines": [
+      "Moby Dick",
+      "Colombian Jack"
+    ],
+    "source": "https://www.kannabia.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Zamnesia",
+    "slug": "zamnesia",
+    "type": "retailer",
+    "region": "Netherlands",
+    "specialty": "large multi-breeder EU retailer, house line",
+    "ships_to": "EU + US shop",
+    "notable_lines": [
+      "Zamnesia Seeds"
+    ],
+    "source": "https://www.zamnesia.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Delicious Seeds",
+    "slug": "delicious-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "Spanish breeder-retailer",
+    "ships_to": "international",
+    "notable_lines": [
+      "house catalog"
+    ],
+    "source": "https://www.deliciousseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Archive Seed Bank",
+    "slug": "archive-seed-bank",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "clone-only classics, Dosidos, Moonbow",
+    "ships_to": "US",
+    "notable_lines": [
+      "Dosidos",
+      "Moonbow"
+    ],
+    "source": "https://archiveseedbank.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "North Atlantic Seed Company",
+    "slug": "north-atlantic-seed",
+    "type": "retailer",
+    "region": "USA (Maine)",
+    "specialty": "US multi-breeder shop, ships 50 states",
+    "ships_to": "US",
+    "notable_lines": [
+      "curated US and EU breeders"
+    ],
+    "source": "https://www.northatlanticseed.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Neptune Seed Bank",
+    "slug": "neptune-seed-bank",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US hype and craft breeder drops",
+    "ships_to": "US",
+    "notable_lines": [
+      "Cannarado",
+      "Raw Genetics",
+      "Umami"
+    ],
+    "source": "https://neptuneseedbank.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Mr. Nice Seedbank",
+    "slug": "mr-nice",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "Shantibaba heritage lines",
+    "ships_to": "international",
+    "notable_lines": [
+      "Neville's Haze",
+      "Super Silver Haze"
+    ],
+    "source": "https://www.mrnice.nl",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Soma Seeds",
+    "slug": "soma-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "NYC Diesel and haze work",
+    "ships_to": "international",
+    "notable_lines": [
+      "NYC Diesel",
+      "Lavender"
+    ],
+    "source": "https://www.somaseeds.nl",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Female Seeds",
+    "slug": "female-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "early feminized specialists",
+    "ships_to": "international",
+    "notable_lines": [
+      "C99",
+      "Power Plant"
+    ],
+    "source": "https://www.femaleseeds.nl",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "World of Seeds",
+    "slug": "world-of-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "landrace preservation",
+    "ships_to": "international",
+    "notable_lines": [
+      "Afghan Kush",
+      "Pakistan Valley"
+    ],
+    "source": "https://www.worldofseeds.eu",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Seedstockers",
+    "slug": "seedstockers",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "fast feminized lines",
+    "ships_to": "international",
+    "notable_lines": [
+      "BCN Critical",
+      "Gelato"
+    ],
+    "source": "https://www.seedstockers.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Silent Seeds",
+    "slug": "silent-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "US-style dessert lines from EU",
+    "ships_to": "international",
+    "notable_lines": [
+      "Critical",
+      "Gelato"
+    ],
+    "source": "https://www.silentseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Ripper Seeds",
+    "slug": "ripper-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "high-THC Spanish breeding",
+    "ships_to": "international",
+    "notable_lines": [
+      "Zombie Kush",
+      "Ripper Haze"
+    ],
+    "source": "https://www.ripperseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Buddha Seeds",
+    "slug": "buddha-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "autoflower and fast lines",
+    "ships_to": "international",
+    "notable_lines": [
+      "Magnum",
+      "Deimos"
+    ],
+    "source": "https://www.buddhaseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Ministry of Cannabis",
+    "slug": "ministry-of-cannabis",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "Spanish catalog breeder",
+    "ships_to": "international",
+    "notable_lines": [
+      "house catalog"
+    ],
+    "source": "https://www.ministryofcannabis.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Philosopher Seeds",
+    "slug": "philosopher-seeds",
+    "type": "breeder",
+    "region": "Spain",
+    "specialty": "Spanish breeding collective",
+    "ships_to": "international",
+    "notable_lines": [
+      "Black Domina",
+      "Early Maroc"
+    ],
+    "source": "https://www.philosopherseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "True North Seed Bank",
+    "slug": "true-north-seed-bank",
+    "type": "retailer",
+    "region": "Canada",
+    "specialty": "Canadian multi-breeder retailer",
+    "ships_to": "Canada + international",
+    "notable_lines": [
+      "US and EU breeders"
+    ],
+    "source": "https://truenorthseedbank.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Next Generation Seed Company",
+    "slug": "next-generation",
+    "type": "breeder",
+    "region": "Canada",
+    "specialty": "Canadian breeding, Island Sweet Skunk work",
+    "ships_to": "Canada",
+    "notable_lines": [
+      "Island Sweet Skunk"
+    ],
+    "source": "https://www.nextgenerationseedcompany.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Jordan of the Islands",
+    "slug": "jordan-of-the-islands",
+    "type": "breeder",
+    "region": "Canada",
+    "specialty": "BC heritage breeding",
+    "ships_to": "Canada",
+    "notable_lines": [
+      "God Bud",
+      "Rockstar"
+    ],
+    "source": "https://jordanofislands.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Night Owl Seeds",
+    "slug": "night-owl",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "boutique autoflowers",
+    "ships_to": "US",
+    "notable_lines": [
+      "Marathon",
+      "Galaxy Brain"
+    ],
+    "source": "https://nightowlseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "In House Genetics",
+    "slug": "in-house-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "limited dessert and gas drops",
+    "ships_to": "US",
+    "notable_lines": [
+      "Slurricane",
+      "Platinum"
+    ],
+    "source": "https://inhousegenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Compound Genetics",
+    "slug": "compound-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "Jet Fuel Gelato and dessert lines",
+    "ships_to": "US",
+    "notable_lines": [
+      "Jet Fuel Gelato"
+    ],
+    "source": "https://compoundgenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Cannarado Genetics",
+    "slug": "cannarado",
+    "type": "breeder",
+    "region": "USA (Colorado)",
+    "specialty": "selection-driven dessert hybrids",
+    "ships_to": "US",
+    "notable_lines": [
+      "Grape Pie",
+      "Sundae Driver"
+    ],
+    "source": "https://neptuneseedbank.com/brand/cannarado-genetics/",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Humboldt CSI",
+    "slug": "humboldt-csi",
+    "type": "breeder",
+    "region": "USA (California)",
+    "specialty": "preservation and breeding projects",
+    "ships_to": "US",
+    "notable_lines": [
+      "preservation lines"
+    ],
+    "source": "https://humboldtcsi.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Solfire Gardens",
+    "slug": "solfire-gardens",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "limited West Coast feminized drops",
+    "ships_to": "US",
+    "notable_lines": [
+      "Mind Flayer",
+      "Bahama Mama"
+    ],
+    "source": "https://solfiregardens.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Umami Seed Company",
+    "slug": "umami-seed-co",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "flavor-forward US breeding",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://umamiseedco.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Raw Genetics",
+    "slug": "raw-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "US craft breeding",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://rawgenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Lit Farms",
+    "slug": "lit-farms",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "cookie and gelato family work",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://litfarms.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Thug Pug Genetics",
+    "slug": "thug-pug",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "Peanut Butter Breath and dessert lines",
+    "ships_to": "US",
+    "notable_lines": [
+      "Peanut Butter Breath"
+    ],
+    "source": "https://thugpuggenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Capulator",
+    "slug": "capulator",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "MAC and Cap's Cut work",
+    "ships_to": "US",
+    "notable_lines": [
+      "MAC"
+    ],
+    "source": "https://capulator.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Symbiotic Genetics",
+    "slug": "symbiotic-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "US craft breeding",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://symbioticgenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Clearwater Genetics",
+    "slug": "clearwater-genetics",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "US craft breeding",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://clearwatergenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Oni Seed Co",
+    "slug": "oni-seed-co",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "US craft breeding",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://oniseedco.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Freeborn Selections",
+    "slug": "freeborn-selections",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "US craft selections",
+    "ships_to": "US",
+    "notable_lines": [
+      "house drops"
+    ],
+    "source": "https://freebornselections.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Kind Seed Co",
+    "slug": "kind-seed-co",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US retailer of EU and US genetics",
+    "ships_to": "US",
+    "notable_lines": [
+      "multi-breeder"
+    ],
+    "source": "https://kindseed.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Homegrown Cannabis Co",
+    "slug": "homegrown-cannabis-co",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US-facing catalog retailer",
+    "ships_to": "US",
+    "notable_lines": [
+      "house and partner lines"
+    ],
+    "source": "https://homegrowncannabisco.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Seed Supreme",
+    "slug": "seed-supreme",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US seed retailer",
+    "ships_to": "US",
+    "notable_lines": [
+      "multi-breeder"
+    ],
+    "source": "https://seedsupreme.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Pacific Seed Bank",
+    "slug": "pacific-seed-bank",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US seed retailer",
+    "ships_to": "US",
+    "notable_lines": [
+      "multi-breeder"
+    ],
+    "source": "https://pacificseedbank.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Multiverse Beans",
+    "slug": "multiverse-beans",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "US multi-breeder retailer",
+    "ships_to": "US",
+    "notable_lines": [
+      "craft breeders"
+    ],
+    "source": "https://multiversebeans.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Great Lakes Genetics",
+    "slug": "great-lakes-genetics",
+    "type": "retailer",
+    "region": "USA",
+    "specialty": "long-standing US seed source",
+    "ships_to": "US",
+    "notable_lines": [
+      "multi-breeder"
+    ],
+    "source": "https://greatlakesgenetics.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Seed City",
+    "slug": "seed-city",
+    "type": "retailer",
+    "region": "United Kingdom",
+    "specialty": "UK multi-breeder retailer",
+    "ships_to": "international",
+    "notable_lines": [
+      "EU and US breeders"
+    ],
+    "source": "https://www.seed-city.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Mediseed Man",
+    "slug": "mediseed-man",
+    "type": "retailer",
+    "region": "Australia",
+    "specialty": "Australian seed retailer",
+    "ships_to": "Australia",
+    "notable_lines": [
+      "imported genetics"
+    ],
+    "source": "https://mediseedman.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Mandala Seeds",
+    "slug": "mandala-seeds",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "landrace and outdoor lines",
+    "ships_to": "international",
+    "notable_lines": [
+      "Satori",
+      "Kalichakra"
+    ],
+    "source": "https://www.mandalaseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Positronics",
+    "slug": "positronics",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "heritage Dutch breeding",
+    "ships_to": "international",
+    "notable_lines": [
+      "Northern Lights",
+      "Skunk"
+    ],
+    "source": "https://www.positronicsseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Sagarmatha",
+    "slug": "sagarmatha",
+    "type": "breeder",
+    "region": "Netherlands",
+    "specialty": "heritage Dutch breeding",
+    "ships_to": "international",
+    "notable_lines": [
+      "Matanuska Tundra"
+    ],
+    "source": "https://www.sagarmathaseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "BC Bud Depot",
+    "slug": "bc-bud-depot",
+    "type": "breeder",
+    "region": "Canada",
+    "specialty": "BC breeding",
+    "ships_to": "Canada + international",
+    "notable_lines": [
+      "God Bud",
+      "BC God Bud"
+    ],
+    "source": "https://www.bcbuddepot.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  },
+  {
+    "name": "Brothers Grimm",
+    "slug": "brothers-grimm",
+    "type": "breeder",
+    "region": "USA",
+    "specialty": "Cinderella 99 and preservation",
+    "ships_to": "US",
+    "notable_lines": [
+      "Cinderella 99"
+    ],
+    "source": "https://brothersgrimmseeds.com",
+    "verify_status": "seed-v0",
+    "last_checked": "2026-10-10"
+  }
+]

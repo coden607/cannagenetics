@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Symbiotic Genetics</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main>
+<p class="kicker">breeder</p><h1>Symbiotic Genetics</h1>
+<p class="lede">USA · ships: US</p>
+<div class="card"><p>US craft breeding</p><p>Notable lines: house drops</p><p>Checked 2026-10-10 · seed-v0</p><p><a href="https://symbioticgenetics.com" rel="noopener noreferrer">Official site</a></p></div>
+<h2>In this catalog</h2><ul><li>No catalogued cultivars yet.</li></ul></main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+</body></html>

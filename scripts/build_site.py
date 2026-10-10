@@ -8,7 +8,7 @@ from pathlib import Path
 DATA = Path("/tmp/cgdata")
 ROOT = Path("/tmp/cannagenetics/web")
 STRAINS = json.loads((DATA / "strains.json").read_text())
-BANKS = json.loads((DATA / "seedbanks.json").read_text())
+BANKS = json.loads(Path("/tmp/cannagenetics/web/data/suppliers.json").read_text())
 COMPOUNDS = json.loads((DATA / "compounds.json").read_text())
 SOURCES = json.loads((DATA / "sources.json").read_text())
 PHENO = json.loads((DATA / "pheno_reports.json").read_text())
@@ -311,8 +311,23 @@ write("provenance.html", page("Provenance", f"""<main><h1>Provenance</h1>
 # suppliers
 bank_cards = []
 for b in BANKS:
-    bank_cards.append("<article><span class='tag'>%s</span><h2><a href='/suppliers/%s.html'>%s</a></h2><p class='meta'>%s</p></article>" % (e(b["type"]), e(b["slug"]), e(b["name"]), e(b["region"])))
-write("suppliers/index.html", page("Seed banks", "<main><h1>Seed banks and breeders</h1><div class='grid'>%s</div></main>" % "".join(bank_cards)))
+    bank_cards.append("<article data-region='%s'><span class='tag'>%s</span><h2><a href='/suppliers/%s.html'>%s</a></h2><p class='meta'>%s · %s</p></article>" % (e(b["region"].split(" (")[0]), e(b["type"]), e(b["slug"]), e(b["name"]), e(b["region"]), e(b.get("ships_to",""))))
+regions = sorted({b["region"].split(" (")[0] for b in BANKS})
+region_buttons = "".join("<button class='chip' data-region='%s' type='button'>%s</button>" % (e(r), e(r)) for r in regions)
+write("suppliers/index.html", page("Seed banks", """<main><h1>Seed banks and breeders</h1>
+<p class='lede'>%d major suppliers across %d regions. Official sites only. Seed-v0, not a complete census of every small breeder.</p>
+<div class='bar'><button class='chip on' data-region='all' type='button'>all</button>%s</div>
+<div class='grid' id='banks'>%s</div></main>
+<script>
+let region = "all";
+document.querySelectorAll("[data-region]").forEach(btn => btn.onclick = () => {
+  region = btn.dataset.region;
+  document.querySelectorAll("[data-region]").forEach(b => b.classList.toggle("on", b === btn));
+  document.querySelectorAll("#banks article").forEach(el => {
+    el.style.display = (region === "all" || el.dataset.region === region) ? "" : "none";
+  });
+});
+</script>""" % (len(BANKS), len(regions), region_buttons, "".join(bank_cards))))
 for b in BANKS:
     carried = [s for s in STRAINS if b["slug"] in s.get("available_at_seedbanks", [])]
     items = "".join(f"<li><a href='/cultivars/{e(s['slug'])}.html'>{e(s['name'])}</a></li>" for s in carried) or "<li>No catalogued cultivars yet.</li>"
