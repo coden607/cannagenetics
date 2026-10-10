@@ -1,0 +1,466 @@
+[
+  {
+    "name": "Super Lemon Haze",
+    "slug": "super-lemon-haze",
+    "type": "sativa",
+    "lineage_parents": [
+      "Super Silver Haze",
+      "Lemon Skunk"
+    ],
+    "origin": "Netherlands, Green House Seeds",
+    "breeders_known": [
+      "Green House Seeds"
+    ],
+    "typical_thc_pct": [
+      18,
+      25
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Limonene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup, multiple sativa wins (reported)"
+    ],
+    "available_at_seedbanks": [
+      "green-house-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Super Silver Haze",
+    "slug": "super-silver-haze",
+    "type": "sativa",
+    "lineage_parents": [
+      "Skunk",
+      "Northern Lights",
+      "Haze"
+    ],
+    "origin": "Netherlands",
+    "breeders_known": [
+      "Green House Seeds"
+    ],
+    "typical_thc_pct": [
+      18,
+      23
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Limonene"
+    ],
+    "awards": [
+      "High Times Cannabis Cup sativa wins, 1990s (reported)"
+    ],
+    "available_at_seedbanks": [
+      "green-house-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Blue Dream",
+    "slug": "blue-dream",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Blueberry",
+      "Haze"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "community / Santa Cruz"
+    ],
+    "typical_thc_pct": [
+      17,
+      24
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Cheese",
+    "slug": "cheese",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Skunk #1"
+    ],
+    "origin": "United Kingdom / Netherlands",
+    "breeders_known": [
+      "Exodus collective (reported)"
+    ],
+    "typical_thc_pct": [
+      16,
+      22
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "green-house-seeds",
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Critical",
+    "slug": "critical",
+    "type": "indica",
+    "lineage_parents": [
+      "Afghani",
+      "Skunk"
+    ],
+    "origin": "Spain",
+    "breeders_known": [
+      "Spanish breeders"
+    ],
+    "typical_thc_pct": [
+      16,
+      22
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "silent-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Bruce Banner",
+    "slug": "bruce-banner",
+    "type": "hybrid",
+    "lineage_parents": [
+      "OG Kush",
+      "Strawberry Diesel"
+    ],
+    "origin": "USA",
+    "breeders_known": [
+      "Dark Horse Genetics (reported)"
+    ],
+    "typical_thc_pct": [
+      20,
+      29
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Pineapple Express",
+    "slug": "pineapple-express",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Trainwreck",
+      "Hawaiian"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "community"
+    ],
+    "typical_thc_pct": [
+      17,
+      25
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "herbies"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Bubba Kush",
+    "slug": "bubba-kush",
+    "type": "indica",
+    "lineage_parents": [
+      "OG Kush",
+      "unknown indica"
+    ],
+    "origin": "Florida / California USA",
+    "breeders_known": [
+      "community"
+    ],
+    "typical_thc_pct": [
+      15,
+      22
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Do-Si-Dos",
+    "slug": "do-si-dos",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Girl Scout Cookies",
+      "Face Off OG"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "Archive Seed Bank (reported)"
+    ],
+    "typical_thc_pct": [
+      20,
+      28
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "archive-seed-bank",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "MAC",
+    "slug": "mac",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Alien Cookies",
+      "Miracle 15"
+    ],
+    "origin": "USA",
+    "breeders_known": [
+      "Capulator"
+    ],
+    "typical_thc_pct": [
+      20,
+      26
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Purple Haze",
+    "slug": "purple-haze",
+    "type": "sativa",
+    "lineage_parents": [
+      "Haze",
+      "Purple Thai"
+    ],
+    "origin": "California / Netherlands",
+    "breeders_known": [
+      "community"
+    ],
+    "typical_thc_pct": [
+      16,
+      22
+    ],
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman",
+      "sensi-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "color": "purple",
+    "ruderalis": false
+  },
+  {
+    "name": "Green Crack",
+    "slug": "green-crack",
+    "type": "sativa",
+    "lineage_parents": [
+      "Skunk #1"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "community"
+    ],
+    "typical_thc_pct": [
+      17,
+      24
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Permanent Marker",
+    "slug": "permanent-marker",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Biscotti",
+      "Jealousy",
+      "Sherbet"
+    ],
+    "origin": "USA, Seed Junky Genetics",
+    "breeders_known": [
+      "Seed Junky Genetics"
+    ],
+    "typical_thc_pct": [
+      22,
+      30
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seed-junky",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "Apple Fritter",
+    "slug": "apple-fritter",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Sour Apple",
+      "Animal Cookies"
+    ],
+    "origin": "USA",
+    "breeders_known": [
+      "Lumpy's Flowers (reported)"
+    ],
+    "typical_thc_pct": [
+      20,
+      28
+    ],
+    "dominant_terpenes": [
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": false
+  },
+  {
+    "name": "RS11",
+    "slug": "rs11",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Pink Guava",
+      "Sunset Sherbet"
+    ],
+    "origin": "California USA",
+    "breeders_known": [
+      "Wizard Trees / community"
+    ],
+    "typical_thc_pct": [
+      20,
+      28
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "color": "purple",
+    "ruderalis": false
+  },
+  {
+    "name": "Ruderalis",
+    "slug": "ruderalis",
+    "type": "ruderalis",
+    "lineage_parents": [],
+    "origin": "Central Asia / Russia, landrace",
+    "breeders_known": [
+      "landrace (traditional)"
+    ],
+    "typical_thc_pct": [
+      3,
+      8
+    ],
+    "dominant_terpenes": [
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [],
+    "verify_status": "seed-v0",
+    "color": "green",
+    "ruderalis": true
+  }
+]

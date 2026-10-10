@@ -586,5 +586,341 @@
     "difficulty": "easy",
     "height": "short",
     "climate": "indoor / short season"
+  },
+  "super-lemon-haze": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      500,
+      650
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "indoor"
+  },
+  "super-silver-haze": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      11
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      450,
+      600
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "indoor"
+  },
+  "blue-dream": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      450,
+      600
+    ],
+    "difficulty": "easy",
+    "height": "tall",
+    "climate": "temperate"
+  },
+  "cheese": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "temperate"
+  },
+  "critical": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      500,
+      650
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "temperate"
+  },
+  "bruce-banner": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      450,
+      600
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "indoor"
+  },
+  "pineapple-express": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "warm"
+  },
+  "bubba-kush": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      7,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "do-si-dos": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "mac": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "purple-haze": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      11
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "green-crack": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      7,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      450,
+      600
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "warm"
+  },
+  "permanent-marker": {
+    "cbd": [
+      0.1,
+      0.2
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "apple-fritter": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "rs11": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "ruderalis": {
+    "cbd": [
+      0.2,
+      1.0
+    ],
+    "flower": [
+      5,
+      7
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      50,
+      150
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "short season"
   }
 }

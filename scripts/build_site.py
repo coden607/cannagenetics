@@ -8,6 +8,14 @@ from pathlib import Path
 DATA = Path("/tmp/cgdata")
 ROOT = Path("/tmp/cannagenetics/web")
 STRAINS = json.loads((DATA / "strains.json").read_text())
+EXTRA = json.loads(Path("/tmp/cannagenetics/web/data/popular.json").read_text())
+COLORS = json.loads(Path("/tmp/cannagenetics/web/data/colors.json").read_text())
+have = {s["slug"] for s in STRAINS}
+STRAINS.extend([s for s in EXTRA if s["slug"] not in have])
+for s in STRAINS:
+    s["color"] = s.get("color") or COLORS.get(s["slug"], "green")
+    s["ruderalis"] = s.get("ruderalis", s.get("type") == "autoflower")
+
 BANKS = json.loads(Path("/tmp/cannagenetics/web/data/suppliers.json").read_text())
 COMPOUNDS = json.loads((DATA / "compounds.json").read_text())
 SOURCES = json.loads((DATA / "sources.json").read_text())
@@ -203,7 +211,7 @@ write("styles.css", CSS)
 cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
-    cards.append(f"""<article data-type="{e(s['type'])}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
+    cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
@@ -226,6 +234,8 @@ index = page("CannaGenetics — worldwide genetics catalog", f"""
 <button class="chip" data-type="sativa" type="button">sativa</button>
 <button class="chip" data-type="hybrid" type="button">hybrid</button>
 <button class="chip" data-type="autoflower" type="button">autoflower</button>
+<button class="chip" data-type="ruderalis" type="button">ruderalis</button>
+<button class="chip" data-type="purple" type="button">purple</button>
 </div>
 <div class="grid" id="grid">{''.join(cards)}</div>
 <h2>Start with the landraces</h2>
@@ -240,7 +250,7 @@ function render() {{
   if (ALIAS[query]) query = ALIAS[query].replaceAll("-", " ");
   document.querySelectorAll("#grid article").forEach(el => {{
     const blob = el.dataset.name + " " + el.dataset.terps;
-    const ok = (type === "all" || el.dataset.type === type) && (!query || blob.includes(query));
+    const ok = (type === "all" || el.dataset.type === type || el.dataset.color === type) && (!query || blob.includes(query));
     el.style.display = ok ? "" : "none";
   }});
 }}
@@ -285,6 +295,7 @@ for s in STRAINS:
 <p><strong>Reported flower:</strong> {TRAITS.get(s['slug'],{}).get('flower',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('flower',['—','—'])[1]} weeks</p>
 <p><strong>Typical veg:</strong> {('included in the auto cycle' if TRAITS.get(s['slug'],{}).get('veg')==[0,0] else str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[0])+'–'+str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[1])+' weeks, grower-set')}</p>
 <p><strong>Reported indoor yield:</strong> {TRAITS.get(s['slug'],{}).get('yield',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('yield',['—','—'])[1]} g/m²</p>
+<p><strong>Reported color:</strong> {s.get("color","green")}</p>
 <p><strong>Difficulty / height / climate:</strong> {TRAITS.get(s['slug'],{}).get('difficulty','—')} · {TRAITS.get(s['slug'],{}).get('height','—')} · {TRAITS.get(s['slug'],{}).get('climate','—')}</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
