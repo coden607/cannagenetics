@@ -1,0 +1,590 @@
+{
+  "afghani": {
+    "cbd": [
+      0.1,
+      0.6
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor / temperate"
+  },
+  "hindu-kush": {
+    "cbd": [
+      0.1,
+      0.6
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      450
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor / temperate"
+  },
+  "thai": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      10,
+      14
+    ],
+    "veg": [
+      4,
+      8
+    ],
+    "yield": [
+      300,
+      450
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "durban-poison": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      8,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "warm"
+  },
+  "colombian-gold": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      9,
+      11
+    ],
+    "veg": [
+      4,
+      7
+    ],
+    "yield": [
+      300,
+      450
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "acapulco-gold": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      9,
+      11
+    ],
+    "veg": [
+      4,
+      7
+    ],
+    "yield": [
+      300,
+      450
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "panama-red": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      9,
+      12
+    ],
+    "veg": [
+      4,
+      7
+    ],
+    "yield": [
+      250,
+      400
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "malawi": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      10,
+      14
+    ],
+    "veg": [
+      4,
+      8
+    ],
+    "yield": [
+      300,
+      450
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "northern-lights-5": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor / temperate"
+  },
+  "haze": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      10,
+      14
+    ],
+    "veg": [
+      4,
+      8
+    ],
+    "yield": [
+      350,
+      500
+    ],
+    "difficulty": "advanced",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "skunk-1": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "temperate"
+  },
+  "white-widow": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      4,
+      6
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "temperate"
+  },
+  "blueberry": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      7,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      350,
+      450
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor / temperate"
+  },
+  "og-kush": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "sour-diesel": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      11
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "indoor"
+  },
+  "girl-scout-cookies": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      9,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "gelato": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "wedding-cake": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      7,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      450,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "gorilla-glue-4": {
+    "cbd": [
+      0.05,
+      0.2
+    ],
+    "flower": [
+      8,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      450,
+      600
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "zkittlez": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "runtz": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "purple-punch": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor"
+  },
+  "chemdawg": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "moderate",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "jack-herer": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      10
+    ],
+    "veg": [
+      3,
+      6
+    ],
+    "yield": [
+      450,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "temperate"
+  },
+  "ak-47": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      7,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "temperate"
+  },
+  "granddaddy-purple": {
+    "cbd": [
+      0.1,
+      0.4
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "veg": [
+      3,
+      5
+    ],
+    "yield": [
+      400,
+      500
+    ],
+    "difficulty": "easy",
+    "height": "medium",
+    "climate": "indoor"
+  },
+  "amnesia-haze": {
+    "cbd": [
+      0.1,
+      0.3
+    ],
+    "flower": [
+      10,
+      12
+    ],
+    "veg": [
+      4,
+      7
+    ],
+    "yield": [
+      450,
+      550
+    ],
+    "difficulty": "moderate",
+    "height": "tall",
+    "climate": "warm"
+  },
+  "lowryder": {
+    "cbd": [
+      0.1,
+      0.5
+    ],
+    "flower": [
+      7,
+      8
+    ],
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      200,
+      350
+    ],
+    "difficulty": "easy",
+    "height": "short",
+    "climate": "indoor / short season"
+  }
+}

@@ -13,6 +13,7 @@ COMPOUNDS = json.loads((DATA / "compounds.json").read_text())
 SOURCES = json.loads((DATA / "sources.json").read_text())
 PHENO = json.loads((DATA / "pheno_reports.json").read_text())
 BANK = {b["slug"]: b for b in BANKS}
+TRAITS = json.loads(Path("/tmp/cannagenetics/web/data/traits.json").read_text())
 
 ALIASES = {
     "gg4": "gorilla-glue-4",
@@ -278,6 +279,12 @@ for s in STRAINS:
 <p><strong>Breeders known:</strong> {e(', '.join(s.get('breeders_known') or []))}</p>
 <p><strong>Reported THC:</strong> {s['typical_thc_pct'][0]}–{s['typical_thc_pct'][1]}%. Not a lab result.</p>
 <p><strong>Dominant terpenes:</strong> {', '.join(terp_links) or '—'}</p>
+<p><strong>Reported CBD:</strong> {TRAITS.get(s['slug'],{}).get('cbd',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('cbd',['—','—'])[1]}%</p>
+<p><strong>Reported flower:</strong> {TRAITS.get(s['slug'],{}).get('flower',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('flower',['—','—'])[1]} weeks</p>
+<p><strong>Typical veg:</strong> {('included in the auto cycle' if TRAITS.get(s['slug'],{}).get('veg')==[0,0] else str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[0])+'–'+str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[1])+' weeks, grower-set')}</p>
+<p><strong>Reported indoor yield:</strong> {TRAITS.get(s['slug'],{}).get('yield',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('yield',['—','—'])[1]} g/m²</p>
+<p><strong>Difficulty / height / climate:</strong> {TRAITS.get(s['slug'],{}).get('difficulty','—')} · {TRAITS.get(s['slug'],{}).get('height','—')} · {TRAITS.get(s['slug'],{}).get('climate','—')}</p>
+<p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
 <h2>Family</h2>
 <p class="meta">Parents</p><div class="tree">{''.join(parents) or '<span class="node">landrace / unknown</span>'}</div>
@@ -494,27 +501,39 @@ write("favicon.svg", "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64
 
 
 rows = []
-for s in sorted(STRAINS, key=lambda x: -x["typical_thc_pct"][1]):
+for s in STRAINS:
+    t = TRAITS.get(s["slug"], {})
+    cbd = t.get("cbd", [0, 0])
+    flower = t.get("flower", [0, 0])
+    veg = t.get("veg", [0, 0])
+    yld = t.get("yield", [0, 0])
     rows.append({
         "name": s["name"], "slug": s["slug"], "type": s["type"],
         "thc_lo": s["typical_thc_pct"][0], "thc_hi": s["typical_thc_pct"][1],
         "mid": round(sum(s["typical_thc_pct"]) / 2, 1),
+        "cbd_hi": cbd[1], "cbd": "%s–%s" % (cbd[0], cbd[1]),
+        "flower_lo": flower[0], "flower": "%s–%s wk" % (flower[0], flower[1]),
+        "veg_lo": veg[0], "veg": "auto cycle" if veg == [0, 0] else "%s–%s wk" % (veg[0], veg[1]),
+        "yield_hi": yld[1], "yield": "%s–%s" % (yld[0], yld[1]),
+        "difficulty": t.get("difficulty", ""),
         "banks": len(s.get("available_at_seedbanks") or []),
-        "terps": ", ".join(s.get("dominant_terpenes") or []),
     })
 write("rank.html", page("Rankings", """
 <main>
 <p class="kicker">Sort the catalog</p>
 <h1>Rank cultivars.</h1>
-<p class="lede">Order by reported THC or by how many banks carry it. CBD, yield, flowering time, and veg time are not in the seed-v0 records, so those columns stay blank instead of guessed.</p>
+<p class="lede">Order by reported THC, CBD, flower time, veg time, yield, or how many banks carry it. These are commonly reported catalog ranges, not lab results.</p>
 <div class="bar">
 <button class="chip on" data-sort="thc" type="button">Highest THC</button>
 <button class="chip" data-sort="thc-low" type="button">Lowest THC</button>
+<button class="chip" data-sort="cbd" type="button">Highest CBD</button>
+<button class="chip" data-sort="flower" type="button">Shortest flower</button>
+<button class="chip" data-sort="veg" type="button">Shortest veg</button>
+<button class="chip" data-sort="yield" type="button">Highest yield</button>
 <button class="chip" data-sort="banks" type="button">Most banks</button>
 <button class="chip" data-sort="name" type="button">Name</button>
-<button class="chip" data-sort="type" type="button">Type</button>
 </div>
-<div style="overflow-x:auto"><table id="rank"><thead><tr><th>#</th><th>Cultivar</th><th>Type</th><th>Reported THC</th><th>CBD</th><th>Banks</th><th>Yield</th><th>Flower</th><th>Veg</th></tr></thead><tbody></tbody></table></div>
+<div style="overflow-x:auto"><table id="rank"><thead><tr><th>#</th><th>Cultivar</th><th>Type</th><th>THC</th><th>CBD</th><th>Flower</th><th>Veg</th><th>Yield g/m²</th><th>Difficulty</th><th>Banks</th></tr></thead><tbody></tbody></table></div>
 </main>
 """, """<script>
 const ROWS = %s;
@@ -522,12 +541,15 @@ const body = document.querySelector("#rank tbody");
 function draw(key){
   const list = ROWS.slice().sort((a,b) => {
     if (key === "thc") return b.thc_hi - a.thc_hi || b.mid - a.mid;
-    if (key === "thc-low") return a.thc_lo - b.thc_lo || a.mid - b.mid;
-    if (key === "banks") return b.banks - a.banks || a.name.localeCompare(b.name);
-    if (key === "type") return a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
+    if (key === "thc-low") return a.thc_lo - b.thc_lo;
+    if (key === "cbd") return b.cbd_hi - a.cbd_hi;
+    if (key === "flower") return a.flower_lo - b.flower_lo;
+    if (key === "veg") return a.veg_lo - b.veg_lo;
+    if (key === "yield") return b.yield_hi - a.yield_hi;
+    if (key === "banks") return b.banks - a.banks;
     return a.name.localeCompare(b.name);
   });
-  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_lo}–${r.thc_hi}%%</td><td>not recorded</td><td>${r.banks}</td><td>not recorded</td><td>not recorded</td><td>not recorded</td></tr>`).join("");
+  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_lo}–${r.thc_hi}%%</td><td>${r.cbd}%%</td><td>${r.flower}</td><td>${r.veg}</td><td>${r.yield}</td><td>${r.difficulty}</td><td>${r.banks}</td></tr>`).join("");
 }
 document.querySelectorAll("[data-sort]").forEach(btn => btn.onclick = () => {
   document.querySelectorAll("[data-sort]").forEach(b => b.classList.toggle("on", b === btn));
