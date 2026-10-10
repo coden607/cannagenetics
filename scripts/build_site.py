@@ -23,6 +23,7 @@ PHENO = json.loads((DATA / "pheno_reports.json").read_text())
 BANK = {b["slug"]: b for b in BANKS}
 TRAITS = json.loads(Path("/tmp/cannagenetics/web/data/traits.json").read_text())
 FLAVORS = json.loads(Path("/tmp/cannagenetics/web/data/flavors.json").read_text())
+SEEDFORMS = json.loads(Path("/tmp/cannagenetics/web/data/seedforms.json").read_text())
 
 ALIASES = {
     "gg4": "gorilla-glue-4",
@@ -186,6 +187,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/families.html">Families</a>
 <a href="/glossary.html">Glossary</a>
 <a href="/about.html">About</a>
+<a href="/feminized.html">Feminized</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -231,7 +233,7 @@ write("styles.css", CSS)
 cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
-    cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
+    cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-forms="{e(' '.join(SEEDFORMS.get(s['slug'], [])))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
 <img class="thumb" src="{img_for(s)}" alt="">
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
@@ -257,6 +259,7 @@ index = page("CannaGenetics — worldwide genetics catalog", f"""
 <button class="chip" data-type="autoflower" type="button">autoflower</button>
 <button class="chip" data-type="ruderalis" type="button">ruderalis</button>
 <button class="chip" data-type="purple" type="button">purple</button>
+<button class="chip" data-type="feminized" type="button">feminized</button>
 </div>
 <div class="grid" id="grid">{''.join(cards)}</div>
 <h2>Start with the landraces</h2>
@@ -271,7 +274,7 @@ function render() {{
   if (ALIAS[query]) query = ALIAS[query].replaceAll("-", " ");
   document.querySelectorAll("#grid article").forEach(el => {{
     const blob = el.dataset.name + " " + el.dataset.terps;
-    const ok = (type === "all" || el.dataset.type === type || el.dataset.color === type) && (!query || blob.includes(query));
+    const ok = (type === "all" || el.dataset.type === type || el.dataset.color === type || (el.dataset.forms || "").includes(type)) && (!query || blob.includes(query));
     el.style.display = ok ? "" : "none";
   }});
 }}
@@ -320,6 +323,7 @@ for s in STRAINS:
 <p><strong>Reported indoor yield:</strong> {TRAITS.get(s['slug'],{}).get('yield',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('yield',['—','—'])[1]} g/m²</p>
 <p><strong>Reported color:</strong> {s.get("color","green")}</p>
 <p><strong>Reported flavor:</strong> {FLAVORS.get(s["slug"], "not recorded")}</p>
+<p><strong>Seed forms commonly listed:</strong> {", ".join(SEEDFORMS.get(s["slug"], ["not recorded"]))}</p>
 <p><button type="button" class="chip" onclick="saveStrain('{e(s['slug'])}','{e(s['name'])}')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> {TRAITS.get(s['slug'],{}).get('difficulty','—')} · {TRAITS.get(s['slug'],{}).get('height','—')} · {TRAITS.get(s['slug'],{}).get('climate','—')}</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
@@ -728,7 +732,12 @@ write("about.html", page("About", """<main>
 <p><a href="/provenance.html">Provenance model</a></p>
 </main>"""))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/families.html", "/glossary.html", "/about.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+fem = [s for s in STRAINS if "feminized" in SEEDFORMS.get(s["slug"], [])]
+fem_html = "".join("<article><span class='tag'>%s</span><h2><a href='/cultivars/%s.html'>%s</a></h2><p class='meta'>%s</p></article>" % (e(s["type"]), e(s["slug"]), e(s["name"]), e(", ".join(SEEDFORMS.get(s["slug"], [])))) for s in fem)
+write("feminized.html", page("Feminized", "<main><p class='kicker'>Seed form</p><h1>Feminized.</h1><p class='lede'>Cultivars commonly listed as feminized seed. Availability is per bank. This is a seed product, not a genetic type.</p><div class='grid'>%s</div></main>" % fem_html))
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/families.html", "/glossary.html", "/about.html", "/feminized.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
