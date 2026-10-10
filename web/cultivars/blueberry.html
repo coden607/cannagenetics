@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blueberry</title>
+<meta name="description" content="Informational cannabis genetics catalog. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational catalog. No sales, no checkout, no shipping. Cannabis law changes by place. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+const saved = localStorage.getItem("cg-ok");
+const jur = localStorage.getItem("cg-jur");
+if (saved === "1" && jur) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. This site does not show genetics or supplier links there. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+  document.dispatchEvent(new Event("cg-ready"));
+};
+</script>
+
+<nav><strong>CannaGenetics</strong><a href="/">Catalog</a><a href="/compare.html">Compare</a><a href="/suppliers/index.html">Banks</a><a href="/clones.html">Clones</a><a href="https://github.com/coden607/cannagenetics">GitHub</a></nav>
+<main>
+<p class="kicker">indica</p>
+<h1>Blueberry</h1>
+<p class="lede">California USA, 1970s-1990s (DJ Short)</p>
+<div class="card">
+<p>Lineage: Purple Thai × Afghani (reported)</p>
+<p>Breeders known: DJ Short</p>
+<p>Reported THC 16–24%. Not a lab result.</p>
+<p>Terpenes: Myrcene, beta-Caryophyllene, alpha-Pinene</p>
+<p>Status: seed-v0</p>
+</div>
+<h2>Carried at</h2>
+<ul><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/herbies.html'>Herbies</a> · <a href='https://herbiesheadshop.com' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/attitude-seed-bank.html'>Attitude Seed Bank</a> · <a href='https://www.cannabis-seeds-store.co.uk' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/dutch-passion.html'>Dutch Passion</a> · <a href='https://www.dutch-passion.com' rel='noopener noreferrer'>official site</a></li></ul>
+<p><a href="/compare.html#blueberry">Open comparison</a></p>
+</main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Source: coden607/cannagenetics and coden607/seedbank-index.</footer>
+
+</body></html>
