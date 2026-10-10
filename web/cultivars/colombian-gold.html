@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 
 <div class="gate" id="gate">
@@ -57,6 +58,7 @@ document.getElementById("enter").onclick = () => {
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -76,6 +78,8 @@ document.getElementById("enter").onclick = () => {
 <p><strong>Typical veg:</strong> 4–7 weeks, grower-set</p>
 <p><strong>Reported indoor yield:</strong> 300–450 g/m²</p>
 <p><strong>Reported color:</strong> green</p>
+<p><strong>Reported flavor:</strong> not recorded</p>
+<p><button type="button" class="chip" onclick="saveStrain('colombian-gold','Colombian Gold')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> advanced · tall · warm</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
@@ -83,7 +87,7 @@ document.getElementById("enter").onclick = () => {
 <p class="meta">Parents</p><div class="tree"><span class="node">landrace / unknown</span></div>
 <p class="meta">Catalogued descendants</p><div class="tree"><a class='node' href='/cultivars/haze.html'>Haze</a><a class='node' href='/cultivars/skunk-1.html'>Skunk #1</a><a class='node' href='/cultivars/ak-47.html'>AK-47</a></div>
 <h2>Carried at</h2><ul><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>their photo</a> · UK</li><li><a href='/suppliers/attitude-seed-bank.html'>Attitude Seed Bank</a> · <a href='https://www.cannabis-seeds-store.co.uk' rel='noopener noreferrer'>their photo</a> · UK</li></ul>
-<h2>Related by terpene</h2><ul><li><a href='/cultivars/bruce-banner.html'>Bruce Banner</a> · Limonene, Myrcene</li><li><a href='/cultivars/bubba-kush.html'>Bubba Kush</a> · Limonene, Myrcene</li><li><a href='/cultivars/chemdawg.html'>Chemdawg</a> · Limonene, Myrcene</li><li><a href='/cultivars/gorilla-glue-4.html'>Gorilla Glue #4</a> · Limonene, Myrcene</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/bruce-banner.html'>Bruce Banner</a> · Myrcene, Limonene</li><li><a href='/cultivars/bubba-kush.html'>Bubba Kush</a> · Myrcene, Limonene</li><li><a href='/cultivars/chemdawg.html'>Chemdawg</a> · Myrcene, Limonene</li><li><a href='/cultivars/gorilla-glue-4.html'>Gorilla Glue #4</a> · Myrcene, Limonene</li></ul>
 <h2>Awards</h2><ul><li>None recorded.</li></ul>
 <p><a href="/compare.html#colombian-gold">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>

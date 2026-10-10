@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 
 <div class="gate" id="gate">
@@ -57,6 +58,7 @@ document.getElementById("enter").onclick = () => {
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -76,6 +78,8 @@ document.getElementById("enter").onclick = () => {
 <p><strong>Typical veg:</strong> 3–5 weeks, grower-set</p>
 <p><strong>Reported indoor yield:</strong> 400–550 g/m²</p>
 <p><strong>Reported color:</strong> green</p>
+<p><strong>Reported flavor:</strong> marker, sweet, gas</p>
+<p><button type="button" class="chip" onclick="saveStrain('permanent-marker','Permanent Marker')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> moderate · medium · indoor</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
@@ -83,7 +87,7 @@ document.getElementById("enter").onclick = () => {
 <p class="meta">Parents</p><div class="tree"><span class='node'>Biscotti</span><span class='node'>Jealousy</span><span class='node'>Sherbet</span></div>
 <p class="meta">Catalogued descendants</p><div class="tree"><span class='node'>none catalogued</span></div>
 <h2>Carried at</h2><ul><li><a href='/suppliers/seed-junky.html'>Seed Junky Genetics</a> · <a href='https://seedjunkygenetics.com' rel='noopener noreferrer'>their photo</a> · USA (California)</li><li><a href='/suppliers/seeds-here-now.html'>SeedsHereNow</a> · <a href='https://seedsherenow.com' rel='noopener noreferrer'>their photo</a> · USA</li></ul>
-<h2>Related by terpene</h2><ul><li><a href='/cultivars/do-si-dos.html'>Do-Si-Dos</a> · Limonene, Linalool, Caryophyllene</li><li><a href='/cultivars/gelato-41.html'>Gelato 41</a> · Limonene, Linalool, Caryophyllene</li><li><a href='/cultivars/ice-cream-cake.html'>Ice Cream Cake</a> · Limonene, Linalool, Caryophyllene</li><li><a href='/cultivars/rs11.html'>RS11</a> · Limonene, Linalool, Caryophyllene</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/do-si-dos.html'>Do-Si-Dos</a> · Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/gelato-41.html'>Gelato 41</a> · Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/ice-cream-cake.html'>Ice Cream Cake</a> · Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/rs11.html'>RS11</a> · Caryophyllene, Linalool, Limonene</li></ul>
 <h2>Awards</h2><ul><li>None recorded.</li></ul>
 <p><a href="/compare.html#permanent-marker">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>

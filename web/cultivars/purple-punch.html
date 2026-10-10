@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 
 <div class="gate" id="gate">
@@ -57,6 +58,7 @@ document.getElementById("enter").onclick = () => {
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -76,6 +78,8 @@ document.getElementById("enter").onclick = () => {
 <p><strong>Typical veg:</strong> 3–5 weeks, grower-set</p>
 <p><strong>Reported indoor yield:</strong> 400–500 g/m²</p>
 <p><strong>Reported color:</strong> purple</p>
+<p><strong>Reported flavor:</strong> grape, berry, sweet</p>
+<p><button type="button" class="chip" onclick="saveStrain('purple-punch','Purple Punch')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> easy · short · indoor</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
@@ -83,7 +87,7 @@ document.getElementById("enter").onclick = () => {
 <p class="meta">Parents</p><div class="tree"><span class='node'>Larry OG</span><a class='node' href='/cultivars/granddaddy-purple.html'>Granddaddy Purple</a></div>
 <p class="meta">Catalogued descendants</p><div class="tree"><span class='node'>none catalogued</span></div>
 <h2>Carried at</h2><ul><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>their photo</a> · UK</li><li><a href='/suppliers/herbies.html'>Herbies</a> · <a href='https://herbiesheadshop.com' rel='noopener noreferrer'>their photo</a> · Spain</li><li><a href='/suppliers/attitude-seed-bank.html'>Attitude Seed Bank</a> · <a href='https://www.cannabis-seeds-store.co.uk' rel='noopener noreferrer'>their photo</a> · UK</li></ul>
-<h2>Related by terpene</h2><ul><li><a href='/cultivars/runtz.html'>Runtz</a> · Limonene, beta-Caryophyllene, Linalool</li><li><a href='/cultivars/wedding-cake.html'>Wedding Cake</a> · Limonene, beta-Caryophyllene, Linalool</li><li><a href='/cultivars/zkittlez.html'>Zkittlez</a> · Limonene, beta-Caryophyllene, Linalool</li><li><a href='/cultivars/acapulco-gold.html'>Acapulco Gold</a> · Limonene, beta-Caryophyllene</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/runtz.html'>Runtz</a> · beta-Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/wedding-cake.html'>Wedding Cake</a> · beta-Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/zkittlez.html'>Zkittlez</a> · beta-Caryophyllene, Linalool, Limonene</li><li><a href='/cultivars/acapulco-gold.html'>Acapulco Gold</a> · beta-Caryophyllene, Limonene</li></ul>
 <h2>Awards</h2><ul><li>None recorded.</li></ul>
 <p><a href="/compare.html#purple-punch">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>

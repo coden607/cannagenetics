@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 
 <div class="gate" id="gate">
@@ -57,6 +58,7 @@ document.getElementById("enter").onclick = () => {
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -76,6 +78,8 @@ document.getElementById("enter").onclick = () => {
 <p><strong>Typical veg:</strong> 4–7 weeks, grower-set</p>
 <p><strong>Reported indoor yield:</strong> 450–550 g/m²</p>
 <p><strong>Reported color:</strong> green</p>
+<p><strong>Reported flavor:</strong> lemon, incense, spice</p>
+<p><button type="button" class="chip" onclick="saveStrain('amnesia-haze','Amnesia Haze')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> moderate · tall · warm</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
@@ -83,7 +87,7 @@ document.getElementById("enter").onclick = () => {
 <p class="meta">Parents</p><div class="tree"><a class='node' href='/cultivars/haze.html'>Haze</a><a class='node' href='/cultivars/thai.html'>Thai</a><span class='node'>Cambodian (reported)</span></div>
 <p class="meta">Catalogued descendants</p><div class="tree"><span class='node'>none catalogued</span></div>
 <h2>Carried at</h2><ul><li><a href='/suppliers/royal-queen-seeds.html'>Royal Queen Seeds</a> · <a href='https://www.royalqueenseeds.com' rel='noopener noreferrer'>their photo</a> · Spain/Netherlands</li><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>their photo</a> · UK</li><li><a href='/suppliers/herbies.html'>Herbies</a> · <a href='https://herbiesheadshop.com' rel='noopener noreferrer'>their photo</a> · Spain</li></ul>
-<h2>Related by terpene</h2><ul><li><a href='/cultivars/durban-poison.html'>Durban Poison</a> · Limonene, beta-Caryophyllene, Terpinolene</li><li><a href='/cultivars/super-lemon-haze.html'>Super Lemon Haze</a> · Limonene, beta-Caryophyllene, Terpinolene</li><li><a href='/cultivars/acapulco-gold.html'>Acapulco Gold</a> · Limonene, beta-Caryophyllene</li><li><a href='/cultivars/chemdawg.html'>Chemdawg</a> · Limonene, beta-Caryophyllene</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/durban-poison.html'>Durban Poison</a> · beta-Caryophyllene, Terpinolene, Limonene</li><li><a href='/cultivars/super-lemon-haze.html'>Super Lemon Haze</a> · beta-Caryophyllene, Terpinolene, Limonene</li><li><a href='/cultivars/acapulco-gold.html'>Acapulco Gold</a> · beta-Caryophyllene, Limonene</li><li><a href='/cultivars/chemdawg.html'>Chemdawg</a> · beta-Caryophyllene, Limonene</li></ul>
 <h2>Awards</h2><ul><li>High Times Cannabis Cup - Sativa, 2004 (reported)</li></ul>
 <p><a href="/compare.html#amnesia-haze">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>

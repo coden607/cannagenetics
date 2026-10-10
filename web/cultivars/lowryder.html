@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 
 <div class="gate" id="gate">
@@ -57,6 +58,7 @@ document.getElementById("enter").onclick = () => {
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -76,6 +78,8 @@ document.getElementById("enter").onclick = () => {
 <p><strong>Typical veg:</strong> included in the auto cycle</p>
 <p><strong>Reported indoor yield:</strong> 200–350 g/m²</p>
 <p><strong>Reported color:</strong> green</p>
+<p><strong>Reported flavor:</strong> earthy, mild</p>
+<p><button type="button" class="chip" onclick="saveStrain('lowryder','Lowryder')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> easy · short · indoor / short season</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>

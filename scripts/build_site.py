@@ -22,6 +22,7 @@ SOURCES = json.loads((DATA / "sources.json").read_text())
 PHENO = json.loads((DATA / "pheno_reports.json").read_text())
 BANK = {b["slug"]: b for b in BANKS}
 TRAITS = json.loads(Path("/tmp/cannagenetics/web/data/traits.json").read_text())
+FLAVORS = json.loads(Path("/tmp/cannagenetics/web/data/flavors.json").read_text())
 
 ALIASES = {
     "gg4": "gorilla-glue-4",
@@ -181,6 +182,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/cups.html">Cups</a>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
 <a href="/suppliers/index.html">Banks</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
@@ -209,6 +211,7 @@ def page(title, body, extra=""):
 <link rel="stylesheet" href="/styles.css">
 <canvas id="field" aria-hidden="true"></canvas>
 <script src="/fx.js"></script>
+<script src="/save.js"></script>
 </head><body>
 {GATE}{NAV}{body}
 <footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
@@ -313,6 +316,8 @@ for s in STRAINS:
 <p><strong>Typical veg:</strong> {('included in the auto cycle' if TRAITS.get(s['slug'],{}).get('veg')==[0,0] else str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[0])+'–'+str(TRAITS.get(s['slug'],{}).get('veg',['—','—'])[1])+' weeks, grower-set')}</p>
 <p><strong>Reported indoor yield:</strong> {TRAITS.get(s['slug'],{}).get('yield',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('yield',['—','—'])[1]} g/m²</p>
 <p><strong>Reported color:</strong> {s.get("color","green")}</p>
+<p><strong>Reported flavor:</strong> {FLAVORS.get(s["slug"], "not recorded")}</p>
+<p><button type="button" class="chip" onclick="saveStrain('{e(s['slug'])}','{e(s['name'])}')">Save</button></p>
 <p><strong>Difficulty / height / climate:</strong> {TRAITS.get(s['slug'],{}).get('difficulty','—')} · {TRAITS.get(s['slug'],{}).get('height','—')} · {TRAITS.get(s['slug'],{}).get('climate','—')}</p>
 <p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
 </div>
@@ -636,7 +641,36 @@ write("geo.html", page("Places", """<main>
 cards = "".join("<article><img class='thumb' src='%s' alt=''><h2><a href='/cultivars/%s.html'>%s</a></h2><p class='meta'>%s · %s</p></article>" % (img_for(s), e(s["slug"]), e(s["name"]), e(s["type"]), e(s.get("color","green"))) for s in STRAINS)
 write("gallery.html", page("Gallery", "<main><p class='kicker'>Illustrations</p><h1>Gallery.</h1><p class='lede'>Original illustrations by type and color. Official photos stay on each seed bank's site.</p><div class='grid'>%s</div></main>" % cards))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+
+write("saved.html", page("Saved", """
+<main>
+<p class="kicker">Your list</p>
+<h1>Saved cultivars.</h1>
+<p class="lede">Stored in this browser only. Nothing is sent to a server.</p>
+<div class="grid" id="saved"></div>
+</main>
+""", """<script>
+function load(){ try { return JSON.parse(localStorage.getItem("cg-saved") || "[]"); } catch(e){ return []; } }
+const box = document.getElementById("saved");
+const items = load();
+box.innerHTML = items.length ? items.map(s => `<article><h2><a href="/cultivars/${s.slug}.html">${s.name}</a></h2><button class="chip" data-slug="${s.slug}">Remove</button></article>`).join("") : "<p>Nothing saved yet. Use Save on a cultivar page.</p>";
+box.onclick = ev => {
+  if (!ev.target.dataset.slug) return;
+  const next = load().filter(s => s.slug !== ev.target.dataset.slug);
+  localStorage.setItem("cg-saved", JSON.stringify(next));
+  location.reload();
+};
+</script>"""))
+write("save.js", """function saveStrain(slug, name){
+  const key = "cg-saved";
+  const items = JSON.parse(localStorage.getItem(key) || "[]");
+  if (!items.some(s => s.slug === slug)) items.push({slug, name});
+  localStorage.setItem(key, JSON.stringify(items));
+  alert(name + " saved");
+}
+""")
+
+urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]
