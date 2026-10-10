@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cannagenetics.vercel.app/sitemap.xml

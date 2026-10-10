@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clones</title>
-<meta name="description" content="Informational cannabis genetics catalog. Link-out only. Not a store.">
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
@@ -12,7 +12,7 @@
   <div class="card">
     <p class="kicker">CannaGenetics</p>
     <h1>18+ only.</h1>
-    <p>Informational catalog. No sales, no checkout, no shipping. Cannabis law changes by place. Enter only if you are of legal age where you live.</p>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
     <label>Where are you?<br><select id="jurisdiction">
       <option value="">Choose</option>
       <option value="ca">Canada</option>
@@ -30,33 +30,32 @@
 <script>
 const OPEN = new Set(["ca","de","nl","es","uk","us"]);
 const gate = document.getElementById("gate");
-const saved = localStorage.getItem("cg-ok");
-const jur = localStorage.getItem("cg-jur");
-if (saved === "1" && jur) gate.hidden = true;
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
 document.getElementById("enter").onclick = () => {
   const j = document.getElementById("jurisdiction").value;
   if (!j) return;
   localStorage.setItem("cg-jur", j);
   localStorage.setItem("cg-ok", "1");
   if (!OPEN.has(j)) {
-    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. This site does not show genetics or supplier links there. This is not legal advice.</p></main>";
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
     return;
   }
   gate.hidden = true;
-  document.dispatchEvent(new Event("cg-ready"));
 };
 </script>
-
-<nav><strong>CannaGenetics</strong><a href="/">Catalog</a><a href="/compare.html">Compare</a><a href="/suppliers/index.html">Banks</a><a href="/clones.html">Clones</a><a href="https://github.com/coden607/cannagenetics">GitHub</a></nav>
-<main>
-<h1>Clones</h1>
-<p class="warn">Clone listings are off. The registry names nurseries from SUPPLIERS.md and does not sell or link clones.</p>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main><h1>Clones</h1>
+<p class="warn">Clone listings are off. Nurseries are named from the supplier registry and are not for sale here.</p>
 <div class="grid">
-<article><h2>Dark Heart Nursery</h2><p class="meta">California. Named only. Not for sale here.</p></article>
-<article><h2>Kind Roots Nursery</h2><p class="meta">Colorado. Named only. Not for sale here.</p></article>
-<article><h2>Dispensary shelves</h2><p class="meta">Legal markets only. Off until jurisdiction config is signed off.</p></article>
-</div>
-</main>
-<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Source: coden607/cannagenetics and coden607/seedbank-index.</footer>
-
+<article><h2>Dark Heart Nursery</h2><p class="meta">California. Named only.</p></article>
+<article><h2>Kind Roots Nursery</h2><p class="meta">Colorado. Named only.</p></article>
+</div></main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
 </body></html>

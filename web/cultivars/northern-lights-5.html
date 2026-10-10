@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Northern Lights #5</title>
-<meta name="description" content="Informational cannabis genetics catalog. Link-out only. Not a store.">
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
@@ -12,7 +12,7 @@
   <div class="card">
     <p class="kicker">CannaGenetics</p>
     <h1>18+ only.</h1>
-    <p>Informational catalog. No sales, no checkout, no shipping. Cannabis law changes by place. Enter only if you are of legal age where you live.</p>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
     <label>Where are you?<br><select id="jurisdiction">
       <option value="">Choose</option>
       <option value="ca">Canada</option>
@@ -30,39 +30,44 @@
 <script>
 const OPEN = new Set(["ca","de","nl","es","uk","us"]);
 const gate = document.getElementById("gate");
-const saved = localStorage.getItem("cg-ok");
-const jur = localStorage.getItem("cg-jur");
-if (saved === "1" && jur) gate.hidden = true;
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
 document.getElementById("enter").onclick = () => {
   const j = document.getElementById("jurisdiction").value;
   if (!j) return;
   localStorage.setItem("cg-jur", j);
   localStorage.setItem("cg-ok", "1");
   if (!OPEN.has(j)) {
-    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. This site does not show genetics or supplier links there. This is not legal advice.</p></main>";
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
     return;
   }
   gate.hidden = true;
-  document.dispatchEvent(new Event("cg-ready"));
 };
 </script>
-
-<nav><strong>CannaGenetics</strong><a href="/">Catalog</a><a href="/compare.html">Compare</a><a href="/suppliers/index.html">Banks</a><a href="/clones.html">Clones</a><a href="https://github.com/coden607/cannagenetics">GitHub</a></nav>
-<main>
-<p class="kicker">indica</p>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main>
+<p class="kicker">indica · seed-v0</p>
 <h1>Northern Lights #5</h1>
 <p class="lede">Pacific Northwest USA (reported), late 1970s-1980s; refined in Netherlands</p>
 <div class="card">
-<p>Lineage: Afghani × Thai (reported)</p>
-<p>Breeders known: original breeder debated (community), Sensi Seeds (NL lines)</p>
-<p>Reported THC 16–21%. Not a lab result.</p>
-<p>Terpenes: Myrcene, alpha-Pinene, beta-Caryophyllene</p>
-<p>Status: seed-v0</p>
+<p><strong>Lineage claim:</strong> Afghani × Thai (reported)</p>
+<p><strong>Breeders known:</strong> original breeder debated (community), Sensi Seeds (NL lines)</p>
+<p><strong>Reported THC:</strong> 16–21%. Not a lab result.</p>
+<p><strong>Dominant terpenes:</strong> <a href='/compounds/myrcene.html'>Myrcene</a>, <a href='/compounds/alpha-pinene.html'>alpha-Pinene</a>, <a href='/compounds/beta-caryophyllene.html'>beta-Caryophyllene</a></p>
 </div>
-<h2>Carried at</h2>
-<ul><li><a href='/suppliers/sensi-seeds.html'>Sensi Seeds</a> · <a href='https://sensiseeds.com' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/nirvana-seeds.html'>Nirvana Seeds</a> · <a href='https://www.nirvanashop.com' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/attitude-seed-bank.html'>Attitude Seed Bank</a> · <a href='https://www.cannabis-seeds-store.co.uk' rel='noopener noreferrer'>official site</a></li></ul>
-<p><a href="/compare.html#northern-lights-5">Open comparison</a></p>
+<h2>Family</h2>
+<p class="meta">Parents</p><div class="tree"><a class='node' href='/cultivars/afghani.html'>Afghani</a><a class='node' href='/cultivars/thai.html'>Thai</a></div>
+<p class="meta">Catalogued descendants</p><div class="tree"><a class='node' href='/cultivars/jack-herer.html'>Jack Herer</a></div>
+<h2>Carried at</h2><ul><li><a href='/suppliers/sensi-seeds.html'>Sensi Seeds</a> · <a href='https://sensiseeds.com' rel='noopener noreferrer'>official site</a> · Netherlands</li><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>official site</a> · UK</li><li><a href='/suppliers/nirvana-seeds.html'>Nirvana Seeds</a> · <a href='https://www.nirvanashop.com' rel='noopener noreferrer'>official site</a> · Netherlands</li><li><a href='/suppliers/attitude-seed-bank.html'>Attitude Seed Bank</a> · <a href='https://www.cannabis-seeds-store.co.uk' rel='noopener noreferrer'>official site</a> · UK</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/ak-47.html'>AK-47</a> · alpha-Pinene, beta-Caryophyllene, Myrcene</li><li><a href='/cultivars/blueberry.html'>Blueberry</a> · alpha-Pinene, beta-Caryophyllene, Myrcene</li><li><a href='/cultivars/granddaddy-purple.html'>Granddaddy Purple</a> · alpha-Pinene, beta-Caryophyllene, Myrcene</li><li><a href='/cultivars/lowryder.html'>Lowryder</a> · alpha-Pinene, beta-Caryophyllene, Myrcene</li></ul>
+<h2>Awards</h2><ul><li>None recorded.</li></ul>
+<p><a href="/compare.html#northern-lights-5">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>
-<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Source: coden607/cannagenetics and coden607/seedbank-index.</footer>
-
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
 </body></html>

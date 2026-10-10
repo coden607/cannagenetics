@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thai</title>
-<meta name="description" content="Informational cannabis genetics catalog. Link-out only. Not a store.">
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
@@ -12,7 +12,7 @@
   <div class="card">
     <p class="kicker">CannaGenetics</p>
     <h1>18+ only.</h1>
-    <p>Informational catalog. No sales, no checkout, no shipping. Cannabis law changes by place. Enter only if you are of legal age where you live.</p>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
     <label>Where are you?<br><select id="jurisdiction">
       <option value="">Choose</option>
       <option value="ca">Canada</option>
@@ -30,39 +30,44 @@
 <script>
 const OPEN = new Set(["ca","de","nl","es","uk","us"]);
 const gate = document.getElementById("gate");
-const saved = localStorage.getItem("cg-ok");
-const jur = localStorage.getItem("cg-jur");
-if (saved === "1" && jur) gate.hidden = true;
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
 document.getElementById("enter").onclick = () => {
   const j = document.getElementById("jurisdiction").value;
   if (!j) return;
   localStorage.setItem("cg-jur", j);
   localStorage.setItem("cg-ok", "1");
   if (!OPEN.has(j)) {
-    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. This site does not show genetics or supplier links there. This is not legal advice.</p></main>";
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
     return;
   }
   gate.hidden = true;
-  document.dispatchEvent(new Event("cg-ready"));
 };
 </script>
-
-<nav><strong>CannaGenetics</strong><a href="/">Catalog</a><a href="/compare.html">Compare</a><a href="/suppliers/index.html">Banks</a><a href="/clones.html">Clones</a><a href="https://github.com/coden607/cannagenetics">GitHub</a></nav>
-<main>
-<p class="kicker">sativa</p>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main>
+<p class="kicker">sativa · seed-v0</p>
 <h1>Thai</h1>
 <p class="lede">Thailand, landrace era pre-1970s</p>
 <div class="card">
-<p>Lineage: landrace / unknown</p>
-<p>Breeders known: landrace (traditional), Ace Seeds (preservation lines)</p>
-<p>Reported THC 15–22%. Not a lab result.</p>
-<p>Terpenes: Terpinolene, beta-Ocimene, Limonene</p>
-<p>Status: seed-v0</p>
+<p><strong>Lineage claim:</strong> landrace / unknown</p>
+<p><strong>Breeders known:</strong> landrace (traditional), Ace Seeds (preservation lines)</p>
+<p><strong>Reported THC:</strong> 15–22%. Not a lab result.</p>
+<p><strong>Dominant terpenes:</strong> <a href='/compounds/terpinolene.html'>Terpinolene</a>, <a href='/compounds/beta-ocimene.html'>beta-Ocimene</a>, <a href='/compounds/limonene.html'>Limonene</a></p>
 </div>
-<h2>Carried at</h2>
-<ul><li><a href='/suppliers/ace-seeds.html'>Ace Seeds</a> · <a href='https://aceseeds.org' rel='noopener noreferrer'>official site</a></li><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>official site</a></li></ul>
-<p><a href="/compare.html#thai">Open comparison</a></p>
+<h2>Family</h2>
+<p class="meta">Parents</p><div class="tree"><span class="node">landrace / unknown</span></div>
+<p class="meta">Catalogued descendants</p><div class="tree"><a class='node' href='/cultivars/northern-lights-5.html'>Northern Lights #5</a><a class='node' href='/cultivars/haze.html'>Haze</a><a class='node' href='/cultivars/blueberry.html'>Blueberry</a><a class='node' href='/cultivars/ak-47.html'>AK-47</a><a class='node' href='/cultivars/amnesia-haze.html'>Amnesia Haze</a></div>
+<h2>Carried at</h2><ul><li><a href='/suppliers/ace-seeds.html'>Ace Seeds</a> · <a href='https://aceseeds.org' rel='noopener noreferrer'>official site</a> · Spain</li><li><a href='/suppliers/seedsman.html'>Seedsman</a> · <a href='https://www.seedsman.com' rel='noopener noreferrer'>official site</a> · UK</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/haze.html'>Haze</a> · Terpinolene, beta-Ocimene, Limonene</li><li><a href='/cultivars/amnesia-haze.html'>Amnesia Haze</a> · Terpinolene, Limonene</li><li><a href='/cultivars/durban-poison.html'>Durban Poison</a> · Terpinolene, Limonene</li><li><a href='/cultivars/malawi.html'>Malawi</a> · Terpinolene, beta-Ocimene</li></ul>
+<h2>Awards</h2><ul><li>None recorded.</li></ul>
+<p><a href="/compare.html#thai">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>
-<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Source: coden607/cannagenetics and coden607/seedbank-index.</footer>
-
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
 </body></html>

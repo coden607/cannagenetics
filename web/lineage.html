@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lineage</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main><h1>Lineage explorer</h1>
+<p class="lede">Parents are claims. Descendants are only the cultivars already in this catalog.</p>
+<table><thead><tr><th>Cultivar</th><th>Claimed parents</th><th>Catalogued descendants</th></tr></thead><tbody><tr><td><a href='/cultivars/afghani.html'>Afghani</a></td><td>landrace</td><td>Northern Lights #5, Skunk #1, Blueberry, AK-47</td></tr><tr><td><a href='/cultivars/hindu-kush.html'>Hindu Kush</a></td><td>landrace</td><td>OG Kush</td></tr><tr><td><a href='/cultivars/thai.html'>Thai</a></td><td>landrace</td><td>Northern Lights #5, Haze, Blueberry, AK-47, Amnesia Haze</td></tr><tr><td><a href='/cultivars/durban-poison.html'>Durban Poison</a></td><td>landrace</td><td>Girl Scout Cookies</td></tr><tr><td><a href='/cultivars/colombian-gold.html'>Colombian Gold</a></td><td>landrace</td><td>Haze, Skunk #1, AK-47</td></tr><tr><td><a href='/cultivars/acapulco-gold.html'>Acapulco Gold</a></td><td>landrace</td><td>—</td></tr><tr><td><a href='/cultivars/panama-red.html'>Panama Red</a></td><td>landrace</td><td>—</td></tr><tr><td><a href='/cultivars/malawi.html'>Malawi</a></td><td>landrace</td><td>—</td></tr><tr><td><a href='/cultivars/northern-lights-5.html'>Northern Lights #5</a></td><td>Afghani × Thai (reported)</td><td>Jack Herer</td></tr><tr><td><a href='/cultivars/haze.html'>Haze</a></td><td>Thai × Colombian Gold × Mexican landrace (reported)</td><td>Jack Herer, Amnesia Haze</td></tr><tr><td><a href='/cultivars/skunk-1.html'>Skunk #1</a></td><td>Afghani × Mexican landrace × Colombian Gold (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/white-widow.html'>White Widow</a></td><td>Brazilian sativa × South Indian indica (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/blueberry.html'>Blueberry</a></td><td>Purple Thai × Afghani (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/og-kush.html'>OG Kush</a></td><td>Chemdawg × Hindu Kush (reported; lineage disputed)</td><td>Girl Scout Cookies</td></tr><tr><td><a href='/cultivars/sour-diesel.html'>Sour Diesel</a></td><td>Chemdawg 91 × Super Skunk (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/girl-scout-cookies.html'>Girl Scout Cookies</a></td><td>OG Kush × Durban Poison (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/gelato.html'>Gelato</a></td><td>Sunset Sherbet × Thin Mint GSC (reported)</td><td>Runtz</td></tr><tr><td><a href='/cultivars/wedding-cake.html'>Wedding Cake</a></td><td>Triangle Kush × Animal Mints (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/gorilla-glue-4.html'>Gorilla Glue #4</a></td><td>Chem&#x27;s Sister × Sour Dubb × Chocolate Diesel (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/zkittlez.html'>Zkittlez</a></td><td>Grape Ape × Grapefruit (reported)</td><td>Runtz</td></tr><tr><td><a href='/cultivars/runtz.html'>Runtz</a></td><td>Zkittlez × Gelato (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/purple-punch.html'>Purple Punch</a></td><td>Larry OG × Granddaddy Purple (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/chemdawg.html'>Chemdawg</a></td><td>landrace</td><td>OG Kush, Sour Diesel</td></tr><tr><td><a href='/cultivars/jack-herer.html'>Jack Herer</a></td><td>Haze × Northern Lights #5 × Shiva Skunk (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/ak-47.html'>AK-47</a></td><td>Colombian Gold × Mexican landrace × Thai × Afghani (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/granddaddy-purple.html'>Granddaddy Purple</a></td><td>Purple Urkle × Big Bud (reported)</td><td>Purple Punch</td></tr><tr><td><a href='/cultivars/amnesia-haze.html'>Amnesia Haze</a></td><td>Haze × Thai × Cambodian (reported)</td><td>—</td></tr><tr><td><a href='/cultivars/lowryder.html'>Lowryder</a></td><td>Northern Lights #2 × William&#x27;s Wonder × Russian ruderalis (reported)</td><td>—</td></tr></tbody></table></main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+</body></html>

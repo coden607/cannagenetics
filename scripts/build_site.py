@@ -309,7 +309,10 @@ write("provenance.html", page("Provenance", f"""<main><h1>Provenance</h1>
 </main>"""))
 
 # suppliers
-write("suppliers/index.html", page("Seed banks", f"<main><h1>Seed banks and breeders</h1><div class='grid'>{''.join(f"<article><span class='tag'>{e(b['type'])}</span><h2><a href='/suppliers/{e(b['slug'])}.html'>{e(b['name'])}</a></h2><p class='meta'>{e(b['region'])} · {e(b.get('ships_to',''))}</p></article>" for b in BANKS)}</div></main>"))
+bank_cards = []
+for b in BANKS:
+    bank_cards.append("<article><span class='tag'>%s</span><h2><a href='/suppliers/%s.html'>%s</a></h2><p class='meta'>%s</p></article>" % (e(b["type"]), e(b["slug"]), e(b["name"]), e(b["region"])))
+write("suppliers/index.html", page("Seed banks", "<main><h1>Seed banks and breeders</h1><div class='grid'>%s</div></main>" % "".join(bank_cards)))
 for b in BANKS:
     carried = [s for s in STRAINS if b["slug"] in s.get("available_at_seedbanks", [])]
     items = "".join(f"<li><a href='/cultivars/{e(s['slug'])}.html'>{e(s['name'])}</a></li>" for s in carried) or "<li>No catalogued cultivars yet.</li>"
