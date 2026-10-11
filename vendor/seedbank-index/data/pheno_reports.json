@@ -1,0 +1,130 @@
+{
+  "description": "Phenotype expression reports. The three reports below are clearly labeled EXAMPLE TEMPLATES for contributors - they contain no real grower PII and their numbers are illustrative.",
+  "schema": {
+    "report_id": "string, required - stable id (e.g. pheno-0001)",
+    "report_type": "string, required - 'example-template' | 'community'",
+    "strain": "string, required - strain name matching strains.json",
+    "strain_slug": "string, required - slug matching strains.json",
+    "seedbank_source": "string, required - slug matching seedbanks.json",
+    "seed_pack": "object optional - {breeder_label, batch_code?}",
+    "grower": "string, required for community reports - anonymous handle ONLY, never real names",
+    "environment": "object required - {type: indoor|outdoor|greenhouse, medium: soil|coco|hydro|living-soil, lights?: string, pot_liters?: number}",
+    "expressions": {
+      "height_cm": "number - final height",
+      "structure": "string - e.g. 'bushy indica, tight internodes'",
+      "color": "string - leaf/bud coloration notes",
+      "bud_density": "string - airy | medium | dense",
+      "flower_weeks": "number - weeks of flowering before harvest"
+    },
+    "chem_results": "object optional - {lab: string, source_id?: string matching sources.json, total_thc_pct?: number, total_cbd_pct?: number, dominant_terpenes?: string[], coa_url?: string}",
+    "keeper_rating": "integer 1-5 - would-grow-again score",
+    "notes": "string - freeform phenotype observations (avoid consumption/medical claims)"
+  },
+  "reports": [
+    {
+      "report_id": "pheno-example-001",
+      "report_type": "example-template",
+      "strain": "Northern Lights #5",
+      "strain_slug": "northern-lights-5",
+      "seedbank_source": "seedsman",
+      "seed_pack": {
+        "breeder_label": "house-brand feminized",
+        "batch_code": "EXAMPLE-0000"
+      },
+      "grower": "anonymous-example",
+      "environment": {
+        "type": "indoor",
+        "medium": "living-soil",
+        "lights": "LED 300W",
+        "pot_liters": 20
+      },
+      "expressions": {
+        "height_cm": 95,
+        "structure": "bushy, tight internodes, strong main cola",
+        "color": "deep olive green, light frosting",
+        "bud_density": "dense",
+        "flower_weeks": 8
+      },
+      "chem_results": {
+        "lab": "Steep Hill (example citation)",
+        "source_id": "s-lab-steep-hill",
+        "total_thc_pct": 18.4,
+        "total_cbd_pct": 0.4,
+        "dominant_terpenes": [
+          "Myrcene",
+          "beta-Caryophyllene",
+          "alpha-Pinene"
+        ],
+        "coa_url": "https://example.invalid/coa/EXAMPLE"
+      },
+      "keeper_rating": 5,
+      "notes": "EXAMPLE TEMPLATE - uniform pheno across 4 seeds, textbook NL structure, mild soil-fungus susceptibility in week 3. Illustrative numbers only."
+    },
+    {
+      "report_id": "pheno-example-002",
+      "report_type": "example-template",
+      "strain": "Durban Poison",
+      "strain_slug": "durban-poison",
+      "seedbank_source": "dutch-passion",
+      "seed_pack": {
+        "breeder_label": "original breeder pack",
+        "batch_code": "EXAMPLE-0000"
+      },
+      "grower": "anonymous-example",
+      "environment": {
+        "type": "outdoor",
+        "medium": "soil",
+        "pot_liters": 60
+      },
+      "expressions": {
+        "height_cm": 240,
+        "structure": "tall sativa, wide branching, long internodes",
+        "color": "lime green with occasional magenta tips (cool nights)",
+        "bud_density": "medium",
+        "flower_weeks": 10
+      },
+      "chem_results": null,
+      "keeper_rating": 4,
+      "notes": "EXAMPLE TEMPLATE - stretched aggressively outdoors; needed staking from week 6. No lab test performed. Illustrative numbers only."
+    },
+    {
+      "report_id": "pheno-example-003",
+      "report_type": "example-template",
+      "strain": "Gorilla Glue #4",
+      "strain_slug": "gorilla-glue-4",
+      "seedbank_source": "seeds-here-now",
+      "seed_pack": {
+        "breeder_label": "third-party breeder pack",
+        "batch_code": "EXAMPLE-0000"
+      },
+      "grower": "anonymous-example",
+      "environment": {
+        "type": "indoor",
+        "medium": "coco",
+        "lights": "HPS 600W",
+        "pot_liters": 11
+      },
+      "expressions": {
+        "height_cm": 130,
+        "structure": "hybrid vigor, lateral spread, heavy resin",
+        "color": "silver-green heavy trichome coverage",
+        "bud_density": "dense",
+        "flower_weeks": 9
+      },
+      "chem_results": {
+        "lab": "Confident Cannabis lab network (example citation)",
+        "source_id": "s-lab-confident-cannabis",
+        "total_thc_pct": 24.1,
+        "total_cbd_pct": 0.2,
+        "dominant_terpenes": [
+          "beta-Caryophyllene",
+          "Limonene",
+          "Myrcene"
+        ],
+        "coa_url": "https://example.invalid/coa/EXAMPLE"
+      },
+      "keeper_rating": 5,
+      "notes": "EXAMPLE TEMPLATE - 2 of 3 seeds showed similar chem; third was an outlier pheno (airier, lemon-forward). Illustrative numbers only."
+    }
+  ]
+}
