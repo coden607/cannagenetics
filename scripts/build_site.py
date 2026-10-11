@@ -5,25 +5,34 @@ import json
 import re
 from pathlib import Path
 
-DATA = Path("/tmp/cgdata")
-ROOT = Path("/tmp/cannagenetics/web")
-STRAINS = json.loads((DATA / "strains.json").read_text())
-EXTRA = json.loads(Path("/tmp/cannagenetics/web/data/popular.json").read_text())
-COLORS = json.loads(Path("/tmp/cannagenetics/web/data/colors.json").read_text())
+ROOT = Path(__file__).resolve().parent.parent / "web"
+VENDOR_DATA = Path(__file__).resolve().parent.parent / "vendor" / "seedbank-index" / "data"
+
+
+def _load(path, fallback):
+    """Load JSON if present, else return fallback. The aux files
+    (popular/colors/suppliers/traits/flavors/seedforms) were never
+    committed; empty fallbacks keep the build reproducible."""
+    return json.loads(path.read_text()) if path.exists() else fallback
+
+
+STRAINS = json.loads((VENDOR_DATA / "strains.json").read_text())
+EXTRA = _load(ROOT / "data" / "popular.json", [])
+COLORS = _load(ROOT / "data" / "colors.json", {})
 have = {s["slug"] for s in STRAINS}
 STRAINS.extend([s for s in EXTRA if s["slug"] not in have])
 for s in STRAINS:
     s["color"] = s.get("color") or COLORS.get(s["slug"], "green")
     s["ruderalis"] = s.get("ruderalis", s.get("type") == "autoflower")
 
-BANKS = json.loads(Path("/tmp/cannagenetics/web/data/suppliers.json").read_text())
-COMPOUNDS = json.loads((DATA / "compounds.json").read_text())
-SOURCES = json.loads((DATA / "sources.json").read_text())
-PHENO = json.loads((DATA / "pheno_reports.json").read_text())
+BANKS = json.loads((VENDOR_DATA / "seedbanks.json").read_text())
+COMPOUNDS = json.loads((VENDOR_DATA / "compounds.json").read_text())
+SOURCES = json.loads((VENDOR_DATA / "sources.json").read_text())
+PHENO = json.loads((VENDOR_DATA / "pheno_reports.json").read_text())
 BANK = {b["slug"]: b for b in BANKS}
-TRAITS = json.loads(Path("/tmp/cannagenetics/web/data/traits.json").read_text())
-FLAVORS = json.loads(Path("/tmp/cannagenetics/web/data/flavors.json").read_text())
-SEEDFORMS = json.loads(Path("/tmp/cannagenetics/web/data/seedforms.json").read_text())
+TRAITS = _load(ROOT / "data" / "traits.json", {})
+FLAVORS = _load(ROOT / "data" / "flavors.json", {})
+SEEDFORMS = _load(ROOT / "data" / "seedforms.json", {})
 
 ALIASES = {
     "gg4": "gorilla-glue-4",
