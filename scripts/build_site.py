@@ -10,9 +10,9 @@ VENDOR_DATA = Path(__file__).resolve().parent.parent / "vendor" / "seedbank-inde
 
 
 def _load(path, fallback):
-    """Load JSON if present, else return fallback. The aux files
-    (popular/colors/suppliers/traits/flavors/seedforms) were never
-    committed; empty fallbacks keep the build reproducible."""
+    """Load JSON if present, else return fallback. The aux files under
+    web/data/ (popular/colors/traits/flavors/seedforms) extend the vendor
+    seedbank-index data; empty fallbacks keep the build reproducible."""
     return json.loads(path.read_text()) if path.exists() else fallback
 
 
@@ -186,6 +186,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/lineage.html">Lineage</a>
 <a href="/compounds/index.html">Compounds</a>
 <a href="/compare.html">Compare</a>
+<a href="/duel.html">Duel</a>
 <a href="/cross.html">Cross</a>
 <a href="/search.html">Search</a>
 <a href="/rank.html">Rank</a>
@@ -193,11 +194,13 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="/geo.html">Places</a>
 <a href="/gallery.html">Gallery</a>
 <a href="/saved.html">Saved</a>
+<a href="/recent.html">Recent</a>
 <a href="/families.html">Families</a>
 <a href="/glossary.html">Glossary</a>
 <a href="/about.html">About</a>
 <a href="/feminized.html">Feminized</a>
 <a href="/suppliers/index.html">Banks</a>
+<a href="/clones.html">Clones</a>
 <a href="/provenance.html">Provenance</a>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
@@ -309,7 +312,7 @@ for s in STRAINS:
         bank = BANK.get(slug)
         if bank:
             links.append(f"<li><a href='/suppliers/{e(slug)}.html'>{e(bank['name'])}</a> · <a href='{e(bank['source'])}' rel='noopener noreferrer'>their photo</a> · {e(bank.get('region',''))}</li>")
-    rel = "".join(f"<li><a href='/cultivars/{e(o['slug'])}.html'>{e(o['name'])}</a> · {e(', '.join(set(s.get('dominant_terpenes') or []) & set(o.get('dominant_terpenes') or [])))}</li>" for o in related(s))
+    rel = "".join(f"<li><a href='/cultivars/{e(o['slug'])}.html'>{e(o['name'])}</a> · {e(', '.join(sorted(set(s.get('dominant_terpenes') or []) & set(o.get('dominant_terpenes') or []))))}</li>" for o in related(s))
     awards = "".join(f"<li>{e(a)}</li>" for a in s.get("awards") or []) or "<li>None recorded.</li>"
     terp_links = []
     for name in s.get("dominant_terpenes") or []:
@@ -436,6 +439,62 @@ write("clones.html", page("Clones", """<main><h1>Clones</h1>
 <article><h2>Dark Heart Nursery</h2><p class="meta">California. Named only.</p></article>
 <article><h2>Kind Roots Nursery</h2><p class="meta">Colorado. Named only.</p></article>
 </div></main>"""))
+
+
+# duel: side-by-side field comparison, generated from the live catalog
+def _rng(pair):
+    lo, hi = pair
+    if isinstance(lo, (int, float)) and isinstance(hi, (int, float)):
+        return f"{lo}–{hi}"
+    return "—"
+
+duel_rows = []
+for s in STRAINS:
+    t = TRAITS.get(s["slug"], {})
+    duel_rows.append({
+        "name": s["name"],
+        "slug": s["slug"],
+        "type": s["type"],
+        "thc": _rng(s.get("typical_thc_pct") or [0, 0]) + "%",
+        "cbd": _rng(t.get("cbd", ["—", "—"])) + ("%" if "cbd" in t else ""),
+        "flower": (_rng(t.get("flower", ["—", "—"])) + " wk") if "flower" in t else "—",
+        "yield": (_rng(t.get("yield", ["—", "—"])) + " g/m²") if "yield" in t else "—",
+        "difficulty": t.get("difficulty", "—") or "—",
+        "terpenes": ", ".join(s.get("dominant_terpenes") or []) or "—",
+        "origin": s.get("origin", ""),
+        "banks": len(s.get("available_at_seedbanks") or []),
+    })
+write("duel.html", page("Side by side", """
+<main>
+<p class="kicker">Compare</p>
+<h1>Side by side.</h1>
+<p class="lede">Two cultivars, same fields. Rows that differ are highlighted. Reported figures only, not lab results.</p>
+<div class="grid">
+<article><label>Left<br><select id="l"></select></label></article>
+<article><label>Right<br><select id="r"></select></label></article>
+</div>
+<div style="overflow-x:auto"><table id="duel"><thead><tr><th>Field</th><th id="lh"></th><th id="rh"></th></tr></thead><tbody></tbody></table></div>
+</main>
+""", """<script>
+const S = %s;
+const l = document.getElementById("l"), r = document.getElementById("r");
+const tbody = document.querySelector("#duel tbody");
+function fill(sel) { sel.innerHTML = S.map(s => `<option value="${s.slug}">${s.name}</option>`).join(""); }
+fill(l); fill(r); r.selectedIndex = 1;
+const FIELDS = [["type","Type"],["thc","Reported THC"],["cbd","Reported CBD"],["flower","Flower time"],["yield","Reported indoor yield"],["difficulty","Difficulty"],["terpenes","Dominant terpenes"],["origin","Origin"],["banks","Banks carrying it"]];
+function val(row, k) { return k === "banks" ? (row[k] === 0 ? "none catalogued" : row[k]) : row[k]; }
+function render() {
+  const A = S.find(s => s.slug === l.value), B = S.find(s => s.slug === r.value);
+  document.getElementById("lh").innerHTML = `<a href="/cultivars/${A.slug}.html">${A.name}</a>`;
+  document.getElementById("rh").innerHTML = `<a href="/cultivars/${B.slug}.html">${B.name}</a>`;
+  tbody.innerHTML = FIELDS.map(([k, label]) => {
+    const a = val(A, k), b = val(B, k);
+    const diff = String(a) !== String(b) ? " style='background:rgba(240,195,106,.08)'" : "";
+    return `<tr${diff}><td>${label}</td><td>${a}</td><td>${b}</td></tr>`;
+  }).join("");
+}
+l.onchange = r.onchange = render; render();
+</script>""" % json.dumps(duel_rows)))
 
 
 payload = []
@@ -696,6 +755,26 @@ write("save.js", """function saveStrain(slug, name){
 })();
 """)
 
+write("recent.html", page("Recent", """
+<main>
+<p class="kicker">Your trail</p>
+<h1>Recently viewed.</h1>
+<p class="lede">The last cultivar pages you opened in this browser, newest first. Nothing is sent to a server.</p>
+<div class="grid" id="recent"></div>
+</main>
+""", """<script>
+function load(){ try { return JSON.parse(localStorage.getItem("cg-recent") || "[]"); } catch(e){ return []; } }
+const box = document.getElementById("recent");
+const items = load();
+box.innerHTML = items.length ? items.map(s => `<article><h2><a href="/cultivars/${s.slug}.html">${s.name}</a></h2><button class="chip" data-slug="${s.slug}">Remove</button></article>`).join("") : "<p>Nothing viewed yet. Open a cultivar page and it lands here.</p>";
+box.onclick = ev => {
+  if (!ev.target.dataset.slug) return;
+  const next = load().filter(s => s.slug !== ev.target.dataset.slug);
+  localStorage.setItem("cg-recent", JSON.stringify(next));
+  location.reload();
+};
+</script>"""))
+
 
 families = {
     "Kush": ["afghani","hindu-kush","og-kush","bubba-kush"],
@@ -728,12 +807,12 @@ glossary = [
 gloss = "".join("<article><h2>%s</h2><p>%s</p></article>" % (a,b) for a,b in glossary)
 write("glossary.html", page("Glossary", "<main><p class='kicker'>Terms</p><h1>Glossary.</h1><div class='grid'>%s</div></main>" % gloss))
 
-write("about.html", page("About", """<main>
+write("about.html", page("About", f"""<main>
 <p class="kicker">Status</p>
 <h1>What this is.</h1>
 <p class="lede">An informational genetics catalog. You compare. You leave to the supplier. We do not sell, and we do not give grow instructions.</p>
 <ul>
-<li>54 cultivars, 73 banks, 35 compounds</li>
+<li>{len(STRAINS)} cultivars, {len(BANKS)} banks, {len(COMPOUNDS)} compounds</li>
 <li>Records are seed-v0: reported, not lab-verified</li>
 <li>Prices and checkout stay off</li>
 <li>Official bank photos stay on the bank site</li>
@@ -746,7 +825,7 @@ fem = [s for s in STRAINS if "feminized" in SEEDFORMS.get(s["slug"], [])]
 fem_html = "".join("<article><span class='tag'>%s</span><h2><a href='/cultivars/%s.html'>%s</a></h2><p class='meta'>%s</p></article>" % (e(s["type"]), e(s["slug"]), e(s["name"]), e(", ".join(SEEDFORMS.get(s["slug"], [])))) for s in fem)
 write("feminized.html", page("Feminized", "<main><p class='kicker'>Seed form</p><h1>Feminized.</h1><p class='lede'>Cultivars commonly listed as feminized seed. Availability is per bank. This is a seed product, not a genetic type.</p><div class='grid'>%s</div></main>" % fem_html))
 
-urls = ["/", "/lineage.html", "/compare.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/families.html", "/glossary.html", "/about.html", "/feminized.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+urls = ["/", "/lineage.html", "/compare.html", "/duel.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/recent.html", "/families.html", "/glossary.html", "/about.html", "/feminized.html", "/clones.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]

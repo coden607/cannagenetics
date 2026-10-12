@@ -12,12 +12,16 @@ Sister project: **[CannaIntel](https://github.com/coden607/cannaintel)** — the
 
 | File | What it is |
 |---|---|
+| [`web/`](./web) | The shipped static catalog (plain HTML/CSS/JS) — cultivar, supplier, and compound pages, comparison, lineage explorer, cross calculator, cups, geography, glossary. Generated; do not hand-edit. |
+| [`scripts/build_site.py`](./scripts/build_site.py) | The static-site generator. Consumes `vendor/seedbank-index` JSON plus the aux data in `web/data/`, writes every page in `web/`. Rebuild with `python3 scripts/build_site.py`; validate with `python3 scripts/check_site.py`. |
+| [`scripts/check_site.py`](./scripts/check_site.py) | Link checker over the generated site: internal links, sitemap entries, and nav links must all resolve. Exit 0 = clean. |
 | [`PRD.md`](./PRD.md) | Full product requirements: problem, thesis, hypothesis, personas, features, compliance-first architecture, tech-stack recommendation, phased delivery with acceptance criteria, non-goals, open questions. |
 | [`PLAN.md`](./PLAN.md) | Execution plan: start → flawless deploy → dark-factory maintenance loop → update cadence. |
+| [`ARCHITECTURE.md`](./ARCHITECTURE.md) | The ratified MVP architecture: static read-only catalog, link-out only, age gate + user-declared jurisdiction filter in front. |
 | [`SUPPLIERS.md`](./SUPPLIERS.md) | Starter supplier registry schema + seed list of major suppliers. Field definitions only — **no scraped data**. |
-| [`data/schema.sql`](./data/schema.sql) | Initial relational schema: breeders, cultivars, lineage edges, suppliers, listings (with source URLs + timestamps), jurisdictions. |
+| [`data/schema.sql`](./data/schema.sql) | Relational schema for the future Postgres phase: breeders, cultivars, lineage edges, suppliers, listings (with source URLs + timestamps), jurisdictions. |
 | [`docs/dark-factory.md`](./docs/dark-factory.md) | The maintenance loop in detail: jobs, schedules, failure handling, data-quality gates. |
-| [`.github/workflows/maintenance.yml`](./docs/maintenance.yml) | The dark-factory workflow itself (canonical source; lives in `docs/` until the `workflow` OAuth scope is granted — see its header): price refresh, new-drop detection, dead-link sweep, ToS re-audit, jurisdiction review, schema drift check. |
+| [`docs/maintenance.yml`](./docs/maintenance.yml) | The dark-factory workflow itself (canonical source; lives in `docs/` until the `workflow` OAuth scope is granted — see its header): price refresh, new-drop detection, dead-link sweep, ToS re-audit, jurisdiction review, schema drift check. |
 
 ## Vision
 
@@ -29,4 +33,4 @@ This paragraph is the honest gate. **(1) Legal review:** cannabis genetics legal
 
 ## Status
 
-🟡 **Planning.** PRD v0.1, no production code exists yet. See `PRD.md → Phases` for the path to a deployable MVP.
+🟢 **Static catalog shipped.** The MVP defined in `ARCHITECTURE.md` is live as a generated static site in `web/` (deployed from this repo). Data is seed-v0 — reported, not lab-verified; prices and clone sales stay off; ordering is compliant link-out only. The legal gates in the paragraph above still stand before any monetization or price display. The dark-factory maintenance loop (`docs/maintenance.yml`) is defined but not yet activated, and the Postgres phase remains blocked on lawyer review + supplier terms as described in `ARCHITECTURE.md`. See `PRD.md → Phases` for the full path.
