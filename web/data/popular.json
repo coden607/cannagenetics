@@ -752,5 +752,33 @@
     "verify_status": "seed-v0",
     "color": "green",
     "ruderalis": false
+  },
+  {
+    "name": "Blueberry Yum Yum",
+    "slug": "blueberry-yum-yum",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Blueberry",
+      "Durban Poison (reported; disputed)"
+    ],
+    "origin": "United States; breeder unverified",
+    "breeders_known": [],
+    "typical_thc_pct": [
+      15,
+      25
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [],
+    "verify_status": "reported-lineage-unverified",
+    "color": "purple",
+    "ruderalis": false,
+    "source_url": "https://www.leafly.com/strains/blueberry-yum-yum",
+    "photo_source_url": "https://www.leafly.com/strains/blueberry-yum-yum/photos",
+    "potency_note": "Approximate reports only; batch-specific lab test required"
   }
 ]

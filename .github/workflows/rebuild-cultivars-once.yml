@@ -1,0 +1,32 @@
+name: Rebuild cultivar catalog (one-shot)
+on:
+  push:
+    branches: [feat/blueberry-yum-yum-photo-provenance]
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/blueberry-yum-yum-photo-provenance
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate and validate site
+        run: |
+          python3 -m py_compile scripts/build_site.py
+          python3 scripts/build_site.py
+          python3 scripts/check_site.py
+      - name: Commit generated site and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/rebuild-cultivars-once.yml
+          git add web/
+          git commit -m "build: regenerate Blueberry Yum Yum and cultivar gallery"
+          git push origin HEAD:feat/blueberry-yum-yum-photo-provenance
