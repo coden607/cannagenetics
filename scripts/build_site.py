@@ -205,7 +205,7 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
 
-def img_for(s):
+def img_for(s):\n    # Do not misrepresent category stock photography as an authenticated cultivar image.\n    if s.get("photo_url") and s.get("photo_license_verified"):\n        return s["photo_url"]
     if s.get("color") == "purple":
         return "/img/purple.jpg"
     if s.get("type") == "sativa":
@@ -246,7 +246,7 @@ cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
     cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-forms="{e(' '.join(SEEDFORMS.get(s['slug'], [])))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
-<img class="thumb" src="{img_for(s)}" alt="">
+<img class="thumb" src="{e(img_for(s))}" alt="Illustrative cannabis photo; not authenticated as {e(s['name'])}">\n{f'<p class="meta"><a href="{e(s["photo_source_url"])}" target="_blank" rel="noopener noreferrer">View real submitted strain photos ↗</a></p>' if s.get("photo_source_url") else '<p class="meta">Illustrative image — cultivar identity unverified</p>'}
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
