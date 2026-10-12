@@ -3,6 +3,7 @@
 import html
 import json
 import re
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "web"
@@ -246,7 +247,7 @@ cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
     cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-forms="{e(' '.join(SEEDFORMS.get(s['slug'], [])))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
-<img class="thumb" src="{e(img_for(s))}" alt="Illustrative cannabis photo; not authenticated as {e(s['name'])}">\n{f'<p class="meta"><a href="{e(s["photo_source_url"])}" target="_blank" rel="noopener noreferrer">View real submitted strain photos ↗</a></p>' if s.get("photo_source_url") else '<p class="meta">Illustrative image — cultivar identity unverified</p>'}
+<img class="thumb" src="{e(img_for(s))}" alt="Illustrative cannabis photo; not authenticated as {e(s['name'])}">\n{f'<p class="meta"><a href="{e(s["photo_source_url"])}" target="_blank" rel="noopener noreferrer">View user-submitted photos ↗</a> · identity and rights unverified</p>' if s.get("photo_source_url") else f'<p class="meta">Illustrative image — cultivar identity unverified · <a href="https://commons.wikimedia.org/w/index.php?search={quote(s["name"] + " cannabis")}&amp;title=Special:MediaSearch&amp;type=image" target="_blank" rel="noopener noreferrer">Find attributed photos ↗</a></p>'}
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
