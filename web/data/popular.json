@@ -764,8 +764,8 @@
     "origin": "United States; breeder unverified",
     "breeders_known": [],
     "typical_thc_pct": [
-      0,
-      0
+      15,
+      25
     ],
     "dominant_terpenes": [
       "Myrcene",
@@ -778,6 +778,7 @@
     "color": "purple",
     "ruderalis": false,
     "source_url": "https://www.leafly.com/strains/blueberry-yum-yum",
-    "photo_source_url": "https://www.leafly.com/strains/blueberry-yum-yum/photos"
+    "photo_source_url": "https://www.leafly.com/strains/blueberry-yum-yum/photos",
+    "potency_note": "Approximate reports only; batch-specific lab test required"
   }
 ]
