@@ -1,0 +1,21 @@
+{
+  "_comment": "Human-reviewed list. A photo is listed only after someone LOOKED at it: it must show cannabis flower/plant, carry an allow-listed Creative Commons or public-domain license, and have the strain name in its Wikimedia Commons file title. A photo can never prove a strain's genetics; the site labels each as 'as labelled by the uploader'. Rejected on review: OG Kush (abstract texture, jar of residue), Malawi (rolling-paper snapshot), Thai/Haze/Jack Herer (not strain photos).",
+  "reviewed": "2026-10-16",
+  "photos": [
+    {"slug": "super-silver-haze", "commons_title": "File:Super silver haze hemp.jpg"},
+    {"slug": "blue-dream",        "commons_title": "File:Blue Dream (cannabis).jpg"},
+    {"slug": "cheese",            "commons_title": "File:Cannabis Cheese (16407627263).jpg"},
+    {"slug": "bubba-kush",        "commons_title": "File:Bubba Kush.jpg"},
+    {"slug": "purple-haze",       "commons_title": "File:Fleurs coupées de Purple Haze.JPG"},
+    {"slug": "trainwreck",        "commons_title": "File:Trainwreck Strain.jpg"},
+    {"slug": "white-rhino",       "commons_title": "File:White Rhino Dub Macro.JPG"},
+    {"slug": "green-crack",       "commons_title": "File:Green Crack.jpg"},
+    {"slug": "afghani",           "commons_title": "File:Afghani Kush.jpg"},
+    {"slug": "sour-diesel",       "commons_title": "File:Cannabis (Sour Diesel) Flower.jpg"},
+    {"slug": "wedding-cake",      "commons_title": "File:Wedding Cake Cannabis Strain.jpg"},
+    {"slug": "white-widow",       "commons_title": "File:WhiteWidow -SativaDominate-20181103.jpg"},
+    {"slug": "blueberry",         "commons_title": "File:Blueberry (Dutch Passion) 01.jpg"},
+    {"slug": "lowryder",          "commons_title": "File:Lowryder.JPG"},
+    {"slug": "acapulco-gold",     "commons_title": "File:Acapulco gold.jpg"}
+  ]
+}
