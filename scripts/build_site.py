@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild the CannaGenetics catalog with lineage, compounds, and provenance."""
 import html
+from award_archive import load_archive, render_archive, render_contributor, search_entries
 import json
 import re
 from urllib.parse import quote
@@ -16,6 +17,8 @@ def _load(path, fallback):
     seedbank-index data; empty fallbacks keep the build reproducible."""
     return json.loads(path.read_text()) if path.exists() else fallback
 
+
+AWARD_ARCHIVE = load_archive(Path(__file__).resolve().parent.parent / 'data' / 'awards.json')
 
 STRAINS = json.loads((VENDOR_DATA / "strains.json").read_text())
 EXTRA = _load(ROOT / "data" / "popular.json", [])
@@ -206,7 +209,10 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
 
-def img_for(s):\n    # Do not misrepresent category stock photography as an authenticated cultivar image.\n    if s.get("photo_url") and s.get("photo_license_verified"):\n        return s["photo_url"]
+def img_for(s):
+    # Do not misrepresent category stock photography as an authenticated cultivar image.
+    if s.get("photo_url") and s.get("photo_license_verified"):
+        return s["photo_url"]
     if s.get("color") == "purple":
         return "/img/purple.jpg"
     if s.get("type") == "sativa":
@@ -315,6 +321,8 @@ for s in STRAINS:
             links.append(f"<li><a href='/suppliers/{e(slug)}.html'>{e(bank['name'])}</a> · <a href='{e(bank['source'])}' rel='noopener noreferrer'>their photo</a> · {e(bank.get('region',''))}</li>")
     rel = "".join(f"<li><a href='/cultivars/{e(o['slug'])}.html'>{e(o['name'])}</a> · {e(', '.join(sorted(set(s.get('dominant_terpenes') or []) & set(o.get('dominant_terpenes') or []))))}</li>" for o in related(s))
     awards = "".join(f"<li>{e(a)}</li>" for a in s.get("awards") or []) or "<li>None recorded.</li>"
+    indexed_awards = [a for a in AWARD_ARCHIVE["awards"] if a["cultivar"].casefold() == s["name"].casefold()]
+    award_archive_link = f"/cups.html?q={quote(s['name'])}"
     terp_links = []
     for name in s.get("dominant_terpenes") or []:
         hit = next((c for c in COMPOUNDS if c["name"].lower() == name.lower()), None)
@@ -346,7 +354,7 @@ for s in STRAINS:
 <p class="meta">Catalogued descendants</p><div class="tree">{kid_html}</div>
 <h2>Carried at</h2><ul>{''.join(links) or '<li>No sourced bank yet.</li>'}</ul>
 <h2>Related by terpene</h2><ul>{rel or '<li>None yet.</li>'}</ul>
-<h2>Awards</h2><ul>{awards}</ul>
+<h2>Award history</h2><p><a href="{award_archive_link}">{len(indexed_awards)} sourced archive records for this name</a>. A matching name does not authenticate a genetic cut.</p><details><summary>Unverified legacy award claims</summary><ul>{awards}</ul></details>
 <p><a href="/compare.html#{e(s['slug'])}">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
 </main>"""
     write(f"cultivars/{s['slug']}.html", page(s["name"], body))
@@ -586,12 +594,13 @@ for b in BANKS:
     search_items.append({"kind":"supplier","name":b["name"],"href":"/suppliers/%s.html" % b["slug"],"blurb":b["type"] + " · " + b["region"]})
 for c in COMPOUNDS:
     search_items.append({"kind":"compound","name":c["name"],"href":"/compounds/%s.html" % slugify(c["name"]),"blurb":c.get("cls","") + " · " + (c.get("aroma") or "")})
+search_items.extend(search_entries(AWARD_ARCHIVE))
 write("search.html", page("Search", """
 <main>
 <p class="kicker">Catalog</p>
 <h1>Search everything.</h1>
-<p class="lede">Cultivars, banks, and compounds. Nicknames work: GG4, GSC, NL, GDP.</p>
-<input id="q" type="search" placeholder="Search the catalog">
+<p class="lede">Cultivars, banks, compounds, award records, competitions and credited contributors. Nicknames work: GG4, GSC, NL, GDP.</p>
+<label for="q">Search the catalog</label><input id="q" type="search" placeholder="Search the catalog"><p id="search-count" role="status" aria-live="polite"></p>
 <div class="grid" id="hits"></div>
 </main>
 """, """<script>
@@ -599,15 +608,25 @@ const ITEMS = %s;
 const ALIAS = {"gg4":"gorilla glue","gsc":"girl scout cookies","nl":"northern lights","gdp":"granddaddy purple","og":"og kush","widow":"white widow"};
 const q = document.getElementById("q");
 const hits = document.getElementById("hits");
+q.value = new URLSearchParams(location.search).get("q") || "";
 function render(){
   let query = q.value.trim().toLowerCase();
   if (ALIAS[query]) query = ALIAS[query];
-  const found = ITEMS.filter(i => !query || (i.name + " " + i.blurb).toLowerCase().includes(query)).slice(0, 60);
-  hits.innerHTML = found.map(i => `<article><span class="tag">${i.kind}</span><h2><a href="${i.href}">${i.name}</a></h2><p class="meta">${i.blurb}</p></article>`).join("") || "<p>Nothing matched.</p>";
+  const terms = query.split(/\\s+/).filter(Boolean);
+  const all = ITEMS.filter(i => terms.every(term => (i.name + " " + i.blurb).toLowerCase().includes(term)));
+  hits.replaceChildren();
+  for (const item of all.slice(0, 100)) {
+    const card = document.createElement("article"), tag = document.createElement("span"), heading = document.createElement("h2"), link = document.createElement("a"), detail = document.createElement("p");
+    tag.className = "tag"; tag.textContent = item.kind;
+    link.href = item.href; link.textContent = item.name; heading.append(link);
+    detail.className = "meta"; detail.textContent = item.blurb;
+    card.append(tag, heading, detail); hits.append(card);
+  }
+  document.getElementById("search-count").textContent = all.length ? `${all.length} matches; showing ${Math.min(100, all.length)}` : "Nothing matched.";
 }
 q.oninput = render;
 render();
-</script>""" % json.dumps(search_items)))
+</script>""" % json.dumps(search_items).replace("<", "\\u003c")))
 write("favicon.svg", "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='#07110d'/><path d='M32 8c9 9 12 18 9 28-7-2-12-9-9-28zm0 0c-9 9-12 18-9 28 7-2 12-9 9-28z' fill='#5ee0a0'/><circle cx='32' cy='40' r='3' fill='#f0c36a'/></svg>")
 
 
@@ -670,26 +689,11 @@ draw("thc");
 </script>""" % json.dumps(rows)))
 
 
-# cups
-cup_cards = []
-for s in STRAINS:
-    for award in s.get("awards") or []:
-        cup_cards.append("<article><span class='tag'>reported</span><h2><a href='/cultivars/%s.html'>%s</a></h2><p>%s</p></article>" % (e(s["slug"]), e(s["name"]), e(award)))
-local = [
-    ("New York 2026", "Doobie Labs White Widow", "High Times Cannabis Cup, Best Sativa flower", "white-widow"),
-    ("Oregon 2023", "Pruf Cultivar Jack Herer", "High Times Cannabis Cup, First Sativa flower", "jack-herer"),
-    ("Montana 2026", "Sacred Sun Farms DJ Short Blueberry preroll", "High Times Cannabis Cup, preroll placing", "blueberry"),
-]
-local_html = "".join("<article><span class='tag'>%s</span><h2>%s</h2><p>%s</p><p class='meta'>A producer using the <a href='/cultivars/%s.html'>catalog name</a>. Not the original breeder.</p></article>" % (e(a), e(b), e(c), e(d)) for a,b,c,d in local)
-write("cups.html", page("Cups", """<main>
-<p class="kicker">Awards</p>
-<h1>Cup winners.</h1>
-<p class="lede">Historical wins tied to catalog cultivars, plus a few recent local cups where a producer entered that name. Reported, not a complete cup archive.</p>
-<h2>Catalog cultivars</h2>
-<div class="grid">%s</div>
-<h2>Recent local cups</h2>
-<div class="grid">%s</div>
-</main>""" % ("".join(cup_cards), local_html)))
+# Sourced award history, independent of supplier availability or purchase links.
+write("cups.html", page("Award history", render_archive(AWARD_ARCHIVE, BY_NAME), '<script type="module" src="/awards.mjs"></script>'))
+write("data/awards.json", json.dumps(AWARD_ARCHIVE, ensure_ascii=False, indent=2) + "\n")
+for contributor in AWARD_ARCHIVE['contributors']:
+    write(f"contributors/{contributor['id']}.html", page(contributor['name'], render_contributor(contributor, AWARD_ARCHIVE)))
 
 # geography
 regions = {
@@ -827,6 +831,7 @@ fem_html = "".join("<article><span class='tag'>%s</span><h2><a href='/cultivars/
 write("feminized.html", page("Feminized", "<main><p class='kicker'>Seed form</p><h1>Feminized.</h1><p class='lede'>Cultivars commonly listed as feminized seed. Availability is per bank. This is a seed product, not a genetic type.</p><div class='grid'>%s</div></main>" % fem_html))
 
 urls = ["/", "/lineage.html", "/compare.html", "/duel.html", "/cross.html", "/search.html", "/rank.html", "/cups.html", "/geo.html", "/gallery.html", "/saved.html", "/recent.html", "/families.html", "/glossary.html", "/about.html", "/feminized.html", "/clones.html", "/provenance.html", "/compounds/index.html", "/suppliers/index.html"]
+urls += [f"/contributors/{p['id']}.html" for p in AWARD_ARCHIVE['contributors']]
 urls += [f"/cultivars/{s['slug']}.html" for s in STRAINS]
 urls += [f"/suppliers/{b['slug']}.html" for b in BANKS]
 urls += [f"/compounds/{slugify(c['name'])}.html" for c in COMPOUNDS]

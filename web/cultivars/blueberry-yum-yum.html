@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blueberry Yum Yum</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<canvas id="field" aria-hidden="true"></canvas>
+<script src="/fx.js"></script>
+<script src="/save.js"></script>
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/duel.html">Duel</a>
+<a href="/cross.html">Cross</a>
+<a href="/search.html">Search</a>
+<a href="/rank.html">Rank</a>
+<a href="/cups.html">Cups</a>
+<a href="/geo.html">Places</a>
+<a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
+<a href="/recent.html">Recent</a>
+<a href="/families.html">Families</a>
+<a href="/glossary.html">Glossary</a>
+<a href="/about.html">About</a>
+<a href="/feminized.html">Feminized</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/clones.html">Clones</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main>
+<p class="kicker">hybrid · reported-lineage-unverified</p>
+<h1>Blueberry Yum Yum</h1>
+<p class="lede">United States; breeder unverified</p>
+<img class="hero-img" src="/img/purple.jpg" alt="Illustration of Blueberry Yum Yum, not a seed-bank photo">
+<p class="meta">Original illustration by type and color. Each bank's own photo is on their site.</p>
+<div class="card">
+<p><strong>Lineage claim:</strong> Blueberry × Durban Poison (reported; disputed)</p>
+<p><strong>Breeders known:</strong> </p>
+<p><strong>Reported THC:</strong> 15–25%. Not a lab result.</p>
+<p><strong>Dominant terpenes:</strong> <a href='/compounds/myrcene.html'>Myrcene</a>, Pinene, Caryophyllene</p>
+<p><strong>Reported CBD:</strong> —–—%</p>
+<p><strong>Reported flower:</strong> —–— weeks</p>
+<p><strong>Typical veg:</strong> —–— weeks, grower-set</p>
+<p><strong>Reported indoor yield:</strong> —–— g/m²</p>
+<p><strong>Reported color:</strong> purple</p>
+<p><strong>Reported flavor:</strong> not recorded</p>
+<p><strong>Seed forms commonly listed:</strong> not recorded</p>
+<p><button type="button" class="chip" onclick="saveStrain('blueberry-yum-yum','Blueberry Yum Yum')">Save</button></p>
+<p><strong>Difficulty / height / climate:</strong> — · — · —</p>
+<p class="meta">Trait figures are commonly reported catalog ranges, not lab results, and vary by phenotype and conditions.</p>
+</div>
+<h2>Family</h2>
+<p class="meta">Parents</p><div class="tree"><a class='node' href='/cultivars/blueberry.html'>Blueberry</a><a class='node' href='/cultivars/durban-poison.html'>Durban Poison</a></div>
+<p class="meta">Catalogued descendants</p><div class="tree"><span class='node'>none catalogued</span></div>
+<h2>Carried at</h2><ul><li>No sourced bank yet.</li></ul>
+<h2>Related by terpene</h2><ul><li><a href='/cultivars/blue-dream.html'>Blue Dream</a> · Caryophyllene, Myrcene, Pinene</li><li><a href='/cultivars/blue-dream-auto.html'>Blue Dream Auto</a> · Myrcene, Pinene</li><li><a href='/cultivars/bruce-banner.html'>Bruce Banner</a> · Caryophyllene, Myrcene</li><li><a href='/cultivars/bubba-kush.html'>Bubba Kush</a> · Caryophyllene, Myrcene</li></ul>
+<h2>Award history</h2><p><a href="/cups.html?q=Blueberry%20Yum%20Yum">0 sourced archive records for this name</a>. A matching name does not authenticate a genetic cut.</p><details><summary>Unverified legacy award claims</summary><ul><li>None recorded.</li></ul></details>
+<p><a href="/compare.html#blueberry-yum-yum">Open comparison</a> · <a href="/lineage.html">Full lineage explorer</a></p>
+</main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+</body></html>

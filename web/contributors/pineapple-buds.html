@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pineapple Buds</title>
+<meta name="description" content="Informational cannabis genetics catalog. Lineage, banks, compounds. Link-out only. Not a store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<canvas id="field" aria-hidden="true"></canvas>
+<script src="/fx.js"></script>
+<script src="/save.js"></script>
+</head><body>
+
+<div class="gate" id="gate">
+  <div class="card">
+    <p class="kicker">CannaGenetics</p>
+    <h1>18+ only.</h1>
+    <p>Informational genetics catalog. No sales, no checkout, no shipping, no grow guide. Enter only if you are of legal age where you live.</p>
+    <label>Where are you?<br><select id="jurisdiction">
+      <option value="">Choose</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+      <option value="nl">Netherlands</option>
+      <option value="es">Spain</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="other">Somewhere else / not sure</option>
+    </select></label>
+    <p class="meta">This filter is not legal advice. Restricted selections hide supplier links.</p>
+    <button id="enter" type="button">Enter catalog</button>
+  </div>
+</div>
+<script>
+const OPEN = new Set(["ca","de","nl","es","uk","us"]);
+const gate = document.getElementById("gate");
+if (localStorage.getItem("cg-ok") === "1" && localStorage.getItem("cg-jur")) gate.hidden = true;
+document.getElementById("enter").onclick = () => {
+  const j = document.getElementById("jurisdiction").value;
+  if (!j) return;
+  localStorage.setItem("cg-jur", j);
+  localStorage.setItem("cg-ok", "1");
+  if (!OPEN.has(j)) {
+    document.body.innerHTML = "<main><h1>Nothing listed.</h1><p>Your selection is outside the launch set. Supplier links stay hidden. This is not legal advice.</p></main>";
+    return;
+  }
+  gate.hidden = true;
+};
+</script>
+<nav class="wrap"><strong>CannaGenetics</strong>
+<a href="/">Catalog</a>
+<a href="/lineage.html">Lineage</a>
+<a href="/compounds/index.html">Compounds</a>
+<a href="/compare.html">Compare</a>
+<a href="/duel.html">Duel</a>
+<a href="/cross.html">Cross</a>
+<a href="/search.html">Search</a>
+<a href="/rank.html">Rank</a>
+<a href="/cups.html">Cups</a>
+<a href="/geo.html">Places</a>
+<a href="/gallery.html">Gallery</a>
+<a href="/saved.html">Saved</a>
+<a href="/recent.html">Recent</a>
+<a href="/families.html">Families</a>
+<a href="/glossary.html">Glossary</a>
+<a href="/about.html">About</a>
+<a href="/feminized.html">Feminized</a>
+<a href="/suppliers/index.html">Banks</a>
+<a href="/clones.html">Clones</a>
+<a href="/provenance.html">Provenance</a>
+<a href="https://github.com/coden607/cannagenetics">GitHub</a>
+</nav><main><p class="kicker">Award-history contributor</p><h1>Pineapple Buds</h1><p>Role: credited participant. Credit is preserved as published, including collaborations; original breeder identity is not inferred.</p><h2>Indexed results</h2><ul><li><a href="/cups.html#karma-2025-sativa-1">2025 · Karma Cup · Hawaiian Pineapple · Sativa</a> — Publisher report</li><li><a href="/cups.html#karma-2025-pre-roll-1">2025 · Karma Cup · Pineapple Haze · Pre-roll</a> — Publisher report</li></ul><h2>Evidence</h2><ul><li><a href="https://gardenculturemagazine.com/2025-karma-cup-winners/" rel="noopener noreferrer">Credit source 1</a></li></ul><p><a href="/cups.html?contributor=pineapple-buds">Filter archive to this contributor</a></p></main>
+<footer>Informational only. No medical claims. No checkout. Reported figures, not lab results. Know your local law. Data: coden607/cannagenetics and coden607/seedbank-index.</footer>
+</body></html>

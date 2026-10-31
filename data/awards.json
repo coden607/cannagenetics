@@ -1,0 +1,840 @@
+{
+  "version": 1,
+  "coverage": "Selected sourced results only; not a complete worldwide or all-time archive. Unknown years are not evidence that no event occurred.",
+  "competitions": [
+    {
+      "id": "high-times-ny",
+      "name": "High Times Cannabis Cup — New York",
+      "country": "United States"
+    },
+    {
+      "id": "high-times-amsterdam",
+      "name": "High Times Cannabis Cup — Amsterdam",
+      "country": "Netherlands"
+    },
+    {
+      "id": "nuwu",
+      "name": "NuWu Cup",
+      "country": "United States"
+    },
+    {
+      "id": "highlife",
+      "name": "HighLife Cup",
+      "country": "Netherlands"
+    },
+    {
+      "id": "spannabis",
+      "name": "Spannabis Champions Cup",
+      "country": "Spain"
+    },
+    {
+      "id": "emerald",
+      "name": "Emerald Cup",
+      "country": "United States"
+    },
+    {
+      "id": "karma",
+      "name": "Karma Cup",
+      "country": "Canada"
+    }
+  ],
+  "contributors": [
+    {
+      "id": "doobie-labs",
+      "name": "Doobie Labs",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://cannabiscup.com/new-york-2025-winners/"
+      ]
+    },
+    {
+      "id": "golden-garden",
+      "name": "Golden Garden",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://cannabiscup.com/new-york-2025-winners/"
+      ]
+    },
+    {
+      "id": "the-kaleidoscope-collective",
+      "name": "The Kaleidoscope Collective",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://cannabiscup.com/new-york-2025-winners/"
+      ]
+    },
+    {
+      "id": "high-heads",
+      "name": "High Heads",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.nuwucup.com/news/nuwu-cup-2026-winners"
+      ]
+    },
+    {
+      "id": "stiiizy",
+      "name": "STIIIZY",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.nuwucup.com/news/nuwu-cup-2026-winners"
+      ]
+    },
+    {
+      "id": "terps-army",
+      "name": "Terps Army",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/"
+      ]
+    },
+    {
+      "id": "selva-club",
+      "name": "Selva Club",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/"
+      ]
+    },
+    {
+      "id": "loud",
+      "name": "Loud",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/"
+      ]
+    },
+    {
+      "id": "ghost-farmers",
+      "name": "Ghost_Farmers",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/"
+      ]
+    },
+    {
+      "id": "royal-queen-seeds",
+      "name": "Royal Queen Seeds",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://softsecrets.com/nl/artikel/highlife-cup-2026"
+      ]
+    },
+    {
+      "id": "genesis-bv",
+      "name": "Genesis BV",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://softsecrets.com/nl/artikel/highlife-cup-2026"
+      ]
+    },
+    {
+      "id": "dizzy-duck",
+      "name": "Dizzy Duck",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://softsecrets.com/nl/artikel/highlife-cup-2026"
+      ]
+    },
+    {
+      "id": "vasco-cipher",
+      "name": "Vasco × Cipher",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://gardenculturemagazine.com/2025-karma-cup-winners/"
+      ]
+    },
+    {
+      "id": "pineapple-buds",
+      "name": "Pineapple Buds",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://gardenculturemagazine.com/2025-karma-cup-winners/"
+      ]
+    },
+    {
+      "id": "7ashish",
+      "name": "7ASHISH",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://gardenculturemagazine.com/2025-karma-cup-winners/"
+      ]
+    },
+    {
+      "id": "farmer-and-the-felon-rebel-grown",
+      "name": "Farmer and the Felon × Rebel Grown",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list"
+      ]
+    },
+    {
+      "id": "decibel-gardens",
+      "name": "Decibel Gardens",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list"
+      ]
+    },
+    {
+      "id": "wave-rider-nursery-humboldt-seed-company",
+      "name": "Wave Rider Nursery × Humboldt Seed Company",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list"
+      ]
+    },
+    {
+      "id": "heartrock-mountain-farm",
+      "name": "Heartrock Mountain Farm",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list"
+      ]
+    },
+    {
+      "id": "green-house-seed-co",
+      "name": "Green House Seed Co",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://greenhousebrands.com/green-house-seed-co/"
+      ]
+    },
+    {
+      "id": "dj-short",
+      "name": "DJ Short",
+      "roles": [
+        "credited participant"
+      ],
+      "source_urls": [
+        "https://www.djgenetics.com/strains/blueberry/"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "id": "high-times-ny-2025-sativa-flower-1",
+      "competition": "high-times-ny",
+      "year": 2025,
+      "category": "Sativa Flower",
+      "place": 1,
+      "cultivar": "White Widow",
+      "contributors": [
+        "doobie-labs"
+      ],
+      "source_url": "https://cannabiscup.com/new-york-2025-winners/",
+      "evidence": "organizer-record",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-ny-2025-indica-flower-1",
+      "competition": "high-times-ny",
+      "year": 2025,
+      "category": "Indica Flower",
+      "place": 1,
+      "cultivar": "Blue Zushi",
+      "contributors": [
+        "golden-garden"
+      ],
+      "source_url": "https://cannabiscup.com/new-york-2025-winners/",
+      "evidence": "organizer-record",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-ny-2025-hybrid-flower-1",
+      "competition": "high-times-ny",
+      "year": 2025,
+      "category": "Hybrid Flower",
+      "place": 1,
+      "cultivar": "Permanent Marker",
+      "contributors": [
+        "the-kaleidoscope-collective"
+      ],
+      "source_url": "https://cannabiscup.com/new-york-2025-winners/",
+      "evidence": "organizer-record",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "nuwu-2026-influencers-choice-flower-1",
+      "competition": "nuwu",
+      "year": 2026,
+      "category": "Influencer’s Choice — Flower",
+      "place": 1,
+      "cultivar": "Member Berry",
+      "contributors": [
+        "high-heads"
+      ],
+      "source_url": "https://www.nuwucup.com/news/nuwu-cup-2026-winners",
+      "evidence": "organizer-record",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "nuwu-2026-consumers-choice-flower-1",
+      "competition": "nuwu",
+      "year": 2026,
+      "category": "Consumer’s Choice — Flower",
+      "place": 1,
+      "cultivar": "Lemon Cherry Gelato",
+      "contributors": [
+        "stiiizy"
+      ],
+      "source_url": "https://www.nuwucup.com/news/nuwu-cup-2026-winners",
+      "evidence": "organizer-record",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "spannabis-2026-indica-1",
+      "competition": "spannabis",
+      "year": 2026,
+      "category": "Indica",
+      "place": 1,
+      "cultivar": "Black",
+      "contributors": [
+        "terps-army"
+      ],
+      "source_url": "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "spannabis-2026-sativa-1",
+      "competition": "spannabis",
+      "year": 2026,
+      "category": "Sativa",
+      "place": 1,
+      "cultivar": "Lemon Curd",
+      "contributors": [
+        "selva-club"
+      ],
+      "source_url": "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "spannabis-2026-cbd-1",
+      "competition": "spannabis",
+      "year": 2026,
+      "category": "CBD",
+      "place": 1,
+      "cultivar": "The Goat",
+      "contributors": [
+        "loud"
+      ],
+      "source_url": "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "spannabis-2026-hash-1",
+      "competition": "spannabis",
+      "year": 2026,
+      "category": "Hash",
+      "place": 1,
+      "cultivar": "Red Tiger",
+      "contributors": [
+        "selva-club"
+      ],
+      "source_url": "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "spannabis-2026-rosin-1",
+      "competition": "spannabis",
+      "year": 2026,
+      "category": "Rosin",
+      "place": 1,
+      "cultivar": "Trizzz",
+      "contributors": [
+        "ghost-farmers"
+      ],
+      "source_url": "https://www.newsweed.fr/en/spannabis-champions-cup-2026-results-from-bilbao/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-seeds-indica-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Seeds — Indica",
+      "place": 1,
+      "cultivar": "Sticky Queen",
+      "contributors": [
+        "royal-queen-seeds"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-seeds-sativa-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Seeds — Sativa",
+      "place": 1,
+      "cultivar": "Green Crack Punch",
+      "contributors": [
+        "royal-queen-seeds"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-seeds-autoflower-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Seeds — Autoflower",
+      "place": 1,
+      "cultivar": "Triple G Auto",
+      "contributors": [
+        "royal-queen-seeds"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-seeds-outdoor-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Seeds — Outdoor",
+      "place": 1,
+      "cultivar": "Liberty Haze",
+      "contributors": [
+        "genesis-bv"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-coffeeshop-indica-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Coffeeshop — Indica",
+      "place": 1,
+      "cultivar": "Candy Chrome",
+      "contributors": [
+        "dizzy-duck"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "highlife-2026-coffeeshop-sativa-1",
+      "competition": "highlife",
+      "year": 2026,
+      "category": "Coffeeshop — Sativa",
+      "place": 1,
+      "cultivar": "Black Amnesia",
+      "contributors": [
+        "dizzy-duck"
+      ],
+      "source_url": "https://softsecrets.com/nl/artikel/highlife-cup-2026",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "karma-2025-indica-1",
+      "competition": "karma",
+      "year": 2025,
+      "category": "Indica",
+      "place": 1,
+      "cultivar": "Blue Lobster",
+      "contributors": [
+        "vasco-cipher"
+      ],
+      "source_url": "https://gardenculturemagazine.com/2025-karma-cup-winners/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "karma-2025-hybrid-1",
+      "competition": "karma",
+      "year": 2025,
+      "category": "Hybrid",
+      "place": 1,
+      "cultivar": "Blueberry Banana",
+      "contributors": [
+        "vasco-cipher"
+      ],
+      "source_url": "https://gardenculturemagazine.com/2025-karma-cup-winners/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "karma-2025-sativa-1",
+      "competition": "karma",
+      "year": 2025,
+      "category": "Sativa",
+      "place": 1,
+      "cultivar": "Hawaiian Pineapple",
+      "contributors": [
+        "pineapple-buds"
+      ],
+      "source_url": "https://gardenculturemagazine.com/2025-karma-cup-winners/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "karma-2025-pre-roll-1",
+      "competition": "karma",
+      "year": 2025,
+      "category": "Pre-roll",
+      "place": 1,
+      "cultivar": "Pineapple Haze",
+      "contributors": [
+        "pineapple-buds"
+      ],
+      "source_url": "https://gardenculturemagazine.com/2025-karma-cup-winners/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "karma-2025-hash-1",
+      "competition": "karma",
+      "year": 2025,
+      "category": "Hash",
+      "place": 1,
+      "cultivar": "Pink Afghan",
+      "contributors": [
+        "7ashish"
+      ],
+      "source_url": "https://gardenculturemagazine.com/2025-karma-cup-winners/",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "emerald-2024-sungrown-flower-1",
+      "competition": "emerald",
+      "year": 2024,
+      "category": "Sungrown Flower",
+      "place": 1,
+      "cultivar": "Double OG Chem",
+      "contributors": [
+        "farmer-and-the-felon-rebel-grown"
+      ],
+      "source_url": "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "emerald-2024-sungrown-breeders-cup-1",
+      "competition": "emerald",
+      "year": 2024,
+      "category": "Sungrown Breeder’s Cup",
+      "place": 1,
+      "cultivar": "Double OG Chem",
+      "contributors": [
+        "farmer-and-the-felon-rebel-grown"
+      ],
+      "source_url": "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "emerald-2024-indoor-breeders-cup-1",
+      "competition": "emerald",
+      "year": 2024,
+      "category": "Indoor Breeder’s Cup",
+      "place": 1,
+      "cultivar": "Roswell 47",
+      "contributors": [
+        "decibel-gardens"
+      ],
+      "source_url": "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "emerald-2024-mixed-light-breeders-cup-1",
+      "competition": "emerald",
+      "year": 2024,
+      "category": "Mixed-light Breeder’s Cup",
+      "place": 1,
+      "cultivar": "Blueberry Pancakes",
+      "contributors": [
+        "wave-rider-nursery-humboldt-seed-company"
+      ],
+      "source_url": "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "emerald-2024-alternative-cannabinoid-flower-breeders-cup-1",
+      "competition": "emerald",
+      "year": 2024,
+      "category": "Alternative Cannabinoid Flower Breeder’s Cup",
+      "place": 1,
+      "cultivar": "Love and Laughter",
+      "contributors": [
+        "heartrock-mountain-farm"
+      ],
+      "source_url": "https://www.leafly.com/news/strains-products/emerald-cup-2024-winners-list",
+      "evidence": "publisher-report",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1994-bio-1",
+      "competition": "high-times-amsterdam",
+      "year": 1994,
+      "category": "Bio",
+      "place": 1,
+      "cultivar": "Citral Skunk",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1994-hydro-1",
+      "competition": "high-times-amsterdam",
+      "year": 1994,
+      "category": "Hydro",
+      "place": 1,
+      "cultivar": "Master Kush",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1995-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 1995,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "White Widow",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1995-bio-1",
+      "competition": "high-times-amsterdam",
+      "year": 1995,
+      "category": "Bio",
+      "place": 1,
+      "cultivar": "White Widow",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1996-hydro-1",
+      "competition": "high-times-amsterdam",
+      "year": 1996,
+      "category": "Hydro",
+      "place": 1,
+      "cultivar": "NL5 Haze Mist",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1997-hydro-1",
+      "competition": "high-times-amsterdam",
+      "year": 1997,
+      "category": "Hydro",
+      "place": 1,
+      "cultivar": "Super Silver Haze",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1998-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 1998,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "Super Silver Haze",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-1999-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 1999,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "Super Silver Haze",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-2000-category-unspecified-by-source-1",
+      "competition": "high-times-amsterdam",
+      "year": 2000,
+      "category": "Category unspecified by source",
+      "place": null,
+      "cultivar": "Blueberry",
+      "contributors": [
+        "dj-short"
+      ],
+      "source_url": "https://www.djgenetics.com/strains/blueberry/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-2003-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 2003,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "Hawaiian Snow",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-2006-cannabis-cup-1",
+      "competition": "high-times-amsterdam",
+      "year": 2006,
+      "category": "Cannabis Cup",
+      "place": 1,
+      "cultivar": "Arjan’s Ultra Haze #1",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-2008-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 2008,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "Super Lemon Haze",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    },
+    {
+      "id": "high-times-amsterdam-2009-main-competition-1",
+      "competition": "high-times-amsterdam",
+      "year": 2009,
+      "category": "Main competition",
+      "place": 1,
+      "cultivar": "Super Lemon Haze",
+      "contributors": [
+        "green-house-seed-co"
+      ],
+      "source_url": "https://greenhousebrands.com/green-house-seed-co/",
+      "evidence": "participant-claim",
+      "checked_at": "2026-10-31",
+      "image": null
+    }
+  ]
+}
