@@ -56,6 +56,16 @@ def slugify(name):
     name = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     return name
 
+PHOTOS = _load(ROOT / "data" / "strain_photos.json", {})
+for _s in STRAINS + EXTRA:
+    _rec = PHOTOS.get(_s.get("slug"))
+    if _rec and (ROOT / _rec["local_path"].lstrip("/")).exists():
+        # Only set after the file exists AND the record carries author + license.
+        if _rec.get("author") and _rec.get("license") and _rec.get("file_page"):
+            _s["photo_url"] = _rec["local_path"]
+            _s["photo_license_verified"] = True
+            _s["photo_credit"] = _rec
+
 BY_SLUG = {s["slug"]: s for s in STRAINS}
 BY_NAME = {s["name"].lower(): s for s in STRAINS}
 for s in STRAINS:
@@ -206,7 +216,10 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
 
-def img_for(s):\n    # Do not misrepresent category stock photography as an authenticated cultivar image.\n    if s.get("photo_url") and s.get("photo_license_verified"):\n        return s["photo_url"]
+def img_for(s):
+    # Do not misrepresent category stock photography as an authenticated cultivar image.
+    if s.get("photo_url") and s.get("photo_license_verified"):
+        return s["photo_url"]
     if s.get("color") == "purple":
         return "/img/purple.jpg"
     if s.get("type") == "sativa":
@@ -216,6 +229,41 @@ def img_for(s):\n    # Do not misrepresent category stock photography as an auth
     if s.get("type") == "indica":
         return "/img/indica.jpg"
     return "/img/hybrid.jpg"
+
+def has_photo(s):
+    return bool(s.get("photo_credit"))
+
+def photo_credit_html(s):
+    """Attribution line required by the photo's license, plus an honest identity caveat."""
+    c = s["photo_credit"]
+    lic = e(c["license"])
+    if c.get("license_url"):
+        lic = f'<a href="{e(c["license_url"])}" target="_blank" rel="noopener noreferrer">{lic}</a>'
+    return (f'Photo: {e(c["author"])} · {lic} · <a href="{e(c["file_page"])}" target="_blank" '
+            f'rel="noopener noreferrer">via Wikimedia Commons</a>')
+
+def card_alt(s):
+    if has_photo(s):
+        return f"Photo labelled {s['name']} by its uploader; cultivar identity not verified"
+    return f"Illustrative cannabis photo; not authenticated as {s['name']}"
+
+def card_caption(s):
+    if has_photo(s):
+        return f'<p class="meta">{photo_credit_html(s)} · labelled by uploader, identity unverified</p>'
+    if s.get("photo_source_url"):
+        return (f'<p class="meta"><a href="{e(s["photo_source_url"])}" target="_blank" rel="noopener noreferrer">'
+                f'View user-submitted photos ↗</a> · identity and rights unverified</p>')
+    return (f'<p class="meta">Illustrative image — cultivar identity unverified · <a href="https://commons.wikimedia.org/w/index.php?search='
+            f'{quote(s["name"] + " cannabis")}&amp;title=Special:MediaSearch&amp;type=image" target="_blank" rel="noopener noreferrer">'
+            f'Find attributed photos ↗</a></p>')
+
+def page_image_html(s):
+    if has_photo(s):
+        return (f'<img class="hero-img" src="{e(img_for(s))}" alt="{e(card_alt(s))}">\n'
+                f'<p class="meta">{photo_credit_html(s)}.<br>Labelled as {e(s["name"])} by the uploader. '
+                f'A photograph cannot establish a cultivar\'s genetics, so treat the label as unverified.</p>')
+    return (f'<img class="hero-img" src="{img_for(s)}" alt="Illustration of {e(s["name"])}, not a seed-bank photo">\n'
+            f'<p class="meta">Original illustration by type and color. Each bank\'s own photo is on their site.</p>')
 
 def page(title, body, extra=""):
     return f"""<!DOCTYPE html>
@@ -247,7 +295,8 @@ cards = []
 for s in STRAINS:
     terps = ",".join(s.get("dominant_terpenes") or [])
     cards.append(f"""<article data-type="{e(s['type'])}" data-color="{e(s.get('color','green'))}" data-forms="{e(' '.join(SEEDFORMS.get(s['slug'], [])))}" data-name="{e(s['name'].lower())}" data-terps="{e(terps.lower())}">
-<img class="thumb" src="{e(img_for(s))}" alt="Illustrative cannabis photo; not authenticated as {e(s['name'])}">\n{f'<p class="meta"><a href="{e(s["photo_source_url"])}" target="_blank" rel="noopener noreferrer">View user-submitted photos ↗</a> · identity and rights unverified</p>' if s.get("photo_source_url") else f'<p class="meta">Illustrative image — cultivar identity unverified · <a href="https://commons.wikimedia.org/w/index.php?search={quote(s["name"] + " cannabis")}&amp;title=Special:MediaSearch&amp;type=image" target="_blank" rel="noopener noreferrer">Find attributed photos ↗</a></p>'}
+<img class="thumb" src="{e(img_for(s))}" alt="{e(card_alt(s))}" loading="lazy">
+{card_caption(s)}
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
@@ -323,8 +372,7 @@ for s in STRAINS:
 <p class="kicker">{e(s['type'])} · {e(s.get('verify_status','seed-v0'))}</p>
 <h1>{e(s['name'])}</h1>
 <p class="lede">{e(s['origin'])}</p>
-<img class="hero-img" src="{img_for(s)}" alt="Illustration of {e(s['name'])}, not a seed-bank photo">
-<p class="meta">Original illustration by type and color. Each bank's own photo is on their site.</p>
+{page_image_html(s)}
 <div class="card">
 <p><strong>Lineage claim:</strong> {e(' × '.join(s.get('lineage_parents') or []) or 'landrace / unknown')}</p>
 <p><strong>Breeders known:</strong> {e(', '.join(s.get('breeders_known') or []))}</p>
