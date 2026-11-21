@@ -206,7 +206,10 @@ NAV = """<nav class="wrap"><strong>CannaGenetics</strong>
 <a href="https://github.com/coden607/cannagenetics">GitHub</a>
 </nav>"""
 
-def img_for(s):\n    # Do not misrepresent category stock photography as an authenticated cultivar image.\n    if s.get("photo_url") and s.get("photo_license_verified"):\n        return s["photo_url"]
+def img_for(s):
+    # Do not misrepresent category stock photography as an authenticated cultivar image.
+    if s.get("photo_url") and s.get("photo_license_verified"):
+        return s["photo_url"]
     if s.get("color") == "purple":
         return "/img/purple.jpg"
     if s.get("type") == "sativa":
