@@ -819,5 +819,721 @@
       "attitude-seed-bank"
     ],
     "verify_status": "seed-v0"
+  },
+  {
+    "name": "Grapes & Cream",
+    "slug": "grapes-and-cream",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Grape Pie",
+      "Cookies & Cream"
+    ],
+    "origin": "Seedsman, UK/Spain, 2026",
+    "breeders_known": [
+      "Seedsman"
+    ],
+    "typical_thc_pct": [
+      32,
+      32
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.seedsman.com/eu-en/blog/seedsman-announces-4-new-photoperiod-strains-for-2026"
+  },
+  {
+    "name": "Gush Mintz",
+    "slug": "gush-mintz",
+    "type": "indica",
+    "lineage_parents": [
+      "Kush Mintz",
+      "Gushers"
+    ],
+    "origin": "Seedsman, UK/Spain, 2026",
+    "breeders_known": [
+      "Seedsman"
+    ],
+    "typical_thc_pct": [
+      32,
+      32
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seedsman"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.seedsman.com/eu-en/blog/seedsman-announces-4-new-photoperiod-strains-for-2026"
+  },
+  {
+    "name": "Astro Lemonade F1",
+    "slug": "astro-lemonade-f1",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Jungle Spice",
+      "Gorilla Diesel"
+    ],
+    "origin": "Royal Queen Seeds, Spain/Netherlands, 2026",
+    "breeders_known": [
+      "Royal Queen Seeds"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "beta-Caryophyllene",
+      "Pinene",
+      "beta-Ocimene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "royal-queen-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.royalqueenseeds.com/us/f1-hybrid-cannabis-seeds/762-astro-lemonade-f1.html"
+  },
+  {
+    "name": "Gorilla Banana",
+    "slug": "gorilla-banana",
+    "type": "indica",
+    "lineage_parents": [
+      "Royal Gorilla",
+      "Fat Banana"
+    ],
+    "origin": "Royal Queen Seeds, Spain/Netherlands, 2026",
+    "breeders_known": [
+      "Royal Queen Seeds"
+    ],
+    "typical_thc_pct": [
+      25,
+      25
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "royal-queen-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.royalqueenseeds.com/growers-club/gorilla-banana"
+  },
+  {
+    "name": "Thin Mint Frosting",
+    "slug": "thin-mint-frosting",
+    "type": "indica",
+    "lineage_parents": [
+      "Thin Mint",
+      "Banana Frosting"
+    ],
+    "origin": "Barney's Farm, Netherlands, 2026",
+    "breeders_known": [
+      "Barney's Farm"
+    ],
+    "typical_thc_pct": [
+      30,
+      30
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "beta-Pinene",
+      "Linalool",
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "barnys-farm"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.barneysfarm.com/us/thin-mint-frosting-f1-weed-strain-851"
+  },
+  {
+    "name": "Durban Z",
+    "slug": "durban-z",
+    "type": "sativa",
+    "lineage_parents": [
+      "Durban Poison",
+      "Original Z"
+    ],
+    "origin": "Barney's Farm, Netherlands, 2026",
+    "breeders_known": [
+      "Barney's Farm"
+    ],
+    "typical_thc_pct": [
+      27,
+      27
+    ],
+    "dominant_terpenes": [
+      "beta-Pinene",
+      "beta-Caryophyllene",
+      "Nerolidol",
+      "beta-Ocimene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "barnys-farm"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.barneysfarm.com/us/durban-z-f1-weed-strain-813"
+  },
+  {
+    "name": "Auto Kingston Punch",
+    "slug": "auto-kingston-punch",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Mimosa",
+      "Auto Skywalker Haze"
+    ],
+    "origin": "Dutch Passion, Netherlands, 2025 (limited regional release), 2026 (European collection)",
+    "breeders_known": [
+      "Dutch Passion"
+    ],
+    "typical_thc_pct": [
+      20,
+      25
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "dutch-passion"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://dutch-passion.com/en/cannabis-seeds/auto-kingston-punch"
+  },
+  {
+    "name": "Auto Strawberry Soda",
+    "slug": "auto-strawberry-soda",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Strawberry Cough",
+      "Blue Auto Mazar"
+    ],
+    "origin": "Dutch Passion, Netherlands, 2025",
+    "breeders_known": [
+      "Dutch Passion"
+    ],
+    "typical_thc_pct": [
+      15,
+      18
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "dutch-passion"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://dutch-passion.com/hu/cannabis-mag/auto-strawberry-soda"
+  },
+  {
+    "name": "Marshmallow OG",
+    "slug": "marshmallow-og",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Chemdawg",
+      "Triangle Kush",
+      "Jet Fuel Gelato"
+    ],
+    "origin": "Compound Genetics, 2026",
+    "breeders_known": [
+      "Compound Genetics"
+    ],
+    "typical_thc_pct": [
+      20,
+      20
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "Myrcene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ilgm"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.ilovegrowingmarijuana.com/strains/marshmallow-og-strain/"
+  },
+  {
+    "name": "Rainbow Chip",
+    "slug": "rainbow-chip",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Sunset Sherbert",
+      "Mint Chocolate Chip"
+    ],
+    "origin": "Exotic Genetix, 2026",
+    "breeders_known": [
+      "Exotic Genetix"
+    ],
+    "typical_thc_pct": [
+      26,
+      26
+    ],
+    "dominant_terpenes": [
+      "Limonene",
+      "beta-Caryophyllene",
+      "Pinene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ilgm"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.ilovegrowingmarijuana.com/strains/rainbow-chip-strain/"
+  },
+  {
+    "name": "Apple Betty",
+    "slug": "apple-betty",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Chem's Sister",
+      "Sour Apple",
+      "Chocolate Diesel"
+    ],
+    "origin": "Herbies Seeds, Spain, 2026",
+    "breeders_known": [
+      "Herbies Seeds"
+    ],
+    "typical_thc_pct": [
+      28,
+      33
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "herbies"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://herbiesheadshop.com/cannabis-seeds/apple-betty-herbies-seeds"
+  },
+  {
+    "name": "Strawberry Gorilla Auto",
+    "slug": "strawberry-gorilla-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Strawberry Banana",
+      "Gorilla Glue",
+      "Ruderalis"
+    ],
+    "origin": "Fast Buds, USA, 2026",
+    "breeders_known": [
+      "Fast Buds"
+    ],
+    "typical_thc_pct": [
+      20,
+      25
+    ],
+    "dominant_terpenes": [
+      "beta-Caryophyllene",
+      "Myrcene"
+    ],
+    "awards": [
+      "American Autoflower Cup champion"
+    ],
+    "available_at_seedbanks": [
+      "herbies",
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://seedsherenow.com/shop/strawberry-gorilla-auto-feminized-fast-buds/"
+  },
+  {
+    "name": "Slurricane IX",
+    "slug": "slurricane-ix",
+    "type": "indica",
+    "lineage_parents": [
+      "Slurricane #44",
+      "Slurricane #7"
+    ],
+    "origin": "In House Genetics, 2026",
+    "breeders_known": [
+      "In House Genetics"
+    ],
+    "typical_thc_pct": [
+      20,
+      25
+    ],
+    "dominant_terpenes": [
+      "Myrcene",
+      "beta-Caryophyllene"
+    ],
+    "awards": [],
+    "available_at_seedbanks": [
+      "seeds-here-now"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://seedsherenow.com/shop/slurricane-ix-feminized-in-house-genetics/"
+  },
+  {
+    "name": "Red Kachina",
+    "slug": "red-kachina",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Orange Cheesecake Bx1",
+      "Pink Champagne Bx1"
+    ],
+    "origin": "Conscious Genetics, 2026",
+    "breeders_known": [
+      "Conscious Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.attitudeseedbankusa.com/conscious-genetics-red-kachina/prod_1076"
+  },
+  {
+    "name": "Grape Pak",
+    "slug": "grape-pak",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Permanent Marker",
+      "Grape Gas"
+    ],
+    "origin": "Nine Weeks Harvest, 2026",
+    "breeders_known": [
+      "Nine Weeks Harvest"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "attitude-seed-bank"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://www.attitudeseedbankusa.com/nine-weeks-harvest-seeds-grape-pak/prod_3055"
+  },
+  {
+    "name": "Super Lemon Cherry",
+    "slug": "super-lemon-cherry",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Lemon Cherry Gelato",
+      "Super Skunk"
+    ],
+    "origin": "Sensi Seeds, Netherlands, 2026",
+    "breeders_known": [
+      "Sensi Seeds"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/super-lemon-cherry-feminized"
+  },
+  {
+    "name": "Sticky Berry Mints XXL",
+    "slug": "sticky-berry-mints-xxl",
+    "type": "indica",
+    "lineage_parents": [
+      "Emergen-C",
+      "Sticky Orange XXL"
+    ],
+    "origin": "Sensi Seeds, Netherlands, 2026",
+    "breeders_known": [
+      "Sensi Seeds"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/sticky-berry-mints-xxl-feminized"
+  },
+  {
+    "name": "Sensi True Blood",
+    "slug": "sensi-true-blood",
+    "type": "indica",
+    "lineage_parents": [
+      "Maple Leaf Indica",
+      "Maui True Blood"
+    ],
+    "origin": "Sensi Seeds, Netherlands, 2026",
+    "breeders_known": [
+      "Sensi Seeds"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "sensi-seeds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/sensi-true-blood-feminized"
+  },
+  {
+    "name": "Redemption",
+    "slug": "redemption",
+    "type": "indica",
+    "lineage_parents": [
+      "SDO #9",
+      "Don Carlos",
+      "Lamb's Bread"
+    ],
+    "origin": "Humboldt Seed Company, USA, 2026",
+    "breeders_known": [
+      "Humboldt Seed Company"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "humboldt-seed-company"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://humboldtseedcompany.com/redemption/"
+  },
+  {
+    "name": "One Love",
+    "slug": "one-love",
+    "type": "sativa",
+    "lineage_parents": [
+      "Westmorland Pineapple",
+      "Stoopid Fruits",
+      "Mango Sherbet"
+    ],
+    "origin": "Humboldt Seed Company, USA, 2026",
+    "breeders_known": [
+      "Humboldt Seed Company"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "humboldt-seed-company"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://humboldtseedcompany.com/one-love/"
+  },
+  {
+    "name": "Mango Freezer",
+    "slug": "mango-freezer",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Mango Haze",
+      "Fried Ice Cream",
+      "Grandpas Gunchest"
+    ],
+    "origin": "Cannarado Genetics, USA, 2025",
+    "breeders_known": [
+      "Cannarado Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "cannarado"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://radogear.com/product/mango-freezer-mango-haze-x-fried-ice-cream-grandpas-gunchest/"
+  },
+  {
+    "name": "(Animal Cookies x GG4) x Slurricane 44",
+    "slug": "animal-cookies-x-gg4-x-slurricane-44",
+    "type": "indica",
+    "lineage_parents": [
+      "Animal Cookies x GG4",
+      "Slurricane 44"
+    ],
+    "origin": "In House Genetics, USA, 2026",
+    "breeders_known": [
+      "In House Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "neptune-seed-bank"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://neptuneseedbank.com/product/animal-cookies-gg4-x-slurricane-44-seeds/"
+  },
+  {
+    "name": "Suns Out Buns Out",
+    "slug": "suns-out-buns-out",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Point Break",
+      "SFV OG"
+    ],
+    "origin": "Jane California, USA, 2026",
+    "breeders_known": [
+      "Jane California"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "neptune-seed-bank"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://neptuneseedbank.com/product/jane-california-suns-out-buns-out/"
+  },
+  {
+    "name": "Mango Runtz",
+    "slug": "mango-runtz",
+    "type": "autoflower",
+    "lineage_parents": [
+      "White Runtz",
+      "Creme de la Chem",
+      "Mango Smile"
+    ],
+    "origin": "Mephisto Genetics, USA, 2025",
+    "breeders_known": [
+      "Mephisto Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [
+      "1st place Best New Strain, Autoflower World Cup 2025",
+      "3rd place Best New Strain, American Autoflower Cup 2025"
+    ],
+    "available_at_seedbanks": [
+      "mephisto-genetics"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://mephistogenetics.com/products/mango-runtz"
+  },
+  {
+    "name": "Gelauto N°33",
+    "slug": "gelauto-n-33",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Gelato 33",
+      "Sour Stomper"
+    ],
+    "origin": "Mephisto Genetics, USA, 2025",
+    "breeders_known": [
+      "Mephisto Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "mephisto-genetics"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://mephistogenetics.com/products/gelauto-n-33"
+  },
+  {
+    "name": "Beary Berry Punch",
+    "slug": "beary-berry-punch",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Wedding Punch",
+      "3 Bears OG"
+    ],
+    "origin": "Mephisto Genetics, USA, 2025",
+    "breeders_known": [
+      "Mephisto Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "mephisto-genetics"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://mephistogenetics.com/products/beary-berry-punch"
+  },
+  {
+    "name": "Biscotti Gelato",
+    "slug": "biscotti-gelato",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Biscotti",
+      "Gelato"
+    ],
+    "origin": "FastBuds, USA, 2025",
+    "breeders_known": [
+      "FastBuds"
+    ],
+    "typical_thc_pct": [
+      25,
+      32
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "fastbuds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://upload.fastbuds.com/us/seeds/biscotti-gelato"
+  },
+  {
+    "name": "Purple Haze Auto",
+    "slug": "purple-haze-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Purple Lemonade Auto",
+      "Amnesia Haze Auto"
+    ],
+    "origin": "FastBuds, USA, 2025",
+    "breeders_known": [
+      "FastBuds"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "fastbuds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://upload.fastbuds.com/us-pl/seeds/purple-haze-auto"
+  },
+  {
+    "name": "Guava Sundae Auto",
+    "slug": "guava-sundae-auto",
+    "type": "autoflower",
+    "lineage_parents": [
+      "Guava Auto RF3",
+      "Sundae Thumper F4"
+    ],
+    "origin": "FastBuds, USA, 2026",
+    "breeders_known": [
+      "FastBuds"
+    ],
+    "typical_thc_pct": [
+      26,
+      30
+    ],
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "fastbuds"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://2fast4buds.com/seeds/guava-sundae-auto"
+  },
+  {
+    "name": "Lemon Cherry Pie R1",
+    "slug": "lemon-cherry-pie-r1",
+    "type": "hybrid",
+    "lineage_parents": [
+      "Candy Store #25",
+      "Cherry Pie"
+    ],
+    "origin": "Ethos Genetics, USA, 2025",
+    "breeders_known": [
+      "Ethos Genetics"
+    ],
+    "typical_thc_pct": null,
+    "dominant_terpenes": [],
+    "awards": [],
+    "available_at_seedbanks": [
+      "ethos-genetics"
+    ],
+    "verify_status": "seed-v0",
+    "source_url": "https://ethosgenetics.com/genetics/lemon-cherry-pie-r1"
   }
 ]
