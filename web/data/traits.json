@@ -1132,5 +1132,328 @@
     "difficulty": "moderate",
     "height": "medium",
     "climate": "indoor"
+  },
+  "grapes-and-cream": {
+    "climate": "warm, dry",
+    "flower": [
+      9,
+      11
+    ],
+    "yield": [
+      350,
+      450
+    ]
+  },
+  "gush-mintz": {
+    "flower": [
+      9,
+      11
+    ]
+  },
+  "astro-lemonade-f1": {
+    "flower": [
+      7,
+      9
+    ],
+    "height": "medium"
+  },
+  "gorilla-banana": {
+    "flower": [
+      8,
+      10
+    ],
+    "height": "medium",
+    "yield": [
+      500,
+      550
+    ]
+  },
+  "thin-mint-frosting": {
+    "difficulty": "moderate",
+    "flower": [
+      8,
+      8
+    ],
+    "height": "medium",
+    "yield": [
+      550,
+      550
+    ]
+  },
+  "durban-z": {
+    "flower": [
+      8,
+      8
+    ],
+    "height": "medium",
+    "yield": [
+      550,
+      550
+    ]
+  },
+  "auto-kingston-punch": {
+    "climate": "tropical/subtropical; tolerates heat and humidity extremely well",
+    "difficulty": "easy",
+    "flower": [
+      9,
+      10
+    ],
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "auto-strawberry-soda": {
+    "difficulty": "easy",
+    "flower": [
+      10,
+      11
+    ],
+    "height": "short",
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "marshmallow-og": {
+    "climate": "warm, sunny",
+    "difficulty": "moderate",
+    "flower": [
+      9,
+      10
+    ],
+    "height": "tall",
+    "yield": [
+      305,
+      610
+    ]
+  },
+  "rainbow-chip": {
+    "climate": "warm, humid",
+    "difficulty": "easy",
+    "flower": [
+      8,
+      9
+    ],
+    "height": "tall",
+    "yield": [
+      150,
+      300
+    ]
+  },
+  "apple-betty": {
+    "difficulty": "easy",
+    "flower": [
+      8,
+      9
+    ],
+    "height": "medium",
+    "yield": [
+      600,
+      800
+    ]
+  },
+  "strawberry-gorilla-auto": {
+    "cbd": [
+      0,
+      1
+    ],
+    "climate": "mild climates",
+    "difficulty": "easy",
+    "flower": [
+      9,
+      11
+    ],
+    "height": "medium",
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "slurricane-ix": {
+    "cbd": [
+      0,
+      1
+    ],
+    "climate": "warm climate",
+    "difficulty": "moderate",
+    "flower": [
+      8,
+      10
+    ],
+    "height": "short"
+  },
+  "red-kachina": {
+    "flower": [
+      9,
+      10
+    ],
+    "height": "tall"
+  },
+  "grape-pak": {
+    "flower": [
+      9,
+      9
+    ],
+    "height": "tall"
+  },
+  "super-lemon-cherry": {
+    "climate": "Sunny, warm",
+    "difficulty": "easy",
+    "flower": [
+      9,
+      10
+    ],
+    "height": "medium",
+    "yield": [
+      460,
+      650
+    ]
+  },
+  "sticky-berry-mints-xxl": {
+    "climate": "Temperate to warm, semi-dry",
+    "flower": [
+      9,
+      9
+    ],
+    "height": "medium",
+    "yield": [
+      460,
+      650
+    ]
+  },
+  "sensi-true-blood": {
+    "climate": "Cooler, humid",
+    "flower": [
+      8,
+      9
+    ],
+    "height": "medium",
+    "yield": [
+      460,
+      650
+    ]
+  },
+  "redemption": {
+    "flower": [
+      8,
+      9
+    ]
+  },
+  "one-love": {
+    "flower": [
+      9,
+      10
+    ]
+  },
+  "mango-freezer": {
+    "flower": [
+      10,
+      11
+    ],
+    "height": "tall"
+  },
+  "animal-cookies-x-gg4-x-slurricane-44": {
+    "flower": [
+      8,
+      9
+    ]
+  },
+  "suns-out-buns-out": {
+    "difficulty": "easy",
+    "flower": [
+      8,
+      9
+    ],
+    "height": "medium"
+  },
+  "mango-runtz": {
+    "difficulty": "moderate",
+    "height": "short",
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "gelauto-n-33": {
+    "difficulty": "moderate",
+    "height": "tall",
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "beary-berry-punch": {
+    "difficulty": "moderate",
+    "height": "medium",
+    "veg": [
+      0,
+      0
+    ]
+  },
+  "biscotti-gelato": {
+    "cbd": [
+      0,
+      1
+    ],
+    "climate": "Warm, sunny climates",
+    "flower": [
+      9,
+      10
+    ],
+    "height": "tall",
+    "yield": [
+      550,
+      650
+    ]
+  },
+  "purple-haze-auto": {
+    "cbd": [
+      0,
+      1
+    ],
+    "climate": "Warm days and cool nights; thrives in cooler northern regions",
+    "difficulty": "easy",
+    "flower": [
+      8,
+      8
+    ],
+    "height": "medium",
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      400,
+      550
+    ]
+  },
+  "guava-sundae-auto": {
+    "cbd": [
+      0,
+      1
+    ],
+    "flower": [
+      8,
+      9
+    ],
+    "height": "tall",
+    "veg": [
+      0,
+      0
+    ],
+    "yield": [
+      450,
+      600
+    ]
+  },
+  "lemon-cherry-pie-r1": {
+    "climate": "Cold conditions bring out colors",
+    "difficulty": "easy",
+    "flower": [
+      9,
+      9
+    ],
+    "height": "medium"
   }
 }

@@ -56,6 +56,16 @@ def slugify(name):
     name = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     return name
 
+def thc_pair(s):
+    """[lo, hi] THC range, or None when the breeder publishes no figure.
+    A missing figure must render as 'not published', never as 0%."""
+    p = s.get("typical_thc_pct")
+    return p if (isinstance(p, list) and len(p) == 2) else None
+
+def thc_str(s):
+    p = thc_pair(s)
+    return f"{p[0]}–{p[1]}%" if p else "not published"
+
 PHOTOS = _load(ROOT / "data" / "strain_photos.json", {})
 for _s in STRAINS + EXTRA:
     _rec = PHOTOS.get(_s.get("slug"))
@@ -300,7 +310,7 @@ for s in STRAINS:
 <span class="tag">{e(s['type'])}</span>
 <h2><a href="/cultivars/{e(s['slug'])}.html">{e(s['name'])}</a></h2>
 <p class="meta">{e(s['origin'])}</p>
-<p class="meta">Reported THC {s['typical_thc_pct'][0]}–{s['typical_thc_pct'][1]}% · {e(', '.join(s.get('dominant_terpenes') or [])[:80])}</p>
+<p class="meta">Reported THC {thc_str(s)} · {e(', '.join(s.get('dominant_terpenes') or [])[:80])}</p>
 </article>""")
 landraces = [s for s in STRAINS if not s.get("lineage_parents")]
 index = page("CannaGenetics — worldwide genetics catalog", f"""
@@ -376,7 +386,7 @@ for s in STRAINS:
 <div class="card">
 <p><strong>Lineage claim:</strong> {e(' × '.join(s.get('lineage_parents') or []) or 'landrace / unknown')}</p>
 <p><strong>Breeders known:</strong> {e(', '.join(s.get('breeders_known') or []))}</p>
-<p><strong>Reported THC:</strong> {s['typical_thc_pct'][0]}–{s['typical_thc_pct'][1]}%. Not a lab result.</p>
+<p><strong>Reported THC:</strong> {thc_str(s)}. Not a lab result.</p>
 <p><strong>Dominant terpenes:</strong> {', '.join(terp_links) or '—'}</p>
 <p><strong>Reported CBD:</strong> {TRAITS.get(s['slug'],{}).get('cbd',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('cbd',['—','—'])[1]}%</p>
 <p><strong>Reported flower:</strong> {TRAITS.get(s['slug'],{}).get('flower',['—','—'])[0]}–{TRAITS.get(s['slug'],{}).get('flower',['—','—'])[1]} weeks</p>
@@ -504,7 +514,7 @@ for s in STRAINS:
         "name": s["name"],
         "slug": s["slug"],
         "type": s["type"],
-        "thc": _rng(s.get("typical_thc_pct") or [0, 0]) + "%",
+        "thc": thc_str(s),
         "cbd": _rng(t.get("cbd", ["—", "—"])) + ("%" if "cbd" in t else ""),
         "flower": (_rng(t.get("flower", ["—", "—"])) + " wk") if "flower" in t else "—",
         "yield": (_rng(t.get("yield", ["—", "—"])) + " g/m²") if "yield" in t else "—",
@@ -668,8 +678,9 @@ for s in STRAINS:
     yld = t.get("yield", [0, 0])
     rows.append({
         "name": s["name"], "slug": s["slug"], "type": s["type"],
-        "thc_lo": s["typical_thc_pct"][0], "thc_hi": s["typical_thc_pct"][1],
-        "mid": round(sum(s["typical_thc_pct"]) / 2, 1),
+        "thc_lo": (thc_pair(s) or [0, 0])[0], "thc_hi": (thc_pair(s) or [0, 0])[1],
+        "thc_disp": thc_str(s),
+        "mid": round(sum(thc_pair(s)) / 2, 1) if thc_pair(s) else 0,
         "cbd_hi": cbd[1], "cbd": "%s–%s" % (cbd[0], cbd[1]),
         "flower_lo": flower[0], "flower": "%s–%s wk" % (flower[0], flower[1]),
         "veg_lo": veg[0], "veg": "auto cycle" if veg == [0, 0] else "%s–%s wk" % (veg[0], veg[1]),
@@ -708,7 +719,7 @@ function draw(key){
     if (key === "banks") return b.banks - a.banks;
     return a.name.localeCompare(b.name);
   });
-  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_lo}–${r.thc_hi}%%</td><td>${r.cbd}%%</td><td>${r.flower}</td><td>${r.veg}</td><td>${r.yield}</td><td>${r.difficulty}</td><td>${r.banks}</td></tr>`).join("");
+  body.innerHTML = list.map((r,i) => `<tr><td>${i+1}</td><td><a href="/cultivars/${r.slug}.html">${r.name}</a></td><td>${r.type}</td><td>${r.thc_disp}</td><td>${r.cbd}%%</td><td>${r.flower}</td><td>${r.veg}</td><td>${r.yield}</td><td>${r.difficulty}</td><td>${r.banks}</td></tr>`).join("");
 }
 document.querySelectorAll("[data-sort]").forEach(btn => btn.onclick = () => {
   document.querySelectorAll("[data-sort]").forEach(b => b.classList.toggle("on", b === btn));
