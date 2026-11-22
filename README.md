@@ -1,5 +1,32 @@
 # 🌱 CannaGenetics
 
+<!-- showcase:start -->
+**An informational cannabis-genetics catalog with lineage, banks and chemotype notes in one place. It does not sell anything (18+ only).**
+
+[![Live demo](https://img.shields.io/badge/live_demo-cannagenetics.vercel.app-2ea44f?logo=vercel)](https://cannagenetics.vercel.app) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+![CannaGenetics live demo screenshot](docs/screenshot.png)
+
+**Live demo:** https://cannagenetics.vercel.app
+
+### Highlights
+
+- Catalog of cultivars, seed banks, compounds and landraces, with live counts on the home page
+- Lineage, compare, cross, rank and search tools
+- Photo provenance: real attributed photos or clearly labeled illustrative images
+- Age and location gate; restricted regions hide supplier links
+
+**Tech stack:** Static HTML, CSS and JavaScript (no build step), JSON data files, Vercel
+
+**Run locally:**
+
+```bash
+python3 -m http.server 8080 -d web   # then open http://localhost:8080
+```
+
+<!-- showcase:end -->
+
+
 **The worldwide database and ordering hub for the best cannabis genetics — seeds *and* clones — from every major supplier, compared, documented, and sourced.**
 
 CannaGenetics is a living PRD + plan repo. It is where the product is defined, phased, and kept honest before a single line of production code ships. The codebases that eventually get built from this repo will live in their own repos; *this* repo is the source of truth for **what** and **why**, plus the operating manual for how a dark factory keeps the data fresh forever.
